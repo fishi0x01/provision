@@ -1,8 +1,9 @@
 # dotfiles
 ### Install
 ```
-git clone https://github.com/fishi0x01/dotfiles.git && ./install.sh
+git clone https://github.com/fishi0x01/dotfiles.git && cd ./dotfiles && ./install.sh
 ```
+
 ### Delete
 ```
 ./delete.sh
