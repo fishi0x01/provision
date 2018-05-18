@@ -4,8 +4,7 @@ ORIGIN=`pwd`
 source dotfile.list
 
 ### Install nix
-# TODO: uncomment
-curl https://nixos.org/nix/install | sh
+curl https://nixos.org/nix/install | sh # This will ask for sudo to set /nix
 
 ### Setup my env packages
 nix-env -f ./nix/default.nix -i fishi
