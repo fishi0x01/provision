@@ -1,11 +1,16 @@
 # dotfiles
 ### Install
 ```
-git clone https://github.com/fishi0x01/dotfiles.git
-./nix-install
-./nix-env
+git clone https://github.com/fishi0x01/dotfiles.git && ./install.sh
 ```
-### Cleanup
+### Delete
 ```
-./nix-cleanup
+./delete.sh
+```
+
+### Necessary Space
+```
+$ du -sch /nix/
+2,3G    /nix/
+2,3G    total
 ```

@@ -9,6 +9,16 @@ in
 with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
-    paths = [ nix-repl nix-serve telnet htop git my_vim.pkg ]; 
+    paths = [ 
+      nix-repl 
+      nix-serve 
+      telnet 
+      htop 
+      git
+      tree 
+      tmux
+      wget
+      my_vim.pkg
+    ]; 
   };
 }
