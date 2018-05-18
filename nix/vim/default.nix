@@ -13,7 +13,7 @@ in
 {
   pkg = vim_configurable.customize { 
     name = "vim"; 
-    vimrcConfig.customRC = builtins.readFile ../../.vimrc;
+    vimrcConfig.customRC = builtins.readFile ./.vimrc;
     vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // customPlugins;
     vimrcConfig.vam.pluginDictionaries = [
       { names = [
