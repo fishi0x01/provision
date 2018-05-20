@@ -12,7 +12,11 @@ with pkgs; rec{
     paths = [ 
       nix-repl 
       nix-serve 
+      nix-index
       telnet 
+      python3.6
+      python36Packages.pip
+      python36Packages.virtualenv
       htop 
       git
       tree 
