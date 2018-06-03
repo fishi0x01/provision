@@ -1,7 +1,7 @@
-# dotfiles
+# local-env
 ### Install
 ```
-curl -sL https://github.com/fishi0x01/dotfiles/archive/master.tar.gz | tar -xz && mv ./dotfiles-master ./dotfiles && cd ./dotfiles && ./install.sh
+curl -sL https://github.com/fishi0x01/local-env/archive/master.tar.gz | tar -xz && mv ./local-env-master ./local-env && cd ./local-env && ./install.sh
 ```
 
 *NOTE*: Don't change the cloned path after installation as the dotfiles are linking to this location. If the path changes then `install.sh` must be run again in order for the links to be updated.
@@ -14,6 +14,6 @@ curl -sL https://github.com/fishi0x01/dotfiles/archive/master.tar.gz | tar -xz &
 ### Necessary Space
 ```
 $ du -sch /nix/
-2,3G    /nix/
-2,3G    total
+4,7G    /nix/
+4,7G    total
 ```

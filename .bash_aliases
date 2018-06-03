@@ -41,3 +41,9 @@ zzServeDir() {
 }
 
 alias serveDir=zzServeDir
+
+zzNixSudo() {
+  sudo env "PATH=$PATH" $@
+}
+
+alias nisu=zzNixSudo

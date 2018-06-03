@@ -22,6 +22,14 @@ with pkgs; rec{
       tree 
       tmux
       wget
+      awscli
+      openjdk
+      irssi
+      iftop
+      idea.idea-ultimate
+      nload
+      go
+      docker_compose
       my_vim.pkg
     ]; 
   };
