@@ -32,6 +32,7 @@ in
         "youcompleteme"
         "vimux"
         "vim-nix"
+        "vim-json"
         "vim-go"
       ];}
     ];
