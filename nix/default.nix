@@ -30,6 +30,13 @@ with pkgs; rec{
       nload
       go
       docker_compose
+      slack
+      keepassx2
+      libreoffice
+      dbeaver
+      maven
+      wireshark
+      spotify
       my_vim.pkg
     ]; 
   };

@@ -19,6 +19,6 @@ curl https://raw.githubusercontent.com/fishi0x01/local-env/master/fetch-and-inst
 ### Necessary Space
 ```
 $ du -sch /nix/
-4,7G    /nix/
-4,7G    total
+6,0G    /nix/
+6,0G    total
 ```
