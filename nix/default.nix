@@ -36,7 +36,8 @@ with pkgs; rec{
       dbeaver
       maven
       wireshark
-      spotify
+      #spotify
+      calibre
       my_vim.pkg
     ]; 
   };
