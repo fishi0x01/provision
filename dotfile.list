@@ -1,2 +1,2 @@
 #!/bin/bash
-DOTFILES=(".tmux.conf" ".bash_aliases")
+DOTFILES=(".tmux.conf" ".bash_aliases" ".gitaliases")
