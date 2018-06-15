@@ -47,3 +47,10 @@ zzNixSudo() {
 }
 
 alias nisu=zzNixSudo
+
+
+zzDockerSystemPrune() {
+  docker system prune -f
+}
+
+alias dcp=zzDockerSystemPrune

@@ -32,7 +32,7 @@ with pkgs; rec{
       docker_compose
       slack
       keepassx2
-      libreoffice
+      #libreoffice
       dbeaver
       maven
       wireshark
