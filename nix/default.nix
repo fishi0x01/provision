@@ -27,6 +27,8 @@ with pkgs; rec{
       irssi
       iftop
       idea.idea-ultimate
+      idea.goland
+      idea.pycharm-professional
       nload
       go
       docker_compose
