@@ -19,6 +19,7 @@ with pkgs; rec{
       python36Packages.virtualenv
       htop 
       git
+      gnumake
       tree 
       tmux
       wget
@@ -38,7 +39,7 @@ with pkgs; rec{
       dbeaver
       maven
       wireshark
-      #spotify
+      spotify
       #calibre
       my_vim.pkg
     ]; 
