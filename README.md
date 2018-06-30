@@ -16,9 +16,9 @@ curl https://raw.githubusercontent.com/fishi0x01/local-env/master/fetch-and-inst
 ./delete.sh
 ```
 
-### Necessary Space
+### Missing desktop icons
 ```
-$ du -sch /nix/
-6,0G    /nix/
-6,0G    total
+libreoffice
+keepassx2
+gimp
 ```
