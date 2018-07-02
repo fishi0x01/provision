@@ -27,6 +27,8 @@ with pkgs; rec{
       openjdk
       irssi
       iftop
+      vscode
+      idea.idea-community
       idea.idea-ultimate
       idea.goland
       idea.pycharm-professional
