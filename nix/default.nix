@@ -43,6 +43,7 @@ with pkgs; rec{
       maven
       wireshark
       spotify
+      skypeforlinux
       openvpn
       #calibre
       my_vim.pkg
