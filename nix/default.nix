@@ -13,6 +13,7 @@ with pkgs; rec{
       nix-repl 
       nix-serve 
       nix-index
+      nox
       telnet 
       python3.6
       python36Packages.pip
