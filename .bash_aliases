@@ -21,7 +21,6 @@ alias replaceIn=zzReplaceInFile
 zzGenerateSshKey() {
   ssh-keygen -t rsa -b 4096 -C "$1" -f "./$1"
 }
-
 alias genSshKey=zzGenerateSshKey
 
 #######################################
@@ -39,18 +38,26 @@ alias genSshKey=zzGenerateSshKey
 zzServeDir() {
   python -m SimpleHTTPServer
 }
-
 alias serveDir=zzServeDir
 
 zzNixSudo() {
   sudo env "PATH=$PATH" $@
 }
-
 alias nisu=zzNixSudo
 
 
 zzDockerSystemPrune() {
   docker system prune -f
 }
-
 alias dcp=zzDockerSystemPrune
+
+zzUntarGzToDir() {
+  mkdir -p $2
+  tar -xzf $1 -C $2
+}
+alias untarGzToDir=zzUntarGzToDir
+
+zzDownloadFileTo() {
+  curl -L $1 --output $2
+}
+alias downloadFileTo=zzDownloadFileTo
