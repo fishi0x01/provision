@@ -21,6 +21,7 @@ with pkgs; rec{
       htop 
       git
       gnumake
+      cmake
       tree 
       tmux
       wget
