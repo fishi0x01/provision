@@ -34,6 +34,7 @@ with pkgs; rec{
       idea.idea-ultimate
       idea.goland
       idea.pycharm-professional
+      virtualbox
       nload
       go
       docker_compose
