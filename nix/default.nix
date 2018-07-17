@@ -47,6 +47,7 @@ with pkgs; rec{
       spotify
       skypeforlinux
       openvpn
+      dotnet-sdk
       #calibre
       my_vim.pkg
     ]; 
