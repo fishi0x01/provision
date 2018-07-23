@@ -61,3 +61,11 @@ zzDownloadFileTo() {
   curl -L $1 --output $2
 }
 alias downloadFileTo=zzDownloadFileTo
+
+zzConfgiureGitRepo() {
+  git config user.name "Karl Fischer"
+  git config user.email "${1}"
+  git config user.signingkey "${2}"
+  git config commit.gpgsign true
+}
+alias gitConfig=zzConfgiureGitRepo
