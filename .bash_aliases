@@ -63,6 +63,9 @@ zzDownloadFileTo() {
 alias downloadFileTo=zzDownloadFileTo
 
 zzConfgiureGitRepo() {
+  if [ $# -lt 2 ]; then
+    echo "First argument: Email, Second argument: gpg key ID"
+  fi
   git config user.name "Karl Fischer"
   git config user.email "${1}"
   git config user.signingkey "${2}"
