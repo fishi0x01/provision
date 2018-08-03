@@ -41,6 +41,7 @@ with pkgs; rec{
       keepassx2
       libreoffice
       gimp
+      pwgen
       dbeaver
       maven
       wireshark
