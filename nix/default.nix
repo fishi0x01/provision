@@ -10,7 +10,6 @@ with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
     paths = [ 
-      nix-repl 
       nix-serve 
       nix-index
       nox
