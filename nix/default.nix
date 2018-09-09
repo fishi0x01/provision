@@ -48,6 +48,7 @@ with pkgs; rec{
       skypeforlinux
       openvpn
       dotnet-sdk
+      anki
       #calibre
       my_vim.pkg
     ]; 
