@@ -49,6 +49,7 @@ with pkgs; rec{
       openvpn
       dotnet-sdk
       anki
+      texlive.combined.scheme-full
       #calibre
       my_vim.pkg
     ]; 
