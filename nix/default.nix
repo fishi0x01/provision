@@ -50,6 +50,7 @@ with pkgs; rec{
       dotnet-sdk
       anki
       texlive.combined.scheme-full
+      dia
       #calibre
       my_vim.pkg
     ]; 
