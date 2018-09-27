@@ -51,6 +51,8 @@ with pkgs; rec{
       anki
       texlive.combined.scheme-full
       dia
+      valgrind
+      gdb
       #calibre
       my_vim.pkg
     ]; 
