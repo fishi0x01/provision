@@ -11,7 +11,6 @@ with pkgs; rec{
     name = "fishi";
     paths = [ 
       nix-serve 
-      nix-index
       nox
       telnet 
       python3.6
