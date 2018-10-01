@@ -52,6 +52,7 @@ with pkgs; rec{
       dia
       valgrind
       gdb
+      ant
       #calibre
       my_vim.pkg
     ]; 
