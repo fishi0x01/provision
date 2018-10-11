@@ -10,6 +10,7 @@ with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
     paths = [ 
+      nix
       nix-serve 
       nox
       telnet 

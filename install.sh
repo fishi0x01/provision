@@ -25,7 +25,13 @@ nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-channel --update
 
 ### Setup my env packages
-nix-env -f ./nix/default.nix -i fishi
+if [ -z "$1" ]; then
+  ## 'fishi' is the default env
+  NIX_PROFILE="fishi"
+else
+  NIX_PROFILE="$1"
+fi
+nix-env -irf ./nix/${NIX_PROFILE}.nix 
 
 ### Link .dotfiles
 for dot in "${DOTFILES[@]}"
