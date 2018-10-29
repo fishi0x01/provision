@@ -46,7 +46,6 @@ with pkgs; rec{
       wireshark
       spotify
       skypeforlinux
-      openvpn
       dotnet-sdk
       anki
       texlive.combined.scheme-full
