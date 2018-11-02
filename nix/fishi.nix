@@ -53,6 +53,7 @@ with pkgs; rec{
       valgrind
       gdb
       ant
+      thunderbird
       #calibre
       my_vim.pkg
     ]; 
