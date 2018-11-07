@@ -25,7 +25,6 @@ with pkgs; rec{
       tmux
       wget
       awscli
-      openjdk
       irssi
       iftop
       vscode
