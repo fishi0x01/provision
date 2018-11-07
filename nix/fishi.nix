@@ -44,6 +44,7 @@ with pkgs; rec{
       maven
       wireshark
       spotify
+      openjdk
       skypeforlinux
       dotnet-sdk
       anki
