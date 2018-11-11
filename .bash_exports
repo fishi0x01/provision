@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PATH="~/bin:${PATH}"
+export BINARY_DIR="/usr/bin"

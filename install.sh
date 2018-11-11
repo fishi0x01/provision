@@ -33,6 +33,9 @@ else
 fi
 nix-env -irf ./nix/${NIX_PROFILE}.nix 
 
+### Create user bin dir
+mkdir -p ${HOME}/bin
+
 ### Link .dotfiles
 for dot in "${DOTFILES[@]}"
 do
@@ -46,3 +49,5 @@ do
   ln -s ${ORIGIN}/${dot} ~/${dot}
 done
 
+### Install ssh-ident
+ln -fs ${HOME}/.nix-profile/bin/ssh-ident ${HOME}/bin/ssh

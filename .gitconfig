@@ -1,0 +1,5 @@
+[core]
+    sshCommand = 'ssh-ident'
+
+[include]
+    path=./.gitaliases

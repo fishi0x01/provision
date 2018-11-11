@@ -1,4 +1,9 @@
 #!/bin/bash
+
+## ssh-ident
+alias scp='BINARY_SSH=/usr/bin/scp ssh-ident'
+alias sftp='BINARY_SSH=/usr/bin/sftp ssh-ident'
+
 # TODO: clean this mess up - looks awefull o.O
 
 # Recursively apply replace pattern on all files in directory given directory
