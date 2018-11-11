@@ -26,6 +26,8 @@ with pkgs; rec{
       wget
       awscli
       irssi
+      lynx
+      ssh-ident
       iftop
       vscode
       idea.idea-community
