@@ -51,3 +51,4 @@ done
 
 ### Install ssh-ident
 ln -fs ${HOME}/.nix-profile/bin/ssh-ident ${HOME}/bin/ssh
+mkdir -p ${HOME}/.ssh/identities
