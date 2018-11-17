@@ -4,6 +4,19 @@
 alias scp='BINARY_SSH=/usr/bin/scp ssh-ident'
 alias sftp='BINARY_SSH=/usr/bin/sftp ssh-ident'
 
+## convenience
+alias md='mkdir -p'
+
+zzBackupWorkspace() {
+  if [ $# -lt 2 ]; then
+    echo "First argument: Backup .zip path, Second argument: home dir path"
+  else
+    zip -urq ${1} ${2} -x '*/.nix-profile/*'
+  fi
+}
+
+alias 'backup-workspace'='zzBackupWorkspace'
+
 # TODO: clean this mess up - looks awefull o.O
 
 # Recursively apply replace pattern on all files in directory given directory
