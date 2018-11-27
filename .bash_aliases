@@ -7,15 +7,15 @@ alias sftp='BINARY_SSH=/usr/bin/sftp ssh-ident'
 ## convenience
 alias md='mkdir -p'
 
-zzBackupWorkspace() {
+zzBackup() {
   if [ $# -lt 2 ]; then
-    echo "First argument: Backup .zip path, Second argument: home dir path"
+    echo "First argument: Backup .zip path, Second argument: comma separated paths for backup"
   else
-    zip -urq ${1} ${2} -x '*/.nix-profile/*'
+    zip -urq ${1} $(echo "$2" | sed -e 's/,/\ /g') -x '*/.nix-profile/*'
   fi
 }
 
-alias 'backup-workspace'='zzBackupWorkspace'
+alias 'fishi-backup'='zzBackup'
 
 # TODO: clean this mess up - looks awefull o.O
 
