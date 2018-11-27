@@ -1,5 +1,8 @@
 #!/bin/bash
 
+## sudo should see our aliases
+alias sudo='sudo '
+
 ## ssh-ident
 alias scp='BINARY_SSH=/usr/bin/scp ssh-ident'
 alias sftp='BINARY_SSH=/usr/bin/sftp ssh-ident'
