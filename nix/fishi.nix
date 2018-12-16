@@ -49,12 +49,15 @@ with pkgs; rec{
       openjdk
       skypeforlinux
       dotnet-sdk
-      #anki
+      anki
       texlive.combined.scheme-full
       dia
       valgrind
       gdb
       ant
+      scummvm
+      p7zip
+      cmus
       thunderbird-bin
       #calibre
       my_vim.pkg

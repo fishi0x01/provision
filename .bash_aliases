@@ -14,7 +14,7 @@ zzBackup() {
   if [ $# -lt 2 ]; then
     echo "First argument: Backup .zip path, Second argument: comma separated paths for backup"
   else
-    zip -urq ${1} $(echo "$2" | sed -e 's/,/\ /g') -x '*/.nix-profile/*'
+    nisu zip -urq ${1} $(echo "$2" | sed -e 's/,/\ /g') -x '*/.nix-profile/*'
   fi
 }
 
