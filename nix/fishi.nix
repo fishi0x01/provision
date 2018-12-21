@@ -55,6 +55,7 @@ with pkgs; rec{
       valgrind
       gdb
       ant
+      xclip
       scummvm
       p7zip
       cmus
