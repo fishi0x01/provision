@@ -56,6 +56,7 @@ with pkgs; rec{
       gdb
       ant
       xclip
+      powershell
       scummvm
       p7zip
       cmus
