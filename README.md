@@ -22,9 +22,10 @@ NIX_PROFILE=fishi-mvp curl https://raw.githubusercontent.com/fishi0x01/local-env
 ./delete.sh
 ```
 
-### Missing desktop icons
+### Release
+
+Use `make` in order to create a tar ball with checksums (can be uploaded to github then):
+
 ```
-libreoffice
-keepassx2
-gimp
+make release
 ```
