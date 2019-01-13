@@ -60,6 +60,7 @@ with pkgs; rec{
       scummvm
       p7zip
       cmus
+      ruby
       thunderbird-bin
       #calibre
       my_vim.pkg
