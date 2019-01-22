@@ -27,6 +27,7 @@ with pkgs; rec{
       awscli
       irssi
       lynx
+      chromium
       ssh-ident
       iftop
       vscode
@@ -62,6 +63,8 @@ with pkgs; rec{
       cmus
       ruby
       thunderbird-bin
+      simplescreenrecorder
+      libsForQt511.vlc
       #calibre
       my_vim.pkg
     ]; 
