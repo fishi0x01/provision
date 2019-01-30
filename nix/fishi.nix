@@ -50,8 +50,9 @@ with pkgs; rec{
       openjdk
       skypeforlinux
       dotnet-sdk
-      anki
+      #anki
       texlive.combined.scheme-full
+      irssi
       dia
       valgrind
       gdb

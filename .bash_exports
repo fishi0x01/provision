@@ -1,4 +1,4 @@
 #!/bin/bash
 
-export PATH="~/bin:${PATH}"
+export PATH="~/bin:${PATH}:~/.gem/ruby/2.5.0/bin"
 export BINARY_DIR="/usr/bin"
