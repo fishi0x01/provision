@@ -44,3 +44,13 @@ Setup pass and run
 ```
 ./setup-secrets.sh
 ```
+
+### Ansible for Daemon setup
+
+Tested on Ubuntu18.04:
+```
+./ansible-install.sh
+cd ansible
+. ansible-venv/bin/activate
+make install
+```

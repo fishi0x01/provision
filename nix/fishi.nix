@@ -15,9 +15,7 @@ with pkgs; rec{
       nox
       pass
       telnet 
-      python3.6
-      python36Packages.pip
-      python36Packages.virtualenv
+      python3.7
       htop 
       git
       gnumake
