@@ -93,3 +93,12 @@ zzConfgiureGitRepo() {
   git config commit.gpgsign true
 }
 alias gitConfig=zzConfgiureGitRepo
+
+zzKeybaseLocalGgpImport() {
+  if [ $# -lt 1 ]; then
+    echo "Need KeyID"
+  fi
+
+  keybase pgp export -q ${1} -s | gpg --import
+}
+alias keybaseLocalGpgImport=zzKeybaseLocalGgpImport

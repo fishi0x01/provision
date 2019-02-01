@@ -13,6 +13,7 @@ with pkgs; rec{
       nix
       nix-serve 
       nox
+      pass
       telnet 
       python3.6
       python36Packages.pip
@@ -63,7 +64,7 @@ with pkgs; rec{
       p7zip
       cmus
       ruby
-      thunderbird-bin
+      thunderbird
       simplescreenrecorder
       libsForQt511.vlc
       #calibre

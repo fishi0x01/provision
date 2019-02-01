@@ -36,3 +36,11 @@ Use `make` in order to create a tar ball with checksums (can be uploaded to gith
 ```
 make release
 ```
+
+### Secrets
+
+Setup pass and run
+
+```
+./setup-secrets.sh
+```
