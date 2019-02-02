@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ORIGIN=`pwd`
-source dotfile.list
+source dotfiles.list
 
 ### Install nix
 if [ ! -d "/nix" ] || [[ $* == *--reinstall* ]]; then
@@ -46,7 +46,7 @@ do
     rm "${HOME}/${dot}"
   fi
   echo "Set ${dot}"
-  ln -s ${ORIGIN}/${dot} ~/${dot}
+  ln -s ${ORIGIN}/dotfiles/${dot} ~/${dot}
 done
 
 ### Install ssh-ident
