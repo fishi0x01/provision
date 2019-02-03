@@ -65,6 +65,10 @@ with pkgs; rec{
       thunderbird
       simplescreenrecorder
       libsForQt511.vlc
+      wine
+      winetricks
+      ffmpeg
+      imagemagick
       #calibre
       my_vim.pkg
     ]; 
