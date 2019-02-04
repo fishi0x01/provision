@@ -69,6 +69,7 @@ with pkgs; rec{
       winetricks
       ffmpeg
       imagemagick
+      mkvtoolnix
       #calibre
       my_vim.pkg
     ]; 
