@@ -44,7 +44,6 @@ with pkgs; rec{
       pwgen
       dbeaver
       maven
-      wireshark
       spotify
       openjdk
       skypeforlinux

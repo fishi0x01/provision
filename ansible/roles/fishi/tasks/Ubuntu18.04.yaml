@@ -1,10 +1,34 @@
 ---
-- name: Install Packages
+- name: Install easy Packages
   apt:
-    name: "{{ packages }}"
+    name: "{{ simple_packages }}"
     state: present
     update_cache: yes
 
+#################
+# Wireshark Setup
+#################
+- name: Install Wireshark
+  apt:
+    name:
+     - "wireshark"
+    state: present
+    update_cache: yes
+
+- name: Add wireshark group
+  group:
+    name: "wireshark"
+    state: present
+
+- name: Add fishi to Wireshark Group
+  user:
+    name: "fishi"
+    append: yes
+    groups: wireshark
+
+##############
+# Docker Setup
+##############
 - name: Add docker repo key
   apt_key:
     url: "https://download.docker.com/linux/ubuntu/gpg"
@@ -20,3 +44,13 @@
     name: "docker-ce"
     update_cache: yes
     state: present
+
+- name: Configure docker-ce
+  template:
+    src: "templates/docker-daemon.json"
+    dest: "/etc/docker/daemon.json"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  notify: 
+    - "restart docker"
