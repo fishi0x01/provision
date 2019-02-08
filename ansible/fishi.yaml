@@ -2,12 +2,8 @@
 - hosts: localhost
   gather_facts: False
   become: yes
-  # TODO: make this part of a 'pre' role
-  # TODO: make this OS agnostic
-  # TODO: changed_when OR when
-  tasks:
-    - name: install minimum requirements for ansible
-      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  roles:
+    - pre
 
 - hosts: localhost
   become: yes

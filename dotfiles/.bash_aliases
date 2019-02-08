@@ -102,3 +102,8 @@ zzKeybaseLocalGgpImport() {
   keybase pgp export -q ${1} -s | gpg --import
 }
 alias keybaseLocalGpgImport=zzKeybaseLocalGgpImport
+
+zzCopyFileToClipboard() {
+  cat ${1} | xclip -i -selection clipboard
+}
+alias cpFileContent=zzCopyFileToClipboard

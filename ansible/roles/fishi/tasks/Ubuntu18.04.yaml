@@ -26,6 +26,14 @@
     append: yes
     groups: wireshark
 
+#########
+# Keybase
+#########
+- name: Install keybase
+  apt:
+    deb: "https://prerelease.keybase.io/keybase_amd64.deb"
+    state: present
+
 ##############
 # Docker Setup
 ##############

@@ -1,6 +1,5 @@
 ---
 simple_packages:
-- "keybase"
 - "virtualbox"
 - "stubby"
 - "libgstreamer1.0-0" 

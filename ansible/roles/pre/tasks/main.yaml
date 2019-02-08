@@ -1,0 +1,13 @@
+---
+- name: get distribution name
+  raw: echo -n `lsb_release -si`
+  register: distribution_name
+  changed_when: False
+
+- name: get distribution version
+  raw: echo -n `lsb_release -sr`
+  register: distribution_version
+  changed_when: False
+
+- name: distribution specific install
+  include: "{{ distribution_name.stdout }}{{ distribution_version.stdout }}.yaml"
