@@ -15,7 +15,9 @@ with pkgs; rec{
       nox
       pass
       telnet 
+      nmap
       python3.7
+      pandoc
       htop 
       git
       gnumake
@@ -26,14 +28,15 @@ with pkgs; rec{
       awscli
       irssi
       lynx
-      chromium
+      scrot
+      #chromium
       ssh-ident
       iftop
       vscode
       idea.idea-community
-      idea.idea-ultimate
-      idea.goland
-      idea.pycharm-professional
+      #idea.idea-ultimate
+      #idea.goland
+      #idea.pycharm-professional
       nload
       go
       docker_compose
@@ -64,11 +67,12 @@ with pkgs; rec{
       thunderbird
       simplescreenrecorder
       libsForQt511.vlc
-      wine
-      winetricks
+      #wine
+      #winetricks
       ffmpeg
       imagemagick
       mkvtoolnix
+      unrar
       #calibre
       my_vim.pkg
     ]; 
