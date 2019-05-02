@@ -33,7 +33,6 @@ in
         "vimux"
         "vim-nix"
         "vim-json"
-        "vim-go"
         "vim-jinja"
         "vim-terraform"
       ];}

@@ -27,6 +27,7 @@ with pkgs; rec{
       wget
       awscli
       irssi
+      jq
       lynx
       scrot
       #chromium
@@ -38,7 +39,7 @@ with pkgs; rec{
       #idea.goland
       #idea.pycharm-professional
       nload
-      go
+      #go
       docker_compose
       slack
       keepassx2
@@ -52,6 +53,7 @@ with pkgs; rec{
       skypeforlinux
       dotnet-sdk
       #anki
+      dos2unix
       texlive.combined.scheme-full
       irssi
       dia
