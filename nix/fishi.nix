@@ -20,6 +20,10 @@ with pkgs; rec{
       pandoc
       htop 
       git
+      bat
+      fd
+      hexyl
+      gotop
       gnumake
       cmake
       tree 

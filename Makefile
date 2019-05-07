@@ -9,11 +9,8 @@ release: ## Prepare .tar release
 	tar -C .. --exclude-vcs --exclude SHA256SUMS --exclude $(TAR_NAME) -czvf $(TAR_NAME) local-env 
 	sha256sum $(TAR_NAME) > SHA256SUMS
 
-ansible-install: ## Install ansible python venv
-	$(MAKE) -C ansible venv
-
-ansible-rollout: ## Run ansible playbook to provision localhost
-	$(MAKE) -C ansible rollout
+ansible-provision: ## Run ansible playbook to provision localhost
+	$(MAKE) -C ansible provision
 
 setup-secrets: ## Get secrets
 	$(MAKE) -C scripts setup-secrets

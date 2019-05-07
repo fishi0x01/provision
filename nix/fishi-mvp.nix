@@ -15,6 +15,10 @@ with pkgs; rec{
       nox
       telnet 
       htop 
+      bat
+      fd
+      gotop
+      hexyl
       git
       gnumake
       tree 
