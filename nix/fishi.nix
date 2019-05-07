@@ -34,16 +34,15 @@ with pkgs; rec{
       jq
       lynx
       scrot
-      #chromium
       ssh-ident
       iftop
       vscode
       idea.idea-community
-      #idea.idea-ultimate
-      #idea.goland
-      #idea.pycharm-professional
+      idea.idea-ultimate
+      idea.goland
+      idea.pycharm-professional
       nload
-      #go
+      go
       docker_compose
       slack
       keepassx2
@@ -73,13 +72,10 @@ with pkgs; rec{
       thunderbird
       simplescreenrecorder
       libsForQt511.vlc
-      #wine
-      #winetricks
       ffmpeg
       imagemagick
       mkvtoolnix
       unrar
-      #calibre
       my_vim.pkg
     ]; 
   };
