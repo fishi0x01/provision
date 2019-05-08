@@ -24,6 +24,7 @@ with pkgs; rec{
       fd
       hexyl
       gotop
+      ripgrep
       gnumake
       cmake
       tree 

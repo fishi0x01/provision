@@ -19,6 +19,7 @@ with pkgs; rec{
       fd
       gotop
       hexyl
+      ripgrep
       git
       gnumake
       tree 
