@@ -17,6 +17,8 @@ with pkgs; rec{
       htop 
       bat
       fd
+      jq
+      yq
       gotop
       hexyl
       ripgrep

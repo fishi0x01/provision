@@ -17,11 +17,13 @@ with pkgs; rec{
       telnet 
       nmap
       python3.7
+      liferea
       pandoc
       htop 
       git
       bat
       fd
+      yq
       hexyl
       gotop
       ripgrep
