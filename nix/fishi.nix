@@ -24,6 +24,7 @@ with pkgs; rec{
       bat
       fd
       yq
+      mc
       hexyl
       gotop
       ripgrep

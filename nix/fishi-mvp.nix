@@ -19,6 +19,7 @@ with pkgs; rec{
       fd
       jq
       yq
+      mc
       gotop
       hexyl
       ripgrep
