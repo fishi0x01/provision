@@ -33,6 +33,7 @@ with pkgs; rec{
       tree 
       tmux
       wget
+      go-jira
       awscli
       irssi
       jq
