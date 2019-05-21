@@ -31,7 +31,6 @@ in
         "nerdtree"
         "youcompleteme"
         "fugitive"
-        "airline"
         "vimux"
         "vim-nix"
         "vim-json"
