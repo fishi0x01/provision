@@ -17,6 +17,7 @@ with pkgs; rec{
       telnet 
       nmap
       python3.7
+      powerline-go
       liferea
       pandoc
       htop 
