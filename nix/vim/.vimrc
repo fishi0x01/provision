@@ -8,7 +8,7 @@ set backspace=indent,eol,start " Make backspace work with 'youcompleteme'
 
 " Footer
 set laststatus=2
-set statusline=%{FugitiveStatusline()}\ \|\ %F\ \|\ %y
+set statusline=%{FugitiveStatusline()}\ [%F]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v,%p%%]
 set ts=4
 set expandtab
 
