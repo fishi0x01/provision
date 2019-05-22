@@ -112,3 +112,8 @@ zzJiraEnv() {
   export JIRA_API_TOKEN=$(pass show fishi0x01/data4life/jira/api-token 2>/dev/null)
 }
 alias jiraEnv=zzJiraEnv
+
+zzPassPush() {
+  pass git push -u --all
+}
+alias passPush=zzPassPush
