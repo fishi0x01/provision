@@ -109,7 +109,7 @@ zzCopyFileToClipboard() {
 alias cpFileContent=zzCopyFileToClipboard
 
 zzJiraEnv() {
-  export JIRA_API_TOKEN=$(pass show fishi0x01/data4life/jira/api-token 2>/dev/null)
+  export JIRA_API_TOKEN=$(pass show fishi0x01/data4life/Jira/api-token 2>/dev/null)
 }
 alias jiraEnv=zzJiraEnv
 
