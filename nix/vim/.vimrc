@@ -11,4 +11,5 @@ set laststatus=2
 set statusline=%{FugitiveStatusline()}\ [%F]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v,%p%%]
 set ts=4
 set expandtab
-
+set modelines=0
+set nomodeline
