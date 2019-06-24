@@ -35,7 +35,7 @@ in
         "vim-nix"
         "vim-json"
         "vim-jinja"
-        "vim-terraform"
+        #"vim-terraform"
       ];}
     ];
   };
