@@ -16,6 +16,7 @@ with pkgs; rec{
       pass
       telnet 
       nmap
+      swagger-codegen
       python3.7
       liferea
       pandoc
