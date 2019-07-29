@@ -8,3 +8,4 @@ simple_packages:
 - "gstreamer1.0-plugins-bad" 
 - "gstreamer1.0-plugins-ugly" 
 - "gstreamer1.0-gtk3"
+- "firejail"

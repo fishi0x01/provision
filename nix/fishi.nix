@@ -22,6 +22,7 @@ with pkgs; rec{
       htop 
       git
       bat
+      graphviz
       fd
       yq
       mc
