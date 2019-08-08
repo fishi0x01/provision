@@ -46,10 +46,7 @@ with pkgs; rec{
       vscode
       idea.idea-community
       idea.idea-ultimate
-      idea.goland
-      idea.pycharm-professional
       nload
-      go
       docker_compose
       slack
       keepassx2
