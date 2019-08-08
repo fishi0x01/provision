@@ -45,7 +45,6 @@ with pkgs; rec{
       iftop
       vscode
       idea.idea-community
-      idea.idea-ultimate
       nload
       docker_compose
       slack
