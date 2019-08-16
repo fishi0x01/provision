@@ -9,8 +9,8 @@ install: ## Run nix-env setup
 	./install.sh
 
 release: ## Prepare .tar release
-	tar -C .. --exclude-vcs --exclude SHA256SUMS --exclude $(TAR_NAME) -czvf $(TAR_NAME) local-env 
-	sha256sum $(TAR_NAME) > SHA256SUMS
+	cd .. && tar --exclude-vcs --exclude SHA256SUMS -czvf $(TAR_NAME) local-env 
+	cd .. && sha256sum $(TAR_NAME) > SHA256SUMS
 
 ansible-provision: ## Run ansible playbook to provision localhost
 	$(MAKE) -C ansible provision
