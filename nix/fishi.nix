@@ -30,6 +30,7 @@ with pkgs; rec{
       hexyl
       gotop
       ripgrep
+      sampler
       gnumake
       cmake
       tree 

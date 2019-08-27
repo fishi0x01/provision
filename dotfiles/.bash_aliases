@@ -117,3 +117,8 @@ zzPassPush() {
   pass git push -u --all
 }
 alias passPush=zzPassPush
+
+zzLocalSampler() {
+  sampler --config ~/.fishi-sampler-local.yaml
+}
+alias sampler-local=zzLocalSampler
