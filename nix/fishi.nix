@@ -37,6 +37,7 @@ with pkgs; rec{
       tmux
       wget
       go-jira
+      restic
       awscli
       irssi
       jq
