@@ -63,7 +63,6 @@ with pkgs; rec{
       #anki
       dos2unix
       texlive.combined.scheme-full
-      irssi
       dia
       valgrind
       gdb
