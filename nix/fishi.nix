@@ -14,6 +14,7 @@ with pkgs; rec{
       nix-serve 
       nox
       pass
+      spotify-tui
       telnet 
       nmap
       most
