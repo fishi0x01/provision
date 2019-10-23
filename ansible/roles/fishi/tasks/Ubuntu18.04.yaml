@@ -22,9 +22,9 @@
     name: "wireshark"
     state: present
 
-- name: Add fishi to Wireshark Group
+- name: Add user to Wireshark Group
   user:
-    name: "fishi"
+    name: "{{ machine_user }}"
     append: yes
     groups: wireshark
 
@@ -79,3 +79,22 @@
     mode: "644"
   notify: 
     - "reload sysctl"
+
+#################
+# Firefox Sandbox
+#################
+- name: Configure firefox sandbox desktop
+  copy:
+    src: files/ff-sandbox.desktop
+    dest: "/home/{{ machine_user }}/Desktop/ff-sandbox.desktop"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "755"
+
+- name: Configure firefox sandbox icon
+  copy:
+    src: files/ff-sandbox.png
+    dest: "/home/{{ machine_user }}/.local/share/icons/ff-sandbox.png"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "444"
