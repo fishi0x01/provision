@@ -13,12 +13,22 @@ with pkgs; rec{
       nix
       nix-serve 
       nox
+      cherrytree
+      rdesktop
+      cadaver
+      john
+      socat
+      smbclient
+      dosbox
       pass
+      metasploit
       spotify-tui
       telnet 
       nmap
       most
       python3.7
+      python27Packages.virtualenv
+      potrace
       liferea
       pandoc
       htop 
@@ -63,7 +73,7 @@ with pkgs; rec{
       dotnet-sdk
       #anki
       dos2unix
-      texlive.combined.scheme-full
+      #texlive.combined.scheme-full
       dia
       valgrind
       gdb
@@ -76,7 +86,7 @@ with pkgs; rec{
       ruby
       thunderbird
       simplescreenrecorder
-      libsForQt511.vlc
+      libsForQt5.vlc
       ffmpeg
       imagemagick
       mkvtoolnix
