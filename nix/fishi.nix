@@ -17,7 +17,9 @@ with pkgs; rec{
       rdesktop
       cadaver
       john
+      reptyr
       socat
+      rlwrap
       smbclient
       dosbox
       pass
