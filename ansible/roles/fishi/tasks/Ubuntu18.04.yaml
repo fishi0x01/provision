@@ -98,3 +98,17 @@
     owner: "{{ machine_user }}"
     group: "{{ machine_user }}"
     mode: "444"
+
+#########
+# SMB
+#########
+- name: Ensure samba conf dir exists (avoid rpcclient errors)
+  file: 
+    path: "/etc/samba/"
+    state: directory
+
+- name: Ensure samba conf file exists (avoid rpcclient errors)
+  file: 
+    path: "/etc/samba/smb.conf"
+    state: touch
+
