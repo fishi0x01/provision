@@ -27,6 +27,7 @@ with pkgs; rec{
       fd
       ffmpeg
       gdb
+      ghidra-bin
       gimp
       git
       gnumake
