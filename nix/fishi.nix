@@ -67,6 +67,7 @@ with pkgs; rec{
       pwgen
       python27Packages.virtualenv
       python3.7
+      python38Packages.sqlmap
       rdesktop
       reptyr
       restic
