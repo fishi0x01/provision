@@ -86,6 +86,7 @@ with pkgs; rec{
       spotify-tui
       ssh-ident
       telnet 
+      thc-hydra
       #texlive.combined.scheme-full
       thunderbird
       tmux
