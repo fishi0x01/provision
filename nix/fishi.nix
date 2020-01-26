@@ -18,6 +18,7 @@ with pkgs; rec{
       cherrytree
       cmake
       cmus
+      crunch
       dbeaver
       dia
       docker_compose
@@ -30,6 +31,7 @@ with pkgs; rec{
       ghidra-bin
       gimp
       git
+      glibcLocales
       gnumake
       go-jira
       gotop

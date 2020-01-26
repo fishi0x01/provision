@@ -2,3 +2,4 @@
 
 export PATH="~/bin:${PATH}:~/.gem/ruby/2.5.0/bin"
 export BINARY_DIR="/usr/bin"
+export LOCALE_ARCHIVE="$(readlink ~/.nix-profile/lib/locale)/locale-archive"
