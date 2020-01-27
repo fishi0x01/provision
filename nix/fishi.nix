@@ -25,6 +25,7 @@ with pkgs; rec{
       dos2unix
       dosbox
       dotnet-sdk
+      enum4linux
       fd
       ffmpeg
       gdb
@@ -87,6 +88,7 @@ with pkgs; rec{
       spotify
       spotify-tui
       ssh-ident
+      sshpass
       telnet 
       thc-hydra
       #texlive.combined.scheme-full
