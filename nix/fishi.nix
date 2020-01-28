@@ -91,7 +91,7 @@ with pkgs; rec{
       sshpass
       telnet 
       thc-hydra
-      #texlive.combined.scheme-full
+      texlive.combined.scheme-full
       thunderbird
       tmux
       tree 
