@@ -14,4 +14,4 @@ set expandtab
 set modelines=0
 set nomodeline
 
-cmap cmd VimuxRunCommand('')<CR>
+cmap ide NERDTree \| VimuxRunCommand('')<CR>
