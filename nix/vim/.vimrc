@@ -13,3 +13,5 @@ set ts=4
 set expandtab
 set modelines=0
 set nomodeline
+
+cmap cmd VimuxRunCommand('')<CR>

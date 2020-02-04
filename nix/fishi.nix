@@ -15,7 +15,6 @@ with pkgs; rec{
       awscli
       bat
       cadaver
-      cherrytree
       cmake
       cmus
       crunch
@@ -63,10 +62,12 @@ with pkgs; rec{
       nox
       openjdk
       p7zip
+      packer
       pandoc
       pass
       potrace
       powershell
+      proxychains
       pwgen
       python27Packages.virtualenv
       python3.7
