@@ -112,3 +112,11 @@
     path: "/etc/samba/smb.conf"
     state: touch
 
+########
+# Rust
+########
+# Script from https://sh.rustup.rs
+- name: Install rust
+  become: yes
+  become_user: "fishi"
+  script: "files/rustup-init.sh -y"
