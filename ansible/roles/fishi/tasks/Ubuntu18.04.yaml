@@ -118,5 +118,32 @@
 # Script from https://sh.rustup.rs
 - name: Install rust
   become: yes
-  become_user: "fishi"
+  become_user: "{{ machine_user }}"
   script: "files/rustup-init.sh -y"
+
+###########
+# Alacritty
+###########
+- name: Get alacritty deb
+  get_url:
+    url: https://github.com/alacritty/alacritty/releases/download/v0.4.1/Alacritty-v0.4.1-ubuntu_18_04_amd64.deb
+    dest: /tmp/alacritty.deb
+    checksum: sha256:cb8320d3f5c75349bf6197a6c24a2ee35701d4e06d34515972414f065526557e
+
+- name: Install alacritty
+  apt:
+    deb: /tmp/alacritty.deb
+
+- name: Set alacritty.desktop
+  copy:
+    src: files/alacritty.desktop
+    dest: "/home/{{ machine_user }}/Desktop/alacritty.desktop"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: '0755'
+
+# Set bash as default shell
+- name: Bash as default shell
+  user:
+    name: "{{ machine_user }}"
+    shell: /bin/bash
