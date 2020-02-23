@@ -15,3 +15,4 @@ simple_packages:
 - "nfs-common"
 - "xz-utils"
 - "sl"
+- "rpm2cpio"
