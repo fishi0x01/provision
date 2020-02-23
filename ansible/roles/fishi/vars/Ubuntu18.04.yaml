@@ -16,3 +16,6 @@ simple_packages:
 - "xz-utils"
 - "sl"
 - "rpm2cpio"
+- "libclang-dev"
+- "llvm-dev"
+- "clang"
