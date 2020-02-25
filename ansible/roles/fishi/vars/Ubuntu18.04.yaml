@@ -19,3 +19,4 @@ simple_packages:
 - "libclang-dev"
 - "llvm-dev"
 - "clang"
+- "musl-tools"
