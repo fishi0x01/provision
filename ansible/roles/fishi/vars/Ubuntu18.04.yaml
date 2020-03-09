@@ -2,7 +2,6 @@
 machine_user: "fishi"
 
 simple_packages:
-- "virtualbox"
 - "stubby"
 - "uuid"
 - "libgstreamer1.0-0" 
