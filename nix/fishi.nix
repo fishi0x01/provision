@@ -37,6 +37,7 @@ with pkgs; rec{
       gotop
       graphviz
       hexyl
+      hey
       htop 
       idea.idea-community
       iftop
