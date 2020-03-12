@@ -1,10 +1,20 @@
 ---
-- name: Install easy Packages
+- name: Install apt packages
   apt:
-    name: "{{ simple_packages }}"
+    name: "{{ apt_packages }}"
     force_apt_get: yes
     state: present
     update_cache: yes
+
+################
+# libssl-dev fix
+################
+# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=733644
+- name: Fix missing opensslconf.h
+  file:
+    path: "/usr/include/openssl/opensslconf.h"
+    src: "../x86_64-linux-gnu/openssl/opensslconf.h"
+    state: link
 
 #################
 # Wireshark Setup
@@ -177,6 +187,12 @@
   become: yes
   become_user: "{{ machine_user }}"
   script: "files/rustup-init.sh -y"
+
+- name: Install cargo packages
+  become: yes
+  become_user: "{{ machine_user }}"
+  shell: "cargo install {{ item }}"
+  with_items: "{{ cargo_packages }}"
 
 ###########
 # Alacritty
