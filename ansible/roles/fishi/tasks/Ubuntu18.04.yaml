@@ -182,6 +182,7 @@
 ########
 # Rust
 ########
+# https://www.rust-lang.org/tools/install
 # Script from https://sh.rustup.rs
 - name: Install rust
   become: yes
@@ -193,6 +194,23 @@
   become_user: "{{ machine_user }}"
   shell: "cargo install {{ item }}"
   with_items: "{{ cargo_packages }}"
+
+##########
+# Ruby RVM
+##########
+# https://rvm.io/
+- name: Import rvm gpg keys
+  shell:
+    "echo \"{{ lookup('file', item) }}\" | gpg --import"
+  with_items:
+    - "files/asc/rvm_1.asc"
+    - "files/asc/rvm_2.asc"
+
+# Script from https://get.rvm.io
+- name: Install rvm
+  become: yes
+  become_user: "{{ machine_user }}"
+  script: "files/get-rvm.sh stable" 
 
 ###########
 # Alacritty

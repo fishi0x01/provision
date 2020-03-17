@@ -78,7 +78,6 @@ with pkgs; rec{
       restic
       ripgrep
       rlwrap
-      ruby
       sampler
       scrot
       scummvm
