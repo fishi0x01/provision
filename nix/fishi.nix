@@ -10,7 +10,6 @@ with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
     paths = [ 
-      #anki
       ant
       awscli
       bat

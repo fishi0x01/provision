@@ -24,3 +24,4 @@ apt_packages:
 - "musl-tools"
 - "libssl-dev"
 - "openssl"
+- "anki"
