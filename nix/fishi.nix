@@ -54,6 +54,7 @@ with pkgs; rec{
       metasploit
       mkvtoolnix
       most
+      mplayer
       my_vim.pkg
       nix
       nix-serve 
