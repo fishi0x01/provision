@@ -46,6 +46,7 @@ in
         "vim-json"
         "vim-jinja"
         "vim-jsx"
+        "vim-toml"
       ];}
     ];
   };
