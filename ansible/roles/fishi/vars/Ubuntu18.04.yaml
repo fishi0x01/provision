@@ -3,6 +3,7 @@ machine_user: "fishi"
 
 cargo_packages:
 - "cargo-crev"
+- "starship"
 
 apt_packages:
 - "stubby"

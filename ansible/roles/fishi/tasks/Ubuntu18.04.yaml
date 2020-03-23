@@ -233,8 +233,28 @@
     group: "{{ machine_user }}"
     mode: '0755'
 
-# Set bash as default shell
-- name: Bash as default shell
+# Install fishshell
+- name: Add fishshell PPA
+  apt_repository:
+    repo: ppa:fish-shell/release-3
+
+- name: Install fishshell
+  apt:
+    name: "fish"
+    force_apt_get: yes
+    state: present
+    update_cache: yes
+
+- name: Set fish as default shell
   user:
     name: "{{ machine_user }}"
-    shell: /bin/bash
+    shell: /usr/bin/fish
+
+# Starship
+- name: Set starship.toml
+  copy:
+    src: files/starship.toml
+    dest: "/home/{{ machine_user }}/.config/starship.toml"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: '0755'
