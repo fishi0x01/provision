@@ -251,10 +251,10 @@
     shell: /usr/bin/fish
 
 # Starship
-- name: Set starship.toml
-  copy:
-    src: files/starship.toml
-    dest: "/home/{{ machine_user }}/.config/starship.toml"
-    owner: "{{ machine_user }}"
-    group: "{{ machine_user }}"
-    mode: '0755'
+- name: Link starship.toml
+  become: yes
+  become_user: "{{ machine_user }}"
+  file:
+    path: "/home/{{ machine_user }}/.config/starship.toml"
+    src: "/home/{{ machine_user }}/.starship.toml"
+    state: link
