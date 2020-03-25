@@ -49,6 +49,11 @@ do
   ln -s ${ORIGIN}/dotfiles/${dot} ~/${dot}
 done
 
+### Link fish
+echo "Set ~/.config/fish/config.fish"
+mkdir -p ${HOME}/.config/fish
+ln -sf ${ORIGIN}/dotfiles/config.fish ~/.config/fish/config.fish
+
 ### Install ssh-ident
 ln -fs ${HOME}/.nix-profile/bin/ssh-ident ${HOME}/bin/ssh
 mkdir -p ${HOME}/.ssh/identities
