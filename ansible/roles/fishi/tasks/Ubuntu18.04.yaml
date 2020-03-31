@@ -245,11 +245,6 @@
     state: present
     update_cache: yes
 
-- name: Set fish as default shell
-  user:
-    name: "{{ machine_user }}"
-    shell: /usr/bin/fish
-
 # Starship
 - name: Link starship.toml
   become: yes
@@ -258,3 +253,9 @@
     path: "/home/{{ machine_user }}/.config/starship.toml"
     src: "/home/{{ machine_user }}/.starship.toml"
     state: link
+
+# Set bash
+- name: Set bash as default shell
+  user:
+    name: "{{ machine_user }}"
+    shell: /bin/bash
