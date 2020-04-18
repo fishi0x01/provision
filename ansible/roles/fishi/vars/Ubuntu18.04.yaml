@@ -3,7 +3,7 @@ machine_user: "fishi"
 
 cargo_packages:
 - "cargo-crev"
-- "starship"
+#- "starship"
 
 apt_packages:
 - "stubby"
@@ -27,3 +27,4 @@ apt_packages:
 - "libssl-dev"
 - "openssl"
 - "anki"
+- "thunderbird"

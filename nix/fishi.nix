@@ -10,6 +10,7 @@ with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
     paths = [ 
+      act
       ant
       awscli
       bat
@@ -93,7 +94,6 @@ with pkgs; rec{
       telnet 
       thc-hydra
       texlive.combined.scheme-full
-      thunderbird
       tmux
       tree 
       unrar
