@@ -10,29 +10,29 @@ with pkgs; rec{
   fishi-mvp = buildEnv {
     name = "fishi-mvp";
     paths = [
-      nix
-      nix-serve
-      nox
-      telnet 
-      htop 
-      bat
-      fd
-      jq
-      yq
-      mc
+      bat    
+      fd     
+      git    
+      gnumake
       gotop
       hexyl
-      ripgrep
-      git
-      gnumake
-      tree 
-      tmux
-      wget
+      htop 
       iftop
-      nload
-      pwgen
-      openvpn
+      jq
+      mc
       my_vim.pkg
+      nix
+      nix-serve
+      nload
+      nox
+      openvpn
+      pwgen
+      ripgrep
+      telnet 
+      tmux
+      tree 
+      wget
+      yq
     ]; 
   };
 }
