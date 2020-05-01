@@ -9,6 +9,8 @@ Prerequisites:
 curl https://raw.githubusercontent.com/fishi0x01/local-env/master/fetch-and-install.sh | sh
 ```
 
+~2.5G disk space required at `/nix/` for minimal profile.
+
 ### Delete
 ```
 ./scripts/delete/delete-nix.sh

@@ -19,13 +19,11 @@ with pkgs; rec{
       cmus
       crunch
       dbeaver
-      dia
       docker_compose
       dos2unix
       dotnet-sdk
       enum4linux
       fd
-      ffmpeg
       gdb
       ghidra-bin
       git
@@ -54,9 +52,8 @@ with pkgs; rec{
       nmap
       nox
       openjdk
+      openvpn
       p7zip
-      packer
-      pandoc
       potrace
       powershell
       proxychains
@@ -66,7 +63,6 @@ with pkgs; rec{
       python38Packages.sqlmap
       rdesktop
       reptyr
-      restic
       ripgrep
       rlwrap
       sampler
@@ -82,7 +78,6 @@ with pkgs; rec{
       unrar
       valgrind
       wget
-      xclip
       yq
     ]; 
   };
