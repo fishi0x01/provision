@@ -4,7 +4,7 @@
 
 { # Prevent execution if this script was only partially downloaded
   # TODO: asc
-  curl -sL https://github.com/fishi0x01/local-env/archive/master.zip | tar xz;  
+  curl -sL https://github.com/fishi0x01/local-env/tarball/master | tar xz;  
   ./local-env/scripts/install/install-nix.sh;
   rm -r ./local-env;
   git clone https://github.com/fishi0x01/local-env.git
