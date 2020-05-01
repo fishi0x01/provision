@@ -24,8 +24,6 @@ with pkgs; rec{
       nix
       nix-serve
       nload
-      nox
-      openvpn
       pwgen
       ripgrep
       telnet 

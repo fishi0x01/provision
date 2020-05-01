@@ -1,0 +1,17 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: '[test] Ubuntu18.04'
+        run: |
+          ./scripts/install/install-nix.sh
+          make install-dotfiles
+          make delete-dotfiles
+          ./scripts/delete/delete-nix.sh

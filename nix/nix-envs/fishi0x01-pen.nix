@@ -22,32 +22,24 @@ with pkgs; rec{
       dia
       docker_compose
       dos2unix
-      dosbox
       dotnet-sdk
       enum4linux
       fd
       ffmpeg
       gdb
       ghidra-bin
-      gimp
       git
       glibcLocales
       gnumake
-      go-jira
       gotop
       graphviz
       hexyl
       hey
       htop 
-      idea.idea-community
       iftop
-      imagemagick
       irssi
       john
       jq
-      keepassx2
-      #libreoffice
-      libsForQt5.vlc
       liferea
       lynx
       maven
@@ -55,7 +47,6 @@ with pkgs; rec{
       metasploit
       mkvtoolnix
       most
-      mplayer
       my_vim.pkg
       nix
       nix-serve 
@@ -66,7 +57,6 @@ with pkgs; rec{
       p7zip
       packer
       pandoc
-      pass
       potrace
       powershell
       proxychains
@@ -81,25 +71,16 @@ with pkgs; rec{
       rlwrap
       sampler
       scrot
-      scummvm
-      simplescreenrecorder
-      skypeforlinux
-      slack
       smbclient
       socat
-      spotify
-      spotify-tui
       ssh-ident
       sshpass
       telnet 
       thc-hydra
-      texlive.combined.scheme-full
       tmux
       tree 
       unrar
-      vagrant
       valgrind
-      vscode
       wget
       xclip
       yq

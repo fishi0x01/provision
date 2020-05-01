@@ -1,5 +1,4 @@
 *.swp
-SHA256SUMS
-*.tar.gz
 ansible/ansible-venv
 ansible/*.retry
+.vagrant
