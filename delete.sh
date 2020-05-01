@@ -6,7 +6,7 @@ rm -rf ~/.config/nixpkgs
 sudo rm -rf /nix/ # oh my o.O
 
 ### Set original dotfiles
-source dotfile.list
+source dotfiles.list
 
 for dot in "${DOTFILES[@]}"
 do

@@ -5,7 +5,7 @@ source dotfiles.list
 
 ### Install nix
 if [ ! -d "/nix" ] || [[ $* == *--reinstall* ]]; then
-  curl https://nixos.org/nix/install | sh # This will ask for sudo to set /nix
+  curl -s https://nixos.org/nix/install | sh # This will ask for sudo to set /nix
   source ${HOME}/.nix-profile/etc/profile.d/nix.sh
 fi
 

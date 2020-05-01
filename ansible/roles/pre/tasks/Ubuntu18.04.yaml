@@ -1,9 +1,5 @@
 ---
-- name: check if python exists
-  raw: test -e /usr/bin/python
-  register: python_exists
-  changed_when: False 
-
-- name: install minimum requirements for ansible
-  raw: apt -y update && apt install -y python-minimal
-  when: python_exists.rc > 0
+- name: install python if not exists
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  register: output
+  changed_when: output.stdout != ""
