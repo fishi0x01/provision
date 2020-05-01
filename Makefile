@@ -24,5 +24,13 @@ delete-dotfiles: ## Remove dotfile links
 ansible-provision: ## Run ansible playbook to provision localhost
 	$(MAKE) -C ansible provision
 
+vagrant-ssh-pentest-box: ## ssh into the pentest box
+	vagrant up pentest
+	vagrant ssh pentest
+
+vagrant-test-ubuntu18.04: ## Run provisioning test on Ubuntu18.04
+	vagrant up test-ubuntu18.04
+	vagrant destroy -f test-ubuntu18.04
+
 setup-secrets: ## Set secret files
 	$(MAKE) -C scripts/secrets/ setup-secrets

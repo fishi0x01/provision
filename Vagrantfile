@@ -3,6 +3,12 @@ Vagrant.configure("2") do |config|
   config.vm.define "pentest" do |ubuntu|
     ubuntu.vm.box = "ubuntu/bionic64"
     ubuntu.vm.box_version = "20200427.0.0"
+    ubuntu.vm.synced_folder "~/hackthebox.eu/", "/hackthebox.eu/"
+
+    ubuntu.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+    end
+
     ubuntu.vm.provision "install-nix", type: "shell" do |s|
       s.inline = "su - vagrant -c \"/vagrant/scripts/install/install-nix.sh\""
     end
