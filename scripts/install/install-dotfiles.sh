@@ -13,6 +13,6 @@ do
   elif [ -L "${HOME}/${dot}" ]; then
     rm "${HOME}/${dot}"
   fi
-  echo "Set ${dot}"
+  echo "Set link for ${dot}"
   ln -s ${DOTFILES_DIR}/${dot} ${HOME}/${dot}
 done

@@ -9,11 +9,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: '[prepare] get vagrant'
-        run: |
-          curl -Os https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_linux_amd64.zip
-          unzip vagrant_2.2.7_linux_amd64.zip vagrant -d /usr/bin/
-          rm vagrant_2.2.7_linux_amd64.zip
       - name: '[test] Ubuntu18.04'
         run: |
-          vagrant up
+          ./scripts/install/install-nix.sh
+          make install-dotfiles
+          make delete-dotfiles
+          ./scripts/delete/delete-nix.sh
