@@ -16,6 +16,37 @@
     src: "../x86_64-linux-gnu/openssl/opensslconf.h"
     state: link
 
+##############
+# Docker Setup
+##############
+- name: Add docker.asc
+  apt_key:
+    # https://download.docker.com/linux/ubuntu/gpg
+    data: "{{ lookup('file', 'files/asc/docker.asc') }}"
+    state: present
+
+- name: Add docker repo
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    state: present
+
+- name: Install docker-ce
+  apt:
+    name: "docker-ce"
+    update_cache: yes
+    force_apt_get: yes
+    state: present
+
+- name: Configure docker-ce
+  template:
+    src: "templates/docker-daemon.json"
+    dest: "/etc/docker/daemon.json"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  notify: 
+    - "restart docker"
+
 #################
 # Wireshark Setup
 #################
@@ -102,37 +133,6 @@
     deb: /tmp/keybase_amd64.deb
     state: present
     force_apt_get: yes
-
-##############
-# Docker Setup
-##############
-- name: Add docker.asc
-  apt_key:
-    # https://download.docker.com/linux/ubuntu/gpg
-    data: "{{ lookup('file', 'files/asc/docker.asc') }}"
-    state: present
-
-- name: Add docker repo
-  apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-    state: present
-
-- name: Install docker-ce
-  apt:
-    name: "docker-ce"
-    update_cache: yes
-    force_apt_get: yes
-    state: present
-
-- name: Configure docker-ce
-  template:
-    src: "templates/docker-daemon.json"
-    dest: "/etc/docker/daemon.json"
-    owner: "root"
-    group: "root"
-    mode: "644"
-  notify: 
-    - "restart docker"
 
 #############
 # sysctl.conf

@@ -14,12 +14,11 @@ with pkgs; rec{
       ant
       awscli
       bat
+      burpsuite
       cadaver
       cmake
       cmus
       crunch
-      dbeaver
-      docker_compose
       dos2unix
       dotnet-sdk
       enum4linux
@@ -30,7 +29,6 @@ with pkgs; rec{
       glibcLocales
       gnumake
       gotop
-      graphviz
       hexyl
       hey
       htop 
@@ -39,8 +37,6 @@ with pkgs; rec{
       john
       jq
       liferea
-      lynx
-      maven
       mc
       metasploit
       mkvtoolnix
@@ -51,7 +47,6 @@ with pkgs; rec{
       nload
       nmap
       nox
-      openjdk
       openvpn
       p7zip
       potrace
@@ -65,7 +60,6 @@ with pkgs; rec{
       reptyr
       ripgrep
       rlwrap
-      sampler
       scrot
       smbclient
       socat
