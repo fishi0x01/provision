@@ -46,7 +46,7 @@ with pkgs; rec{
       john
       jq
       keepassx2
-      libreoffice
+      #libreoffice
       libsForQt5.vlc
       liferea
       lynx
