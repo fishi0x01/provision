@@ -12,7 +12,8 @@ with pkgs; rec{
     paths = [
       bat    
       fd     
-      git    
+      git 
+      gitAndTools.delta
       gnumake
       gotop
       hexyl

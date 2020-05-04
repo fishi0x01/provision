@@ -26,6 +26,7 @@ with pkgs; rec{
       gdb
       ghidra-bin
       git
+      gitAndTools.delta
       glibcLocales
       gnumake
       gotop

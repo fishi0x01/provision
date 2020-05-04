@@ -31,6 +31,7 @@ with pkgs; rec{
       ghidra-bin
       gimp
       git
+      gitAndTools.delta
       glibcLocales
       gnumake
       go-jira
