@@ -12,6 +12,7 @@ with pkgs; rec{
     paths = [ 
       act
       ant
+      asciinema
       awscli
       bat
       cadaver
