@@ -39,7 +39,7 @@ in
     vimrcConfig.vam.pluginDictionaries = [
       { names = [
         "nerdtree"
-        "YouCompleteMe"
+        #"YouCompleteMe"
         "fugitive"
         "vimux"
         "vim-nix"

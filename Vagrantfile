@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
       vb.cpus = 2
       vb.gui = true
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--vram", "128"]
     end
 
     ubuntu.vm.provision "provision", type: "shell", inline: <<-SCRIPT
@@ -20,6 +21,19 @@ Vagrant.configure("2") do |config|
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
       su - vagrant -c "make -C /vagrant/ nix-pen-env"
     SCRIPT
+  end
+
+  config.vm.define "win10" do |ubuntu|
+    ubuntu.vm.box = "fishi0x01/win-10-pro-x64"
+    ubuntu.vm.box_version = "2020.03.09"
+
+    ubuntu.vm.provider "virtualbox" do |vb|
+      vb.memory = 4096
+      vb.cpus = 2
+      vb.gui = true
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--vram", "128"]
+    end
   end
 
   ##########
