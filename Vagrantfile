@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "pentest" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-18.04"
     ubuntu.vm.box_version = "202003.31.0"
-    ubuntu.vm.synced_folder "~/hackthebox.eu/", "/hackthebox.eu/"
+    ubuntu.vm.synced_folder "~/hackthebox.eu/", "/hackthebox.eu/", SharedFoldersEnableSymlinksCreate: false
 
     ubuntu.vm.provider "virtualbox" do |vb|
       vb.memory = 4096

@@ -1,5 +1,5 @@
 ---
-machine_user: "fishi"
+machine_user: "fishi0x01"
 
 cargo_packages:
 - "cargo-crev"

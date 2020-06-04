@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Firefox Sandbox
-GenericName=Firefox Sandbox
-Exec=firejail --ignore=seccomp --ignore=protocol firefox %u -no-remote
-Icon=ff-sandbox
-Terminal=false
-Type=Application
