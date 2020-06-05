@@ -6,6 +6,21 @@
     state: present
     update_cache: yes
 
+## solokey udev rules
+- name: Set Solokey udev rules
+  copy:
+    src: files/70-solokeys-access.rules
+    dest: /etc/udev/rules.d/70-solokeys-access.rules
+    owner: "root"
+    group: "root"
+    mode: '0644'
+  register: soloudev
+
+- name: Reload udev rules
+  shell:
+    "udevadm control --reload-rules && udevadm trigger"
+  when: soloudev.changed
+
 ################
 # libssl-dev fix
 ################
