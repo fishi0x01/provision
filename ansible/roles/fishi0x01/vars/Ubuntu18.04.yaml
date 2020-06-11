@@ -28,3 +28,5 @@ apt_packages:
 - "openssl"
 - "anki"
 - "thunderbird"
+- "gcc"
+- "bison"
