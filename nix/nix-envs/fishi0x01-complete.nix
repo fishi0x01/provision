@@ -16,7 +16,9 @@ with pkgs; rec{
       awscli
       bat
       cadaver
+      chafa
       cmake
+      cmatrix
       cmus
       crunch
       dbeaver
@@ -28,6 +30,7 @@ with pkgs; rec{
       enum4linux
       fd
       ffmpeg
+      figlet
       gdb
       ghidra-bin
       gimp
@@ -35,6 +38,7 @@ with pkgs; rec{
       gitAndTools.delta
       glibcLocales
       gnumake
+      googler
       go-jira
       gotop
       graphviz
@@ -51,6 +55,7 @@ with pkgs; rec{
       libreoffice
       libsForQt5.vlc
       liferea
+      lolcat
       lynx
       maven
       mc
@@ -63,6 +68,7 @@ with pkgs; rec{
       nix-serve 
       nload
       nmap
+      nms
       nox
       openjdk
       p7zip

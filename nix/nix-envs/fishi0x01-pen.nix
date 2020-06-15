@@ -17,6 +17,7 @@ with pkgs; rec{
       burpsuite
       cadaver
       cmake
+      cmatrix
       cmus
       crunch
       dos2unix
@@ -29,6 +30,7 @@ with pkgs; rec{
       gitAndTools.delta
       glibcLocales
       gnumake
+      googler
       gotop
       hexyl
       hey
@@ -47,6 +49,7 @@ with pkgs; rec{
       nix-serve 
       nload
       nmap
+      nms
       nox
       openvpn
       p7zip
