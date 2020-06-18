@@ -1,4 +1,7 @@
 #!/bin/bash
 
-source ~/.git-completion.sh
-source ~/.pass-completion.sh
+[[ -s "~/.git-completion.sh" ]] && source "~/.git-completion.sh"
+[[ -s "~/.pass-completion.sh" ]] && source "~/.pass-completion.sh"
+[[ -s "~/.rbenv/completions/rbenv.bash" ]] && source "~/.rbenv/completions/rbenv.bash"
+[[ -s "/home/fishi0x01/.gvm/scripts/gvm" ]] && source "/home/fishi0x01/.gvm/scripts/gvm"
+[[ -s "/home/fishi0x01/.rbenv/bin/rbenv" ]] && eval "$(rbenv init -)"

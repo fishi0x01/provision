@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export PATH="~/bin:${PATH}:~/.gem/ruby/2.5.0/bin"
-export BINARY_DIR="/usr/bin"
+export PATH="~/.rbenv/bin:$PATH"
+export BINARY_DIR="/usr/bin" # ssh-ident
 
 #https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
 export LOCALE_ARCHIVE="$(readlink ~/.nix-profile/lib/locale)/locale-archive"
