@@ -62,6 +62,35 @@
   notify: 
     - "restart docker"
 
+##########
+# Arduino
+##########
+- name: Check if Arduino IDE is installed
+  stat: 
+    path: "/opt/arduino-{{ arduino_ide.version }}"
+  register: arduino
+
+- name: Download and install Arduino IDE
+  block:
+    - name: Download Arduino IDE
+      get_url:
+        url: "https://downloads.arduino.cc/arduino-{{ arduino_ide.version }}-linux64.tar.xz"
+        dest: "/tmp/arduino-{{ arduino_ide.version }}.tar.xz"
+        checksum: "{{ arduino_ide.checksum }}"
+        mode: '0777'
+
+    - name: Unarchive Arduino IDE
+      unarchive:
+        src: "/tmp/arduino-{{ arduino_ide.version }}.tar.xz"
+        dest: "/opt/"
+        remote_src: yes
+
+    - name: Install Arduino IDE
+      become: yes
+      become_user: "{{ machine_user }}"
+      script: "/opt/arduino-{{ arduino_ide.version }}/install.sh"
+  when: not arduino.stat.exists
+
 #################
 # Wireshark Setup
 #################
