@@ -12,6 +12,8 @@ fritzing_ide:
 
 cargo_packages:
 - "cargo-crev"
+- "diskonaut"
+- "bandwhich"
 #- "starship"
 
 apt_packages:

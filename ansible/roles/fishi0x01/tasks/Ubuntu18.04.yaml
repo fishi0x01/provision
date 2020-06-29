@@ -351,3 +351,9 @@
   user:
     name: "{{ machine_user }}"
     shell: /bin/bash
+
+# Set permissions for bandwhich
+# https://github.com/imsnif/bandwhich#usage
+- name: Set permissions for bandwhich
+  shell:
+    cmd: "setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep /home/{{ machine_user }}/.cargo/bin/bandwhich"
