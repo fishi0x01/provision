@@ -95,7 +95,7 @@
 - name: Add board access
   user:
     name: "{{ machine_user }}"
-    groups: tty
+    groups: tty,dialout
     append: yes
 
 ##########
