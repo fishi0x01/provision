@@ -53,3 +53,4 @@ apt_packages:
 - "lib32z1"
 - "libbz2-1.0:i386"
 - "qemu-kvm"
+- "libpq-dev"
