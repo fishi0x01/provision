@@ -23,6 +23,7 @@ with pkgs; rec{
       crunch
       dbeaver
       dia
+      diesel-cli
       docker_compose
       dos2unix
       dosbox
