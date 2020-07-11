@@ -10,6 +10,18 @@ fritzing_ide:
   url: "https://fritzing.org/download/0.9.4/ubuntu-1804/fritzing-a1ffcea08814801903b1a9515b18cf97067968ae-master-498.bionic.linux.AMD64.tar.bz2"
   checksum: "sha512:5e316de2e9c4d29b58b0cba5015d5750934014c00482f40ab0e3bcf3e72e1added436476359322bc68adc2bb8bcf4e754e8ee6346883c1a6cee0c41ea54cd4c3"
 
+eagle_ide:
+  version: "9.6.2"
+  url: "http://trial2.autodesk.com/NET17SWDLD/2017/EGLPRM/ESD/Autodesk_EAGLE_9.6.2_English_Linux_64bit.tar.gz"
+  checksum: "sha512:4ef17dfa52b1ee0f5ba68896bc3821616a1b7d1a073a586604271cd7129e29671c480cd324cc5eadc517eb300ca4be6efa69423a306944e36732c2aa34cc59a3"
+  lib_files_to_remove:
+  - "libxcb-dri2.so.0"
+  - "libxcb-dri3.so.0"
+  - "libxcb-glx.so.0"
+  - "libxcb-present.so.0"
+  - "libxcb-sync.so.1"
+  - "libxcb-xfixes.so.0"
+
 cargo_packages:
 - "cargo-crev"
 - "diskonaut"
@@ -54,3 +66,10 @@ apt_packages:
 - "libbz2-1.0:i386"
 - "qemu-kvm"
 - "libpq-dev"
+- "libx11-xcb1"
+- "libxcb-dri2-0"
+- "libxcb-dri3-0"
+- "libxcb-glx0"
+- "libxcb-present0"
+- "libxcb-sync1"
+- "libxcb-xfixes0"
