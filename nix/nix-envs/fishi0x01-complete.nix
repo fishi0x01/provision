@@ -49,6 +49,7 @@ with pkgs; rec{
       idea.idea-community
       iftop
       imagemagick
+      inkscape
       irssi
       john
       jq
