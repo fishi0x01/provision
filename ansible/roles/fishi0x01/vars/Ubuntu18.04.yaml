@@ -1,6 +1,14 @@
 ---
 machine_user: "fishi0x01"
 
+android_studio:
+  version: "4.0.1.0"
+  url: "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.0.1.0/android-studio-ide-193.6626763-linux.tar.gz"
+  checksum: "sha256:f2f82744e735eae43fa018a77254c398a3bab5371f09973a37483014b73b7597"
+
+flutter:
+  version: "1.20.2"
+
 arduino_ide:
   version: "1.8.13"
   checksum: "sha512:865a442ac7c2406794d93669afbff6b54a598c22bc9b6e39e5257ad8305a56cca5537aa4b19048a087688d8bf2f1fb046577f5565f66c471cbe14dd399004eb3"
