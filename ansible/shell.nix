@@ -1,18 +1,20 @@
 with import <nixpkgs> {};
 
-(python37.withPackages (ps: with ps; [
-  ansible
-  pyyaml
-  asn1crypto
-  bcrypt
-  cffi
-  cryptography
-  jinja2
-  markupsafe
-  paramiko
-  pyasn1
-  pycparser
-  pynacl
-  six
-])).env
-
+stdenv.mkDerivation rec {
+  name = "ansible-environment";
+  buildInputs = [ 
+    ansible_2_10
+    python38Packages.pyyaml
+    python38Packages.asn1crypto
+    python38Packages.bcrypt
+    python38Packages.cffi
+    python38Packages.cryptography
+    python38Packages.jinja2
+    python38Packages.markupsafe
+    python38Packages.paramiko
+    python38Packages.pyasn1
+    python38Packages.pycparser
+    python38Packages.pynacl
+    python38Packages.six 
+  ];
+}
