@@ -52,6 +52,12 @@
     force_apt_get: yes
     state: present
 
+- name: Add user to docker group
+  user:
+    name: "{{ machine_user }}"
+    append: yes
+    groups: docker
+
 - name: Configure docker-ce
   template:
     src: "templates/docker-daemon.json"
@@ -255,7 +261,7 @@
 
 - name: Add virtualbox repo
   apt_repository:
-    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib"
+    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal contrib"
     state: present
 
 - name: Install virtualbox

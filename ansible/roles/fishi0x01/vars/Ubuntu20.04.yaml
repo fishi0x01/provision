@@ -31,10 +31,10 @@ eagle_ide:
   - "libxcb-xfixes.so.0"
 
 cargo_packages:
-- "cargo-crev"
+#- "cargo-crev"
 - "diskonaut"
 - "bandwhich"
-- "diesel_cli --no-default-features --features postgres"
+#- "diesel_cli --no-default-features --features postgres"
 #- "starship"
 
 apt_packages:
