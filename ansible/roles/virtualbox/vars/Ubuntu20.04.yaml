@@ -1,0 +1,4 @@
+---
+virtualbox:
+  repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal contrib"
+  apt_package: "virtualbox-6.1"

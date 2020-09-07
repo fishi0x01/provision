@@ -7,5 +7,8 @@
 
 - hosts: localhost
   become: yes
+  vars:
+    machine_user: "fishi0x01"
   roles:
+    - virtualbox
     - fishi0x01

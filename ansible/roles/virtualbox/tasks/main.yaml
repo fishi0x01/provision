@@ -1,0 +1,33 @@
+---
+- name: distribution specific vars
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
+
+- name: Add virtualbox_2016.asc 
+  apt_key:
+    # https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    data: "{{ lookup('file', 'files/asc/oracle_vbox_2016.asc') }}"
+    state: present
+
+- name: Add virtualbox.asc 
+  apt_key:
+    # https://www.virtualbox.org/download/oracle_vbox.asc
+    data: "{{ lookup('file', 'files/asc/oracle_vbox.asc') }}"
+    state: present
+
+- name: Add virtualbox repo
+  apt_repository:
+    repo: "{{ virtualbox.repo }}"
+    state: present
+
+- name: Install virtualbox
+  apt:
+    name: "virtualbox-6.1"
+    update_cache: yes
+    force_apt_get: yes
+    state: present
+
+- name: Add kvm access
+  user:
+    name: "{{ machine_user }}"
+    groups: kvm
+    append: yes
