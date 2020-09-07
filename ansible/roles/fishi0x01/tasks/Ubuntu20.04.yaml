@@ -6,21 +6,6 @@
     state: present
     update_cache: yes
 
-## solokey udev rules
-- name: Set Solokey udev rules
-  copy:
-    src: files/70-solokeys-access.rules
-    dest: /etc/udev/rules.d/70-solokeys-access.rules
-    owner: "root"
-    group: "root"
-    mode: '0644'
-  register: soloudev
-
-- name: Reload udev rules
-  shell:
-    "udevadm control --reload-rules && udevadm trigger"
-  when: soloudev.changed
-
 ################
 # libssl-dev fix
 ################
@@ -29,108 +14,6 @@
   file:
     path: "/usr/include/openssl/opensslconf.h"
     src: "../x86_64-linux-gnu/openssl/opensslconf.h"
-    state: link
-
-##############
-# Docker Setup
-##############
-- name: Add docker.asc
-  apt_key:
-    # https://download.docker.com/linux/ubuntu/gpg
-    data: "{{ lookup('file', 'files/asc/docker.asc') }}"
-    state: present
-
-- name: Add docker repo
-  apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-    state: present
-
-- name: Install docker-ce
-  apt:
-    name: "docker-ce"
-    update_cache: yes
-    force_apt_get: yes
-    state: present
-
-- name: Add user to docker group
-  user:
-    name: "{{ machine_user }}"
-    append: yes
-    groups: docker
-
-- name: Configure docker-ce
-  template:
-    src: "templates/docker-daemon.json"
-    dest: "/etc/docker/daemon.json"
-    owner: "root"
-    group: "root"
-    mode: "644"
-  notify: 
-    - "restart docker"
-
-##########
-# Flutter
-##########
-- name: Install flutter
-  block:
-    - name: Clone repo
-      git:
-        repo: "https://github.com/flutter/flutter.git"
-        dest: "/opt/flutter"
-        version: "{{ flutter.version }}"
-
-    - name: Set permissions
-      file:
-        dest: "/opt/flutter"
-        owner: "{{ machine_user }}"
-        group: "{{ machine_user }}"
-        recurse: true
-
-################
-# Android Studio
-################
-- name: Check if Android Studio is installed
-  stat: 
-    path: "/opt/android-studio-{{ android_studio.version }}"
-  register: android_studio_stats
-
-- name: Download and install Android Studio
-  block:
-    - name: Download Android Studio
-      get_url:
-        url: "{{ android_studio.url }}"
-        dest: "/tmp/android-studio-{{ android_studio.version }}.tar.xz"
-        checksum: "{{ android_studio.checksum }}"
-        mode: '0777'
-
-    - name: Ensure Arduino Studio dir exists
-      file:
-        path: "/opt/android-studio-{{ android_studio.version }}"
-        state: directory
-        mode: '0755'
-
-    - name: Unarchive Android Studio
-      unarchive:
-        src: "/tmp/android-studio-{{ android_studio.version }}.tar.xz"
-        dest: "/opt/android-studio-{{ android_studio.version }}"
-        remote_src: yes
-        extra_opts:
-        - "--strip-components=1"
-
-    - name: Set permissions
-      file:
-        dest: "/opt/android-studio-{{ android_studio.version }}"
-        owner: "{{ machine_user }}"
-        group: "{{ machine_user }}"
-        recurse: true
-  when: not android_studio_stats.stat.exists
-
-- name: Android Studio link
-  file:
-    src: "/opt/android-studio-{{ android_studio.version }}"
-    dest: "/opt/android-studio"
-    owner: "{{ machine_user }}"
-    group: "{{ machine_user }}"
     state: link
 
 ##########
@@ -243,39 +126,6 @@
         state: absent
       with_items: "{{ eagle_ide.lib_files_to_remove }}"
   when: not eagle.stat.exists
-
-############
-# VirtualBox
-############
-- name: Add virtualbox_2016.asc 
-  apt_key:
-    # https://www.virtualbox.org/download/oracle_vbox_2016.asc
-    data: "{{ lookup('file', 'files/asc/oracle_vbox_2016.asc') }}"
-    state: present
-
-- name: Add virtualbox.asc 
-  apt_key:
-    # https://www.virtualbox.org/download/oracle_vbox.asc
-    data: "{{ lookup('file', 'files/asc/oracle_vbox.asc') }}"
-    state: present
-
-- name: Add virtualbox repo
-  apt_repository:
-    repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal contrib"
-    state: present
-
-- name: Install virtualbox
-  apt:
-    name: "virtualbox-6.1"
-    update_cache: yes
-    force_apt_get: yes
-    state: present
-
-- name: Add kvm access
-  user:
-    name: "{{ machine_user }}"
-    groups: kvm
-    append: yes
 
 #########
 # Keybase

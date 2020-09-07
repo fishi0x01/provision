@@ -1,0 +1,31 @@
+---
+- name: distribution specific vars
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
+
+- name: Add docker.asc
+  apt_key:
+    # https://download.docker.com/linux/ubuntu/gpg
+    data: "{{ lookup('file', 'files/asc/docker.asc') }}"
+    state: present
+
+- name: Add docker repo
+  apt_repository:
+    repo: "{{ docker.repo }}"
+    state: present
+
+- name: Install docker-ce
+  apt:
+    name: "docker-ce"
+    update_cache: yes
+    force_apt_get: yes
+    state: present
+
+- name: Configure docker-ce
+  template:
+    src: "templates/docker-daemon.json"
+    dest: "/etc/docker/daemon.json"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  notify: 
+    - "restart docker"

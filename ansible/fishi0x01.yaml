@@ -10,5 +10,9 @@
   vars:
     machine_user: "fishi0x01"
   roles:
+    - solokey
     - virtualbox
-    - fishi0x01
+    - docker
+    - flutter
+    - android-studio
+    #- fishi0x01
