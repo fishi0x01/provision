@@ -15,7 +15,6 @@ with pkgs; rec{
       asciinema
       awscli
       bat
-      cadaver
       chafa
       cmake
       cmatrix
@@ -28,7 +27,6 @@ with pkgs; rec{
       dos2unix
       dosbox
       dotnet-sdk
-      enum4linux
       fd
       ffmpeg
       figlet
@@ -51,7 +49,6 @@ with pkgs; rec{
       imagemagick
       inkscape
       irssi
-      john
       jq
       keepassx2
       libreoffice
@@ -61,7 +58,6 @@ with pkgs; rec{
       lynx
       maven
       mc
-      metasploit
       mkvtoolnix
       most
       mplayer
@@ -69,7 +65,6 @@ with pkgs; rec{
       nix
       nix-serve 
       nload
-      nmap
       nms
       nox
       openjdk
@@ -77,9 +72,9 @@ with pkgs; rec{
       packer
       pandoc
       pass
+      peco
       potrace
       powershell
-      proxychains
       pwgen
       python27Packages.virtualenv
       python3.7
@@ -88,7 +83,6 @@ with pkgs; rec{
       reptyr
       restic
       ripgrep
-      rlwrap
       sampler
       scrot
       scummvm
@@ -102,7 +96,6 @@ with pkgs; rec{
       ssh-ident
       sshpass
       telnet 
-      thc-hydra
       texlive.combined.scheme-full
       tmux
       tree 

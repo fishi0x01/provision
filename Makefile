@@ -6,8 +6,8 @@ help: ## Prints help for targets with comments
 nix-default-env: ## Setup default nix-env
 	./nix/installer/install-env.sh
 
-nix-complete-env: ## Setup complete nix-env
-	./nix/installer/install-env.sh fishi0x01-complete
+nix-home-env: ## Setup home nix-env
+	./nix/installer/install-env.sh fishi0x01-home
 
 nix-pen-env: ## Setup pentesting nix-env
 	./nix/installer/install-env.sh fishi0x01-pen

@@ -53,6 +53,7 @@ with pkgs; rec{
       nox
       openvpn
       p7zip
+      peco
       potrace
       powershell
       proxychains
