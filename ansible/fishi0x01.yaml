@@ -13,6 +13,8 @@
     - solokey
     - virtualbox
     - docker
+    - arduino-ide
+    - fritzing-ide
     - flutter
     - android-studio
     #- fishi0x01
