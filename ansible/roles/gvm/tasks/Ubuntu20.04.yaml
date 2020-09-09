@@ -140,6 +140,45 @@
   shell: "cargo install {{ item }}"
   with_items: "{{ cargo_packages }}"
 
+######
+# GVM
+######
+- name: Check if GVM is already installed
+  become: yes
+  become_user: "{{ machine_user }}"
+  stat:
+    path: "~/.gvm"
+  register: gvm_stat
+
+# https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer
+- name: Install GVM
+  become: yes
+  become_user: "{{ machine_user }}"
+  script: "files/gvm-installer"
+  when: not gvm_stat.stat.exists
+
+- name: Install go1.4 for compilation of go1.5+
+  become: yes
+  become_user: "{{ machine_user }}"
+  shell: "gvm install go1.4 -B"
+
+######
+# NVM
+######
+- name: Check if NVM is already installed
+  become: yes
+  become_user: "{{ machine_user }}"
+  stat:
+    path: "~/.nvm"
+  register: nvm_stat
+
+# https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh
+- name: Install NVM
+  become: yes
+  become_user: "{{ machine_user }}"
+  script: "files/nvm-install.sh"
+  when: not nvm_stat.stat.exists
+
 #####
 # R
 #####

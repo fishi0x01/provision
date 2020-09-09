@@ -15,6 +15,9 @@
     - docker
     - arduino-ide
     - fritzing-ide
+    - eagle-ide
     - flutter
     - android-studio
+    - gvm
+    - nvm
     #- fishi0x01
