@@ -3,7 +3,8 @@ let
   /*** vim ***/
   my_vim = import ./vim/default.nix { 
     pkgs = pkgs; 
-    vim_configurable = vim_configurable;
+    ### python3 support
+    vim_configurable = vim_configurable.override { python = pkgs.python3; };
   };
 in
 with pkgs; rec{
