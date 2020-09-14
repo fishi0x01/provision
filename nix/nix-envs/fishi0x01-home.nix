@@ -53,7 +53,7 @@ with pkgs; rec{
       jq
       keepassx2
       libreoffice
-      libsForQt5.vlc
+      #libsForQt5.vlc
       liferea
       lolcat
       lynx
