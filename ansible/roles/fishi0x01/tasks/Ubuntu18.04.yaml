@@ -16,50 +16,6 @@
     src: "../x86_64-linux-gnu/openssl/opensslconf.h"
     state: link
 
-##########
-# Eagle
-##########
-- name: Check if Eagle IDE is installed
-  stat: 
-    path: "/opt/eagle-{{ eagle_ide.version }}"
-  register: eagle
-
-- name: Download and install Eagle IDE
-  block:
-    - name: Download Eagle IDE
-      get_url:
-        url: "{{ eagle_ide.url }}"
-        dest: "/tmp/eagle-{{ eagle_ide.version }}.tar.gz"
-        checksum: "{{ eagle_ide.checksum }}"
-        mode: '0777'
-
-    - name: Ensure Eagle dir exists
-      file:
-        path: "/opt/eagle-{{ eagle_ide.version }}"
-        state: directory
-        mode: '0755'
-
-    - name: Unarchive Eagle IDE
-      unarchive:
-        src: "/tmp/eagle-{{ eagle_ide.version }}.tar.gz"
-        dest: "/opt/eagle-{{ eagle_ide.version }}/"
-        remote_src: yes
-        extra_opts: "--strip-components=1"
-
-    - name: Set permissions
-      file:
-        dest: "/opt/eagle-{{ eagle_ide.version }}"
-        owner: "{{ machine_user }}"
-        group: "{{ machine_user }}"
-        recurse: true
-
-    - name: Remove libxcb files
-      file:
-        path: "/opt/eagle-{{ eagle_ide.version }}/lib/{{ item }}"
-        state: absent
-      with_items: "{{ eagle_ide.lib_files_to_remove }}"
-  when: not eagle.stat.exists
-
 #########
 # Keybase
 #########
@@ -139,27 +95,6 @@
   become_user: "{{ machine_user }}"
   shell: "cargo install {{ item }}"
   with_items: "{{ cargo_packages }}"
-
-#####
-# R
-#####
-- name: Add R repo key
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: E298A3A825C0D65DFD57CBB651716619E084DAB9
-    state: present
-
-- name: Add R repo
-  apt_repository:
-    repo: "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/"
-    state: present
-
-- name: Install R
-  apt:
-    name: "r-base"
-    update_cache: yes
-    force_apt_get: yes
-    state: present
 
 ############
 # Ruby rbenv
