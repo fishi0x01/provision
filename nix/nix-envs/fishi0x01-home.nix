@@ -35,6 +35,7 @@ with pkgs; rec{
       ghidra-bin
       gimp
       git
+      git-crypt
       gitAndTools.delta
       glibcLocales
       gnumake
