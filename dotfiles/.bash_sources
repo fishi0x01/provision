@@ -7,5 +7,5 @@
 [[ -s ~/.rbenv/bin/rbenv ]] && eval "$(rbenv init -)"
 [[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
 [[ -s ~/.nvm/bash_completion ]] && source ~/.nvm/bash_completion
-[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
+#[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
 
