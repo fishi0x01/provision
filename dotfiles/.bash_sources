@@ -5,3 +5,7 @@
 [[ -s ~/.rbenv/completions/rbenv.bash ]] && source ~/.rbenv/completions/rbenv.bash
 [[ -s ~/.gvm/scripts/gvm ]] && source ~/.gvm/scripts/gvm
 [[ -s ~/.rbenv/bin/rbenv ]] && eval "$(rbenv init -)"
+[[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
+[[ -s ~/.nvm/bash_completion ]] && source ~/.nvm/bash_completion
+[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
+

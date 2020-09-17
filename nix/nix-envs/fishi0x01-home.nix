@@ -97,6 +97,7 @@ with pkgs; rec{
       spotify-tui
       ssh-ident
       sshpass
+      starship
       telnet 
       texlive.combined.scheme-full
       tmux
