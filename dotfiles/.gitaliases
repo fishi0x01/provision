@@ -10,3 +10,9 @@
     branch-mv = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} "$2"; }; f"
     rmc = rm --cached
     rerun-ci = !git commit -m \"Rerun CI\" --allow-empty && git push
+    objects-in-history = !git rev-list --objects --all \
+        | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+        | sed -n 's/^blob //p' \
+        | sort --numeric-sort --key=2 \
+        | cut -c 1-12,41- \
+        | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest

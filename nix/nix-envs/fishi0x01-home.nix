@@ -36,6 +36,7 @@ with pkgs; rec{
       gimp
       git
       git-crypt
+      git-lfs
       gitAndTools.delta
       glibcLocales
       gnumake
