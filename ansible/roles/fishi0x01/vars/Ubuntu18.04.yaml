@@ -83,3 +83,6 @@ apt_packages:
 - "libxcb-xfixes0"
 - "wireshark"
 - "net-tools"
+- "gddrescue"
+- "sleuthkit"
+- "testdisk"

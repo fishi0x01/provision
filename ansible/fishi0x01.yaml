@@ -12,6 +12,7 @@
   roles:
     - solokey
     - virtualbox
+    - keybase
     - docker
     - arduino-ide
     - fritzing-ide
@@ -21,4 +22,4 @@
     - gvm
     - nvm
     - r
-    #- fishi0x01
+

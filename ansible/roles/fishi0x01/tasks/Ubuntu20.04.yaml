@@ -16,44 +16,6 @@
     src: "../x86_64-linux-gnu/openssl/opensslconf.h"
     state: link
 
-#########
-# Keybase
-#########
-# https://keybase.io/docs/server_security/our_code_signing_key
-- name: Copy keybase.asc
-  copy:
-    src: files/asc/keybase.asc
-    dest: /tmp/keybase.asc
-    owner: "{{ machine_user }}"
-    group: "{{ machine_user }}"
-    mode: '0644'
-
-- name: Import keybase.asc
-  shell:
-    "gpg --import /tmp/keybase.asc"
-
-- name: Download keybase.deb
-  get_url:
-    url: "https://prerelease.keybase.io/keybase_amd64.deb"
-    dest: /tmp/keybase_amd64.deb
-    mode: '0640'
-
-- name: Download keybase.deb.sig
-  get_url:
-    url: "https://prerelease.keybase.io/keybase_amd64.deb.sig"
-    dest: /tmp/keybase_amd64.deb.sig
-    mode: '0440'
-
-- name: Verify keybase signature
-  shell:
-    "gpg --verify /tmp/keybase_amd64.deb.sig /tmp/keybase_amd64.deb"
-
-- name: Install keybase.deb
-  apt:
-    deb: /tmp/keybase_amd64.deb
-    state: present
-    force_apt_get: yes
-
 #############
 # sysctl.conf
 #############
@@ -79,32 +41,6 @@
   file: 
     path: "/etc/samba/smb.conf"
     state: touch
-
-########
-# Rust
-########
-# https://www.rust-lang.org/tools/install
-# Script from https://sh.rustup.rs
-- name: Install rust
-  become: yes
-  become_user: "{{ machine_user }}"
-  script: "files/rustup-init.sh -y"
-
-- name: Install cargo packages
-  become: yes
-  become_user: "{{ machine_user }}"
-  shell: "cargo install {{ item }}"
-  with_items: "{{ cargo_packages }}"
-
-############
-# Ruby rbenv
-############
-# Script from https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer
-- name: Install rbenv
-  become: yes
-  become_user: "{{ machine_user }}"
-  script: "files/rbenv-installer" 
-  ignore_errors: yes
 
 ###########
 # Alacritty

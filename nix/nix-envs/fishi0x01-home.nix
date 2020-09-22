@@ -24,6 +24,7 @@ with pkgs; rec{
       dbeaver
       dia
       diesel-cli
+      diskonaut
       docker_compose
       dos2unix
       dosbox
@@ -54,6 +55,7 @@ with pkgs; rec{
       irssi
       jq
       keepassx2
+      kicad
       libreoffice
       #libsForQt5.vlc
       liferea
