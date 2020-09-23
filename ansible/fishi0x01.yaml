@@ -10,6 +10,7 @@
   vars:
     machine_user: "fishi0x01"
   roles:
+    - system-packages
     - solokey
     - virtualbox
     - keybase
