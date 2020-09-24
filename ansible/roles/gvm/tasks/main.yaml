@@ -16,5 +16,5 @@
 - name: Install go1.4 for compilation of go1.5+
   become: yes
   become_user: "{{ machine_user }}"
-  shell: "gvm install go1.4 -B"
+  shell: "gvm install go1.4 -B && gvm use go1.4"
   when: not gvm_stat.stat.exists
