@@ -36,6 +36,7 @@ with pkgs; rec{
       ghidra-bin
       gimp
       git
+      gitAndTools.gh
       git-crypt
       git-lfs
       gitAndTools.delta
