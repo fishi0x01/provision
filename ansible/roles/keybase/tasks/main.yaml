@@ -1,0 +1,42 @@
+---
+- name: "Check if keybase is installed"
+  package_facts:
+    manager: "auto"
+
+- name: Install keybase
+  block:
+    # https://keybase.io/docs/server_security/our_code_signing_key
+    - name: Copy keybase.asc
+      copy:
+        src: files/asc/keybase.asc
+        dest: /tmp/keybase.asc
+        owner: "{{ machine_user }}"
+        group: "{{ machine_user }}"
+        mode: '0644'
+    
+    - name: Import keybase.asc
+      shell:
+        "gpg --import /tmp/keybase.asc"
+    
+    - name: Download keybase.deb
+      get_url:
+        url: "https://prerelease.keybase.io/keybase_amd64.deb"
+        dest: /tmp/keybase_amd64.deb
+        mode: '0640'
+    
+    - name: Download keybase.deb.sig
+      get_url:
+        url: "https://prerelease.keybase.io/keybase_amd64.deb.sig"
+        dest: /tmp/keybase_amd64.deb.sig
+        mode: '0440'
+    
+    - name: Verify keybase signature
+      shell:
+        "gpg --verify /tmp/keybase_amd64.deb.sig /tmp/keybase_amd64.deb"
+    
+    - name: Install keybase.deb
+      apt:
+        deb: /tmp/keybase_amd64.deb
+        state: present
+        force_apt_get: yes
+  when: "'keybase' not in ansible_facts.packages"

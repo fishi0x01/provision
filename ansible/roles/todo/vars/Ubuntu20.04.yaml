@@ -84,3 +84,6 @@ apt_packages:
 - "pipenv"
 - "wireshark"
 - "net-tools"
+- "gddrescue"
+- "sleuthkit"
+- "testdisk"

@@ -1,0 +1,24 @@
+---
+- name: Check if Rust is already installed
+  become: yes
+  become_user: "{{ machine_user }}"
+  stat:
+    path: "~/.rustup"
+  register: rustup_stat
+
+# https://www.rust-lang.org/tools/install
+# Script from https://sh.rustup.rs
+- name: Install rust
+  become: yes
+  become_user: "{{ machine_user }}"
+  script: "files/rustup-init.sh -y"
+  when: not rustup_stat.stat.exists
+
+- name: Install cargo packages
+  become: yes
+  become_user: "{{ machine_user }}"
+  shell: "~/.cargo/bin/cargo install {{ item }}"
+  register: cargo_result
+  changed_when: "'Ignored package' not in cargo_result.stderr"
+  with_items: "{{ cargo_packages }}"
+

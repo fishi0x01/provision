@@ -7,5 +7,20 @@
 
 - hosts: localhost
   become: yes
+  vars:
+    machine_user: "fishi0x01"
   roles:
-    - fishi0x01
+    - system
+    - solokey
+    - virtualbox
+    - keybase
+    - docker
+    - arduino-ide
+    - fritzing-ide
+    - eagle-ide
+    - flutter
+    - android-studio
+    - gvm
+    - nvm
+    - r
+

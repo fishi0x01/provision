@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "pentest" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-18.04"
-    ubuntu.vm.box_version = "202003.31.0"
+    ubuntu.vm.box_version = "202008.16.0"
     ubuntu.vm.synced_folder "~/hackthebox.eu/", "/hackthebox.eu/", SharedFoldersEnableSymlinksCreate: false
 
     ubuntu.vm.provider "virtualbox" do |vb|
@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
   ##########
   config.vm.define "test-ubuntu18.04" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-18.04"
-    ubuntu.vm.box_version = "202003.31.0"
+    ubuntu.vm.box_version = "202008.16.0"
 
     ubuntu.vm.provision "nix-and-dotfiles", type: "shell", inline: <<-SCRIPT
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
