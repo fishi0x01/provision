@@ -55,6 +55,7 @@ with pkgs; rec{
       inkscape
       irssi
       jq
+      kazam
       keepassx2
       kicad
       libreoffice
@@ -74,6 +75,7 @@ with pkgs; rec{
       nms
       nox
       openjdk
+      openshot-qt
       p7zip
       packer
       pandoc
