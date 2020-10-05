@@ -1,12 +1,13 @@
 #!/bin/bash
 
-[[ -s ~/.git-completion.sh ]] && source ~/.git-completion.sh
-[[ -s ~/.pass-completion.sh ]] && source ~/.pass-completion.sh
-[[ -s ~/.rbenv/completions/rbenv.bash ]] && source ~/.rbenv/completions/rbenv.bash
-[[ -s ~/.gvm/scripts/gvm ]] && source ~/.gvm/scripts/gvm
+[[ -s ~/.git-completion.sh ]] && . ~/.git-completion.sh
+[[ -s ~/.pass-completion.sh ]] && . ~/.pass-completion.sh
+[[ -s ~/.rbenv/completions/rbenv.bash ]] && . ~/.rbenv/completions/rbenv.bash
+[[ -s ~/.gvm/scripts/gvm ]] && . ~/.gvm/scripts/gvm
 [[ -s ~/.rbenv/bin/rbenv ]] && eval "$(rbenv init -)"
-[[ -s ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
-[[ -s ~/.nvm/bash_completion ]] && source ~/.nvm/bash_completion
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+[[ -s ~/.nvm/bash_completion ]] && . ~/.nvm/bash_completion
+[[ -s ~/.github_token ]] && . ~/.github_token
 #[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
 complete -C 'aws_completer' aws
 
