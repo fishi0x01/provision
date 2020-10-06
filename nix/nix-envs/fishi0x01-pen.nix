@@ -10,6 +10,7 @@ with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
     paths = [ 
+      ack
       act
       ant
       awscli

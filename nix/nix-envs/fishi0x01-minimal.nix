@@ -10,6 +10,7 @@ with pkgs; rec{
   fishi-mvp = buildEnv {
     name = "fishi-mvp";
     paths = [
+      ack
       bat    
       fd     
       git 
