@@ -87,6 +87,7 @@ with pkgs; rec{
       pwgen
       python27Packages.virtualenv
       python38
+      python38Packages.flake8
       python38Packages.pylint
       python38Packages.sqlmap
       rdesktop
