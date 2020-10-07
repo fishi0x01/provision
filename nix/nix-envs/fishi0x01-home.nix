@@ -86,7 +86,7 @@ with pkgs; rec{
       powershell
       pwgen
       python27Packages.virtualenv
-      python3.7
+      python38
       python38Packages.sqlmap
       rdesktop
       reptyr
