@@ -38,6 +38,7 @@ in
     vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // customPlugins;
     vimrcConfig.vam.pluginDictionaries = [
       { names = [
+        "ansible-vim"
         "nerdtree"
         "YouCompleteMe"
         "fugitive"

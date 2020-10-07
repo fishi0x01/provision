@@ -15,6 +15,7 @@ with pkgs; rec{
       act
       ant
       asciinema
+      ansible-lint
       awscli
       bat
       chafa
@@ -74,6 +75,7 @@ with pkgs; rec{
       nix-serve 
       nload
       nms
+      nodePackages.jshint
       nox
       openjdk
       openshot-qt
