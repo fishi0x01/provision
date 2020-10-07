@@ -41,6 +41,7 @@ in
         "nerdtree"
         "YouCompleteMe"
         "fugitive"
+        "syntastic"
         "vimux"
         "vim-nix"
         "vim-json"
