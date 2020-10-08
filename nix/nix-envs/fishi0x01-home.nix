@@ -90,6 +90,7 @@ with pkgs; rec{
       python27Packages.virtualenv
       python38
       python38Packages.flake8
+      python38Packages.flake8-import-order
       python38Packages.pylint
       python38Packages.sqlmap
       rdesktop
