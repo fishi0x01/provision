@@ -48,6 +48,7 @@ with pkgs; rec{
       go-jira
       gotop
       graphviz
+      hadolint
       hexyl
       hey
       htop 
@@ -76,6 +77,7 @@ with pkgs; rec{
       nload
       nms
       nodePackages.jshint
+      nodePackages.jsonlint
       nox
       openjdk
       openshot-qt
