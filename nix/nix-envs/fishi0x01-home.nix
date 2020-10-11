@@ -68,6 +68,7 @@ with pkgs; rec{
       lynx
       maven
       mc
+      mdl
       mkvtoolnix
       most
       mplayer
