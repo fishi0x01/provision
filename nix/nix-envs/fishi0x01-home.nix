@@ -67,6 +67,7 @@ with pkgs; rec{
       lolcat
       lynx
       maven
+      manix
       mc
       mdl
       mkvtoolnix
