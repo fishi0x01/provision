@@ -116,6 +116,7 @@ with pkgs; rec{
       starship
       telnet 
       texlive.combined.scheme-full
+      tflint
       tmux
       tree 
       unrar
