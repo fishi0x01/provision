@@ -22,6 +22,7 @@ in
         "nerdtree"
         "YouCompleteMe"
         "fugitive"
+        "rust-vim"
         "syntastic"
         "vimux"
         "vim-nix"
