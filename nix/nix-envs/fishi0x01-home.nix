@@ -18,6 +18,7 @@ with pkgs; rec{
       ansible-lint
       awscli
       bat
+      black
       chafa
       cmake
       cmatrix
