@@ -1,6 +1,5 @@
 ---
-global_python_interpreter: "/usr/bin/python3"
-
+pip_exec: "pip3"
 global_pip_packages:
 - "virtualenv"
 - "setuptools"

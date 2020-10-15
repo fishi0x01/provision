@@ -49,3 +49,4 @@ apt_packages:
 - "sleuthkit"
 - "testdisk"
 - "python-setuptools"
+- "python3-pip"
