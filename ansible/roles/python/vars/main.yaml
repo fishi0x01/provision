@@ -1,0 +1,7 @@
+---
+global_python_interpreter: "/usr/bin/python3"
+
+global_pip_packages:
+- "virtualenv"
+- "setuptools"
+- "pipenv"

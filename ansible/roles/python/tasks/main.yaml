@@ -1,0 +1,5 @@
+---
+- name: Install global pip packages
+  pip:
+    executable: "pip3"
+    name: "{{ global_pip_packages }}"
