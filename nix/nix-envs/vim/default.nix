@@ -25,6 +25,7 @@ in
         "rust-vim"
         "syntastic"
         "vimux"
+        "vim-clang-format"
         "vim-nix"
         "vim-json"
         "vim-jinja"

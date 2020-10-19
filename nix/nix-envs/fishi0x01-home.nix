@@ -21,6 +21,7 @@ with pkgs; rec{
       bat
       black
       chafa
+      clang-tools
       cmake
       cmatrix
       cmus
@@ -127,6 +128,7 @@ with pkgs; rec{
       vscode
       wget
       xclip
+      yamllint
       yq
     ]; 
   };
