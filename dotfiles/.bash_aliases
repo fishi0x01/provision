@@ -92,6 +92,7 @@ zzConfgiureGitRepo() {
   git config user.email "${1}"
   git config user.signingkey "${2}"
   git config commit.gpgsign true
+  git secrets --install
 }
 alias gitConfig=zzConfgiureGitRepo
 

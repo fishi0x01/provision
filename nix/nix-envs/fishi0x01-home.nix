@@ -44,6 +44,7 @@ with pkgs; rec{
       gitAndTools.gh
       git-crypt
       git-lfs
+      git-secrets
       gitAndTools.delta
       glibcLocales
       gnumake
