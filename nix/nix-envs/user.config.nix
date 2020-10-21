@@ -1,5 +1,7 @@
 {
   allowUnfree = true;
   pulseaudio = true;
-  permittedInsecurePackages = [];
+  permittedInsecurePackages = [
+    "openssl-1.0.2u" # necessary for a pentest lib
+  ];
 }
