@@ -25,6 +25,7 @@ with pkgs; rec{
       cmake
       cmatrix
       cmus
+      colordiff
       crunch
       dbeaver
       dia

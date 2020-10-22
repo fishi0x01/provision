@@ -20,6 +20,7 @@ with pkgs; rec{
       cmake
       cmatrix
       cmus
+      colordiff
       crunch
       dos2unix
       dotnet-sdk
