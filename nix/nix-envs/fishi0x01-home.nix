@@ -16,6 +16,7 @@ with pkgs; rec{
       ant
       asciinema
       ansible-lint
+      arduino-cli
       awscli
       aws-sam-cli
       bat
