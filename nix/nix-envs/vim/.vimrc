@@ -28,10 +28,6 @@ let g:clang_format#style_options = {
             \ "BreakBeforeBraces" : "Stroustrup"}
 autocmd FileType c,cpp,arduino ClangFormatAutoEnable
 
-" YCM
-" This can potentially block linters --> disable it
-let g:ycm_show_diagnostics_ui = 0
-
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
