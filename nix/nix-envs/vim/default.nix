@@ -20,6 +20,8 @@ in
       { names = [
         "ansible-vim"
         "nerdtree"
+        "kotlin-vim"
+        "ctrlp-vim"
         "YouCompleteMe"
         "fugitive"
         "rust-vim"
