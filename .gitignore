@@ -1,4 +1,5 @@
 *.swp
 ansible/ansible-venv
 ansible/*.retry
+ansible/user
 .vagrant

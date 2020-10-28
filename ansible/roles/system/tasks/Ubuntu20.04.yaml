@@ -37,7 +37,11 @@
     path: "/etc/samba/"
     state: directory
 
+- stat: path=/etc/samba/smb.conf
+  register: p
+
 - name: Ensure samba conf file exists (avoid rpcclient errors)
   file:
     path: "/etc/samba/smb.conf"
-    state: file
+    state: touch
+  when: p.stat.exists is defined and not p.stat.exists
