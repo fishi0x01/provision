@@ -131,6 +131,7 @@ with pkgs; rec{
       wget
       xclip
       yamllint
+      yarn
       yq
     ]; 
   };
