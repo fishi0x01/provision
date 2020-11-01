@@ -1,6 +1,6 @@
 ---
 - name: Check if flutter is installed
-  stat: 
+  stat:
     path: "/opt/flutter"
   register: flutter_stats
 

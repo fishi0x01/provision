@@ -1,6 +1,6 @@
 ---
 - name: Check if Android Studio is installed
-  stat: 
+  stat:
     path: "/opt/android-studio-{{ android_studio.version }}"
   register: android_studio_stats
 
@@ -23,7 +23,7 @@
       unarchive:
         src: "/tmp/android-studio-{{ android_studio.version }}.tar.xz"
         dest: "/opt/android-studio-{{ android_studio.version }}"
-        remote_src: yes
+        remote_src: true
         extra_opts:
         - "--strip-components=1"
 

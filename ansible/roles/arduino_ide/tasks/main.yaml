@@ -1,6 +1,6 @@
 ---
 - name: Check if Arduino IDE is installed
-  stat: 
+  stat:
     path: "/opt/arduino-{{ arduino_ide.version }}"
   register: arduino
 
@@ -17,10 +17,10 @@
       unarchive:
         src: "/tmp/arduino-{{ arduino_ide.version }}.tar.xz"
         dest: "/opt/"
-        remote_src: yes
+        remote_src: true
 
     - name: Install Arduino IDE
-      become: yes
+      become: true
       become_user: "{{ machine_user }}"
       script: "/opt/arduino-{{ arduino_ide.version }}/install.sh"
   when: not arduino.stat.exists
@@ -38,4 +38,4 @@
   user:
     name: "{{ machine_user }}"
     groups: tty,dialout
-    append: yes
+    append: true

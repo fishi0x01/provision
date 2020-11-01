@@ -1,12 +1,12 @@
 ---
 - hosts: localhost
-  gather_facts: False
-  become: yes
+  gather_facts: false
+  become: true
   roles:
     - pre
 
 - hosts: localhost
-  become: yes
+  become: true
   roles:
     - system
     - python
@@ -14,11 +14,11 @@
     - virtualbox
     - keybase
     - docker
-    - arduino-ide
-    - fritzing-ide
-    - eagle-ide
+    - arduino_ide
+    - fritzing_ide
+    - eagle_ide
     - flutter
-    - android-studio
+    - android_studio
     - gvm
     - nvm
     - r
