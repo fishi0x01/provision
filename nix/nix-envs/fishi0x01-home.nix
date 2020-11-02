@@ -122,6 +122,7 @@ with pkgs; rec{
       telnet 
       texlive.combined.scheme-full
       tflint
+      thefuck
       tmux
       tree 
       unrar
