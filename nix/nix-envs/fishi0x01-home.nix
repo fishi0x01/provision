@@ -93,6 +93,7 @@ with pkgs; rec{
       pandoc
       pass
       peco
+      podman
       potrace
       powershell
       pwgen
