@@ -11,3 +11,8 @@
 #[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
 complete -C 'aws_completer' aws
 [[ -x "$(command -v thefuck)" ]] && eval "$(thefuck --alias)"
+
+# pyvenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -x "$(command -v pyenv)" ]] && eval "$(pyenv init -)"

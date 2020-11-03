@@ -34,6 +34,7 @@ apt_packages:
 - "libstdc++6:i386"
 - "lib32z1"
 - "libbz2-1.0:i386"
+- "libsqlite3-dev"
 - "qemu-kvm"
 - "libpq-dev"
 - "libx11-xcb1"
