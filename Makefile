@@ -27,8 +27,11 @@ ansible-provision: ## Run ansible playbook to provision localhost
 vagrant-pentest-box: ## bootstrap the pentest box
 	vagrant up pentest
 
-vagrant-win10-box: ## bootstrap the win10 box
+vagrant-win10-box: ## start the win10 box
 	vagrant up win10
+
+vagrant-hibernate-win10-box: ## hibernate the win10 box
+	vagrant suspend win10
 
 vagrant-test-ubuntu18.04: ## Run provisioning test on Ubuntu18.04
 	vagrant up test-ubuntu18.04

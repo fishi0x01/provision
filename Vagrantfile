@@ -1,5 +1,8 @@
 Vagrant.configure("2") do |config|
 
+  ############
+  # Pentesting
+  ############
   config.vm.define "pentest" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-18.04"
     ubuntu.vm.box_version = "202008.16.0"
@@ -25,7 +28,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "win10" do |ubuntu|
     ubuntu.vm.box = "fishi0x01/win-10-pro-x64"
-    ubuntu.vm.box_version = "2020.03.09"
+    ubuntu.vm.box_version = "2020.11.06"
 
     ubuntu.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
