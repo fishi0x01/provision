@@ -50,3 +50,5 @@ apt_packages:
 - "testdisk"
 - "python-setuptools"
 - "python3-pip"
+- "android-sdk-platform-tools-common"
+- "adb"
