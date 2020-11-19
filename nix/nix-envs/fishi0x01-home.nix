@@ -107,6 +107,7 @@ with pkgs; rec{
       reptyr
       restic
       ripgrep
+      rustfmt
       sampler
       scrot
       scummvm
