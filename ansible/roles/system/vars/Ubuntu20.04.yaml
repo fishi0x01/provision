@@ -53,3 +53,4 @@ apt_packages:
 - "python3-pip"
 - "android-sdk-platform-tools-common"
 - "adb"
+- "sqlite3"
