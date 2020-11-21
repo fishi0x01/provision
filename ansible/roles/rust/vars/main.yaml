@@ -1,6 +1,6 @@
 ---
 cargo_packages:
-  - "cargo-crev"
   - "bandwhich"
- #- "diesel_cli --no-default-features --features postgres"
-
+  - "gping"
+  - "cargo-crev"
+# - "diesel_cli --no-default-features --features postgres"
