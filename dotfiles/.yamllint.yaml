@@ -7,3 +7,4 @@ rules:
     level: warning
   indentation:
     indent-sequences: whatever  # allow flexible list indent
+  truthy: disable
