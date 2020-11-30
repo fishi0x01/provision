@@ -136,7 +136,6 @@ with pkgs; rec{
       yamllint
       yarn
       yq
-      zoom-us
     ]; 
   };
 }
