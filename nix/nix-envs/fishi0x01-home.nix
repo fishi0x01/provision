@@ -17,7 +17,7 @@ with pkgs; rec{
       asciinema
       ansible-lint
       awscli
-      aws-sam-cli
+      #aws-sam-cli
       bat
       black
       chafa
@@ -87,7 +87,7 @@ with pkgs; rec{
       nodePackages.jsonlint
       nox
       openjdk
-      openshot-qt
+      #openshot-qt
       p7zip
       packer
       pandoc
