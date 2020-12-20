@@ -2,6 +2,7 @@
 
 [[ -s ~/.git-completion.sh ]] && . ~/.git-completion.sh
 [[ -s ~/.pass-completion.sh ]] && . ~/.pass-completion.sh
+[[ -s ~/.todo_completion ]] && . ~/.todo_completion
 [[ -s ~/.rbenv/completions/rbenv.bash ]] && . ~/.rbenv/completions/rbenv.bash
 [[ -s ~/.gvm/scripts/gvm ]] && . ~/.gvm/scripts/gvm
 [[ -s ~/.rbenv/bin/rbenv ]] && eval "$(rbenv init -)"
