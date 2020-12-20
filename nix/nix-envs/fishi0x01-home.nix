@@ -127,6 +127,7 @@ with pkgs; rec{
       thefuck
       tmux
       todo-txt-cli
+      todoist
       tree 
       unrar
       vagrant
