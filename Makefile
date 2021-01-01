@@ -24,10 +24,13 @@ delete-dotfiles: ## Remove dotfile links
 ansible-provision: ## Run ansible playbook to provision localhost
 	$(MAKE) -C ansible provision
 
-vagrant-pentest-box: ## bootstrap the pentest box
+vagrant-start-pentest-box: ## bootstrap the pentest box
 	vagrant up pentest
 
-vagrant-win10-box: ## start the win10 box
+vagrant-hibernate-pentest-box: ## hibernate the pentest box
+	vagrant suspend pentest
+
+vagrant-start-win10-box: ## start the win10 box
 	vagrant up win10
 
 vagrant-hibernate-win10-box: ## hibernate the win10 box

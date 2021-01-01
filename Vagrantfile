@@ -26,16 +26,17 @@ Vagrant.configure("2") do |config|
     SCRIPT
   end
 
-  config.vm.define "win10" do |ubuntu|
-    ubuntu.vm.box = "fishi0x01/win-10-pro-x64"
-    ubuntu.vm.box_version = "2020.11.06"
+  config.vm.define "win10" do |win|
+    win.vm.box = "fishi0x01/win-10-pro-x64"
+    win.vm.box_version = "2020.11.06"
 
-    ubuntu.vm.provider "virtualbox" do |vb|
+    win.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
       vb.cpus = 2
       vb.gui = true
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
       vb.customize ["modifyvm", :id, "--vram", "128"]
+      vb.customize ["modifyvm", :id, "--usb", "on"]
     end
   end
 

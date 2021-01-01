@@ -19,12 +19,21 @@
     repo: "{{ virtualbox.repo }}"
     state: present
 
-- name: Install virtualbox
+- name: Set debconf for virtualbox packages
+  debconf:
+    name: "{{ item.package }}"
+    question: "{{ item.question }}"
+    value: "{{ item.value }}"
+    vtype: "{{ item.vtype }}"
+  loop: "{{ virtualbox.debconf }}"
+
+- name: Install virtualbox packages
   apt:
-    name: "virtualbox-6.1"
+    name: "{{ item }}"
     update_cache: yes
     force_apt_get: yes
     state: present
+  loop: "{{ virtualbox.packages }}"
 
 - name: Add kvm access
   user:

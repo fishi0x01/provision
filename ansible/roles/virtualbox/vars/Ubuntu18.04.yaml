@@ -1,4 +1,6 @@
 ---
 virtualbox:
   repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib"
-  apt_package: "virtualbox-6.1"
+  apt_packages:
+  - "virtualbox-6.1"
+  - "virtualbox-ext-pack"

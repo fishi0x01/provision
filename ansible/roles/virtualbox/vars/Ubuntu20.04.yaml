@@ -1,4 +1,12 @@
 ---
 virtualbox:
   repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal contrib"
-  apt_package: "virtualbox-6.1"
+  packages:
+  - "virtualbox-6.1"
+  - "virtualbox-ext-pack"
+  debconf:
+  # debconf-show virtualbox-ext-pack
+  - package: "virtualbox-ext-pack"
+    value: true
+    vtype: boolean
+    question: virtualbox-ext-pack/license
