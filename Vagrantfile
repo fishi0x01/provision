@@ -37,6 +37,9 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
       vb.customize ["modifyvm", :id, "--vram", "128"]
       vb.customize ["modifyvm", :id, "--usb", "on"]
+      vb.customize ["modifyvm", :id, "--audio", "pulse"]
+      vb.customize ["modifyvm", :id, "--audioin", "on"]
+      vb.customize ["modifyvm", :id, "--audioout", "on"]
     end
   end
 

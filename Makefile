@@ -24,16 +24,16 @@ delete-dotfiles: ## Remove dotfile links
 ansible-provision: ## Run ansible playbook to provision localhost
 	$(MAKE) -C ansible provision
 
-vagrant-start-pentest-box: ## bootstrap the pentest box
+vagrant-start-pentest: ## bootstrap the pentest box
 	vagrant up pentest
 
-vagrant-hibernate-pentest-box: ## hibernate the pentest box
+vagrant-hibernate-pentest: ## hibernate the pentest box
 	vagrant suspend pentest
 
-vagrant-start-win10-box: ## start the win10 box
+vagrant-start-win10: ## start the win10 box
 	vagrant up win10
 
-vagrant-hibernate-win10-box: ## hibernate the win10 box
+vagrant-hibernate-win10: ## hibernate the win10 box
 	vagrant suspend win10
 
 vagrant-test-ubuntu18.04: ## Run provisioning test on Ubuntu18.04
