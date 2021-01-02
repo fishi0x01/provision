@@ -22,4 +22,4 @@
     - gvm
     - nvm
     - r
-#   - rust
+    - rust
