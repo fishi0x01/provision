@@ -31,6 +31,7 @@ with pkgs; rec{
       dia
       diesel-cli
       diskonaut
+      dmg2img
       docker_compose
       dos2unix
       dosbox
@@ -130,7 +131,7 @@ with pkgs; rec{
       todoist
       tree 
       unrar
-      vagrant
+      #vagrant
       valgrind
       vscode
       wget
