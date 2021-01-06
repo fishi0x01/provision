@@ -123,7 +123,7 @@ with pkgs; rec{
       sshpass
       starship
       telnet 
-      texlive.combined.scheme-full
+      #texlive.combined.scheme-full
       tflint
       thefuck
       tmux
