@@ -54,3 +54,4 @@ apt_packages:
 - "android-sdk-platform-tools-common"
 - "adb"
 - "sqlite3"
+- "libarchive-tools"
