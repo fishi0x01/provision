@@ -99,7 +99,6 @@ with pkgs; rec{
       powershell
       pwgen
       python27Packages.virtualenv
-      python38
       python38Packages.flake8
       python38Packages.flake8-import-order
       python38Packages.pylint
