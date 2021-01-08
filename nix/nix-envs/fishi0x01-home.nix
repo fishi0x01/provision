@@ -68,7 +68,6 @@ with pkgs; rec{
       keepassx2
       kicad
       libreoffice
-      #libsForQt5.vlc
       liferea
       lolcat
       lynx
@@ -88,7 +87,6 @@ with pkgs; rec{
       nodePackages.jsonlint
       nox
       openjdk
-      #openshot-qt
       p7zip
       packer
       pandoc
