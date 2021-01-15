@@ -128,9 +128,10 @@ with pkgs; rec{
       todoist
       tree 
       unrar
-      #vagrant
+      vagrant
       valgrind
       vscode
+      vsh
       wget
       xclip
       yamllint
