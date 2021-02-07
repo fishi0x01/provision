@@ -1,0 +1,4 @@
+---
+udev_files:
+- "60-openocd.rules"
+- "70-solokeys-access.rules"

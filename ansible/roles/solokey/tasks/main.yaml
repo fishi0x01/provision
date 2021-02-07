@@ -1,9 +1,0 @@
----
-- name: Set Solokey udev rules
-  copy:
-    src: files/70-solokeys-access.rules
-    dest: /etc/udev/rules.d/70-solokeys-access.rules
-    owner: "root"
-    group: "root"
-    mode: '0644'
-  notify: "reload udev rules"

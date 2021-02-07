@@ -65,3 +65,5 @@ apt_packages:
 - "libx11-dev"
 - "libfontconfig1-dev"
 - "libgtk-3-dev"
+- "libtool-bin"
+- "libusb-1.0-0-dev"

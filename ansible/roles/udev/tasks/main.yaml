@@ -1,0 +1,10 @@
+---
+- name: Set udev rules
+  copy:
+    src: "files/{{ item }}"
+    dest: "/etc/udev/rules.d/{{ item }}"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+  loop: "{{ udev_files }}"
+  notify: "reload udev rules"
