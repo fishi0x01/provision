@@ -54,7 +54,7 @@ with pkgs; rec{
       go-jira
       gotop
       graphviz
-      hadolint
+      #hadolint
       hexyl
       hey
       htop 
@@ -92,7 +92,7 @@ with pkgs; rec{
       pandoc
       pass
       peco
-      podman
+      #podman
       potrace
       powershell
       pwgen

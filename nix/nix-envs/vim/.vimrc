@@ -17,6 +17,9 @@ set expandtab
 set modelines=0
 set nomodeline
 
+" Nerdree
+let NERDTreeQuitOnOpen=0
+
 cmap ide NERDTree \| VimuxRunCommand('')<CR>
 
 " vim-clang-format plugin
