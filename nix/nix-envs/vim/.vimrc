@@ -20,6 +20,7 @@ set nomodeline
 " Nerdree
 let NERDTreeQuitOnOpen=0
 
+" Custom commands
 cmap ide NERDTree \| VimuxRunCommand('')<CR>
 
 " vim-clang-format plugin
@@ -41,4 +42,5 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_go_checkers = ['go', 'gofmt', 'golint', 'govet']
+let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'pylint', 'python3']
 let g:syntastic_dockerfile_checkers = ['hadolint']
