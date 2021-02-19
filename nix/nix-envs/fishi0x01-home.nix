@@ -17,7 +17,7 @@ with pkgs; rec{
       asciinema
       ansible-lint
       awscli
-      #aws-sam-cli
+      aws-sam-cli
       bat
       black
       chafa
@@ -92,7 +92,7 @@ with pkgs; rec{
       pandoc
       pass
       peco
-      #podman
+      podman
       potrace
       powershell
       pwgen
