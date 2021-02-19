@@ -124,3 +124,22 @@ zzLocalSampler() {
   sampler --config ~/.fishi-sampler-local.yaml
 }
 alias sampler-local=zzLocalSampler
+
+zzSwitchYubikey() {
+  KEYID=E96231C3
+  GPG=gpg
+  GPGCONF=gpgconf
+  GNUPGHOME=${GNUPGHOME-`$GPGCONF --list-dirs homedir`}
+  KEYGRIP_AWK_EXTRACT='BEGIN { is_ssb_sc=0 ; } is_ssb_sc==1 && $1~/Keygrip/ && $2~/=/ { print $3; is_ssb_sc=0; } { if ( $1=="ssb>" ) { is_ssb_sc=1; } else { is_ssb_sc=0; } }'
+  KEYGRIPS="`${GPG} --with-keygrip --list-secret-keys "${KEYID}" | awk "${KEYGRIP_AWK_EXTRACT}"`"
+  
+  for keygrip in ${KEYGRIPS}
+  do {
+  	keygrip_file="${GNUPGHOME}/private-keys-v1.d/${keygrip}.key"
+  	rm "${keygrip_file}"
+  }
+  done
+  
+  ${GPG} --card-status
+}
+alias switchYubikey=zzSwitchYubikey

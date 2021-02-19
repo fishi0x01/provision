@@ -68,3 +68,4 @@ apt_packages:
 - "libtool-bin"
 - "libusb-1.0-0-dev"
 - "gcc-arm-none-eabi"
+- "scdaemon"

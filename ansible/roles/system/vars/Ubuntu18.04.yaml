@@ -65,3 +65,4 @@ apt_packages:
 - "libfontconfig1-dev"
 - "libgtk-3-dev"
 - "gcc-arm-none-eabi"
+- "scdaemon"
