@@ -1,7 +1,7 @@
 ---
 gpg:
   # http://keys.gnupg.net/pks/lookup?search=fishi0x01%40gmail.com&fingerprint=on&op=index
-  trusted_key: "9CB7993967B56A2C3866C06B91F47B8CE96231C3"
+  trusted_key_long_id: "91F47B8CE96231C3"
   agent_conf_file: "/home/{{ machine_user }}/.gnupg/gpg-agent.conf"
   conf_file: "/home/{{ machine_user }}/.gnupg/gpg.conf"
   ssh_pub_file: "/home/{{ machine_user }}/.ssh/fishi0x01-ssh.pub"
