@@ -29,6 +29,8 @@
   notify:
     - "reload sysctl"
 
+- meta: flush_handlers
+
 #########
 # SMB
 #########

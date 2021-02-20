@@ -9,6 +9,7 @@
   become: true
   roles:
     - system
+    - gpg
     - python
     - udev
     - virtualbox

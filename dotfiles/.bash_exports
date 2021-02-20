@@ -7,3 +7,9 @@ export YAMLLINT_CONFIG_FILE=~/.yamllint.yaml
 
 #https://github.com/NixOS/nixpkgs/issues/8398#issuecomment-186832814
 export LOCALE_ARCHIVE="$(readlink ~/.nix-profile/lib/locale)/locale-archive"
+
+# SSH with GPG
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi

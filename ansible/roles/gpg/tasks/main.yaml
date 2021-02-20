@@ -1,0 +1,43 @@
+---
+- name: distribution specific vars
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
+
+# TODO: gpg --import files/91F47B8CE96231C3.asc
+#- name: Import trusted key
+#  become: yes
+#  become_user: "{{ machine_user }}"
+#  command: "gpg --import files/{{ gpg.trusted_key_long_id }}.asc"
+
+- name: Place ssh pub key
+  copy:
+    src: "files/fishi0x01-ssh.pub"
+    dest: "{{ gpg.ssh_pub_file }}"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "644"
+
+- name: Set gpg-agent.conf
+  become: yes
+  become_user: "{{ machine_user }}"
+  template:
+    src: "templates/gpg-agent.conf.j2"
+    dest: "{{ gpg.agent_conf_file }}"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "640"
+  notify:
+    - "restart gpg-agent"
+
+- name: Set gpg.conf
+  become: yes
+  become_user: "{{ machine_user }}"
+  template:
+    src: "templates/gpg.conf.j2"
+    dest: "{{ gpg.conf_file }}"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "640"
+  notify:
+    - "restart gpg-agent"
+
+- meta: flush_handlers
