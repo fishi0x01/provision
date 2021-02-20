@@ -15,7 +15,7 @@ with pkgs; rec{
       act
       ant
       asciinema
-      ansible-lint
+      #ansible-lint
       awscli
       aws-sam-cli
       bat
@@ -117,7 +117,6 @@ with pkgs; rec{
       socat
       spotify
       spotify-tui
-      ssh-ident
       sshpass
       starship
       telnet 
