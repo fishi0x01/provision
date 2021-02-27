@@ -30,7 +30,8 @@ let g:clang_format#style_options = {
             \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "Standard" : "c++17",
             \ "BreakBeforeBraces" : "Stroustrup"}
-autocmd FileType c,cpp,arduino ClangFormatAutoEnable
+" Turn on auto-formatting c code
+" autocmd FileType c,cpp,arduino ClangFormatAutoEnable
 
 " Syntastic
 set statusline+=%#warningmsg#
