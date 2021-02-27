@@ -3,10 +3,6 @@
 ## sudo should see our aliases
 alias sudo='sudo '
 
-## ssh-ident
-alias scp='BINARY_SSH=/usr/bin/scp ssh-ident'
-alias sftp='BINARY_SSH=/usr/bin/sftp ssh-ident'
-
 ## convenience
 alias md='mkdir -p'
 alias asciicast2gif='docker run --rm -v $PWD:/data -e NODE_OPTS="--max-old-space-size=1024" asciinema/asciicast2gif'
