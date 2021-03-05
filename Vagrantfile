@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "win10" do |win|
     win.vm.box = "fishi0x01/win-10-pro-x64"
-    win.vm.box_version = "2020.11.06"
+    win.vm.box_version = "2021.03.03"
 
     win.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
