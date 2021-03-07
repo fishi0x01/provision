@@ -4,8 +4,8 @@ Vagrant.configure("2") do |config|
   # Pentesting
   ############
   config.vm.define "pentest" do |ubuntu|
-    ubuntu.vm.box = "bento/ubuntu-18.04"
-    ubuntu.vm.box_version = "202008.16.0"
+    ubuntu.vm.box = "bento/ubuntu-20.04"
+    ubuntu.vm.box_version = "202012.23.0"
     ubuntu.vm.synced_folder "~/hackthebox.eu/", "/hackthebox.eu/", SharedFoldersEnableSymlinksCreate: false
 
     ubuntu.vm.provider "virtualbox" do |vb|
@@ -26,6 +26,9 @@ Vagrant.configure("2") do |config|
     SCRIPT
   end
 
+  ###########
+  # Win10 Box
+  ###########
   config.vm.define "win10" do |win|
     win.vm.box = "fishi0x01/win-10-pro-x64"
     win.vm.box_version = "2021.03.03"
@@ -43,16 +46,18 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  ##########
-  # Test VMs
-  ##########
-  config.vm.define "test-ubuntu18.04" do |ubuntu|
-    ubuntu.vm.box = "bento/ubuntu-18.04"
-    ubuntu.vm.box_version = "202008.16.0"
+  #######################
+  # Provisioning Test VMs
+  #######################
+  config.vm.define "test-ubuntu20.04" do |ubuntu|
+    ubuntu.vm.box = "bento/ubuntu-20.04"
+    ubuntu.vm.box_version = "202012.23.0"
 
-    ubuntu.vm.provision "nix-and-dotfiles", type: "shell", inline: <<-SCRIPT
+    ubuntu.vm.provision "provision-workstation", type: "shell", inline: <<-SCRIPT
+      set -eou pipefail
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
+      su - vagrant -c "make -C /vagrant/ansible/ test-workstation"
       su - vagrant -c "make -C /vagrant/ delete-dotfiles"
       su - vagrant -c "/vagrant/scripts/delete/delete-nix.sh"
     SCRIPT

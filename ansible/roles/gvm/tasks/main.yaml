@@ -16,5 +16,7 @@
 - name: Install go1.4 for compilation of go1.5+
   become: yes
   become_user: "{{ machine_user }}"
-  shell: "gvm install go1.4 -B && gvm use go1.4 --default"
+  shell: ". ~/.gvm/scripts/gvm && gvm install go1.4 -B && gvm use go1.4 --default"
+  args:
+    executable: /bin/bash
   when: gvm_stat.stat.exists is defined and not gvm_stat.stat.exists

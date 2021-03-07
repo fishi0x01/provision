@@ -8,7 +8,7 @@
 - hosts: localhost
   become: true
   roles:
-    - system
+    - workstation
     - gpg
     - python
     - udev

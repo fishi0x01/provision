@@ -1,0 +1,17 @@
+---
+openhab:
+  handlers:
+    restart: "Debian10 restart openhab"
+  http_port: 8080
+  https_port: 8443
+  http_listen_address: 127.0.0.1
+  repository:
+    # key_url: "https://bintray.com/user/downloadSubjectPublicKey?username=openhab"
+    name: "deb https://dl.bintray.com/openhab/apt-repo2 stable main"
+  apt_dependencies:
+  - apt-transport-https
+  - openjdk-8-jre
+  - zip
+  apt_packages:
+  - openhab2
+  service_name: "openhab2"
