@@ -26,7 +26,7 @@ delete-dotfiles: ## Remove dotfile links
 	./scripts/delete/delete-dotfiles.sh
 
 ansible-provision: ## Run ansible playbook to provision localhost
-	$(MAKE) -C ansible provision
+	$(MAKE) -C ansible workstation
 
 vagrant-start-pentest: ## bootstrap the pentest box
 	vagrant up pentest
@@ -40,9 +40,9 @@ vagrant-start-win10: ## start the win10 box
 vagrant-hibernate-win10: ## hibernate the win10 box
 	vagrant suspend win10
 
-vagrant-test-ubuntu18.04: ## Run provisioning test on Ubuntu18.04
-	vagrant up test-ubuntu18.04
-	vagrant destroy -f test-ubuntu18.04
+ansible-test-ubuntu20.04: ## Test workspace provisioning on Ubuntu20.04
+	vagrant up test-ubuntu20.04
+	vagrant destroy -f test-ubuntu20.04
 
 setup-secrets: ## Set secret files
 	$(MAKE) -C scripts/secrets/ setup-secrets

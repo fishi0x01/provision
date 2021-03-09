@@ -12,6 +12,7 @@
   apt_repository:
     repo: "{{ docker.repo }}"
     state: present
+    mode: "600"
 
 - name: Install docker-ce
   apt:
@@ -27,7 +28,7 @@
     owner: "root"
     group: "root"
     mode: "644"
-  notify: 
+  notify:
     - "restart docker"
 
 - meta: flush_handlers

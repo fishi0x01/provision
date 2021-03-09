@@ -1,0 +1,5 @@
+---
+- hosts: openhab-pi
+  become: yes
+  roles:
+    - openhab-backup

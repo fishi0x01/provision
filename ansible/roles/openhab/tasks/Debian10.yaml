@@ -1,0 +1,41 @@
+---
+- name: Install required packages
+  apt:
+    name: "{{ openhab.apt_dependencies }}"
+    update_cache: yes
+    force_apt_get: yes
+    state: present
+
+- name: Add openhab repository key
+  apt_key:
+    data: "{{ lookup('file', 'files/openhab.pgp.pub') }}"
+    state: present
+
+- name: Add openhab repository
+  apt_repository:
+    repo: "{{ openhab.repository.name }}"
+    state: present
+
+- name: Install openhab
+  apt:
+    name: "{{ openhab.apt_packages }}"
+    update_cache: yes
+    force_apt_get: yes
+    state: present
+
+- name: Setup defaults
+  template:
+    src: defaults.openhab2.j2
+    dest: /etc/default/openhab2
+    owner: root
+    group: root
+    mode: '0644'
+  notify: "{{ openhab.handlers.restart }}"
+
+- name: Start and enable openhab service
+  service:
+    name: "{{ openhab.service_name }}"
+    enabled: yes
+    state: started
+
+- meta: flush_handlers

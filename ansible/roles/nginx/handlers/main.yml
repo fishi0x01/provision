@@ -1,0 +1,6 @@
+---
+- name: "Debian10 reload nginx"
+  service:
+    name: nginx
+    state: reloaded
+

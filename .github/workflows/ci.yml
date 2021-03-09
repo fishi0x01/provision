@@ -1,15 +1,19 @@
+---
 name: CI
-
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
-      - name: '[test] Ubuntu18.04'
+      - name: '[test] Ubuntu20.04'
         run: |
           ./scripts/install/install-nix.sh
           make install-dotfiles
