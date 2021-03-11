@@ -54,7 +54,7 @@ with pkgs; rec{
       go-jira
       gotop
       graphviz
-      #hadolint
+      hadolint
       hexyl
       hey
       htop 
@@ -67,7 +67,7 @@ with pkgs; rec{
       kazam
       keepassx2
       kicad
-      #libreoffice
+      libreoffice
       liferea
       lolcat
       lynx
@@ -83,7 +83,7 @@ with pkgs; rec{
       nix-serve 
       nload
       nms
-      #nodePackages.jshint
+      nodePackages.jshint
       nodePackages.jsonlint
       nox
       openjdk
