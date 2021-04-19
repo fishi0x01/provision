@@ -69,3 +69,4 @@ apt_packages:
 - "libusb-1.0-0-dev"
 - "gcc-arm-none-eabi"
 - "scdaemon"
+- "libreoffice"

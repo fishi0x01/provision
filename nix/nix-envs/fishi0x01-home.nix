@@ -15,7 +15,7 @@ with pkgs; rec{
       act
       ant
       asciinema
-      #ansible-lint
+      ansible-lint
       awscli
       aws-sam-cli
       bat
@@ -67,7 +67,6 @@ with pkgs; rec{
       kazam
       keepassx2
       kicad
-      libreoffice
       liferea
       lolcat
       lynx
