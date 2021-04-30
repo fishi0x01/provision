@@ -17,7 +17,7 @@ with pkgs; rec{
       asciinema
       ansible-lint
       awscli
-      aws-sam-cli
+      #aws-sam-cli
       bat
       black
       chafa
@@ -54,7 +54,7 @@ with pkgs; rec{
       go-jira
       gotop
       graphviz
-      hadolint
+      #hadolint
       hexyl
       hey
       htop 
@@ -95,7 +95,7 @@ with pkgs; rec{
       potrace
       powershell
       pwgen
-      python27Packages.virtualenv
+      #python27Packages.virtualenv
       python38Packages.flake8
       python38Packages.flake8-import-order
       python38Packages.pyflakes
