@@ -24,3 +24,4 @@
     - nvm
     - r
     - rust
+    - nrf_cmd_tools

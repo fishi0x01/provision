@@ -1,0 +1,50 @@
+---
+- name: Check if nRF Command Line Tools are installed
+  stat:
+    path: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}"
+  register: nrf_cmd_stats
+
+- name: Download and install nRF Command Line Tools
+  block:
+    - name: Download nRF Command Line Tools
+      get_url:
+        url: "{{ nrf_cmd_tools.url }}"
+        dest: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}.tar.gz"
+        checksum: "{{ nrf_cmd_tools.checksum }}"
+        mode: '0777'
+
+    - name: Ensure nRF Command Line Tools dir exists
+      file:
+        path: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}"
+        state: directory
+        mode: '0755'
+
+    - name: Ensure nRF Command Line Tools dir exists
+      file:
+        path: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}"
+        state: directory
+        mode: '0755'
+
+    - name: Unarchive nRF Command Line Tools
+      unarchive:
+        src: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}.tar.gz"
+        dest: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}"
+        remote_src: true
+        extra_opts:
+        - "--strip-components=1"
+
+    - name: Set permissions
+      file:
+        dest: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}"
+        owner: "{{ machine_user }}"
+        group: "{{ machine_user }}"
+        recurse: true
+
+    - name: Install JLink Stack
+      apt:
+        deb: /opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}/{{ nrf_cmd_tools.jlink_debfile }}
+
+    - name: Install nRF Command Lone Tools
+      apt:
+        deb: /opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}/{{ nrf_cmd_tools.nrf_debfile }}
+  when: not nrf_cmd_stats.stat.exists

@@ -1,0 +1,7 @@
+---
+nrf_cmd_tools:
+  version: "10.12.1"
+  url: "https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-12-1/nRFCommandLineTools10121Linuxamd64.tar.gz"
+  checksum: "sha256:B99558DD631DB7F06FE7CFAB0A876D352851BBC1E97015432486588B9CAF8184"
+  nrf_debfile: "nRF-Command-Line-Tools_10_12_1_Linux-amd64.deb"
+  jlink_debfile: "JLink_Linux_V688a_x86_64.deb"
