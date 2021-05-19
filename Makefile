@@ -15,8 +15,8 @@ nix-pen-env: ## Setup pentesting nix-env
 nix-minimal-env: ## Setup minimal nix-env
 	./nix/installer/install-env.sh fishi0x01-minimal
 
-nix-clean: ## Free up some storage
-	nix-collect-garbage
+nix-gc: ## Free up some storage
+	nix-store --gc
 	nix-store --optimise
 
 install-dotfiles: ## Setup dotfile links
