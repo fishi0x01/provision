@@ -22,6 +22,7 @@ with pkgs; rec{
       cmus
       colordiff
       crunch
+      dbeaver
       dos2unix
       dotnet-sdk
       enum4linux
@@ -72,6 +73,7 @@ with pkgs; rec{
       socat
       ssh-ident
       sshpass
+      sqsh
       telnet 
       thc-hydra
       tmux

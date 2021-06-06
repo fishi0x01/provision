@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
       su - vagrant -c "make -C /vagrant/ nix-pen-env"
+      su - vagrant -c "make -C /vagrant/ansible pentest-box"
     SCRIPT
   end
 
