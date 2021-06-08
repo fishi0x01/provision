@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   ############
   config.vm.define "pentest" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-20.04"
-    ubuntu.vm.box_version = "202012.23.0"
+    ubuntu.vm.box_version = "202105.25.0"
     ubuntu.vm.synced_folder "~/hackthebox.eu/", "/hackthebox.eu/", SharedFoldersEnableSymlinksCreate: false
 
     ubuntu.vm.provider "virtualbox" do |vb|
@@ -24,6 +24,8 @@ Vagrant.configure("2") do |config|
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
       su - vagrant -c "make -C /vagrant/ nix-pen-env"
       su - vagrant -c "make -C /vagrant/ansible pentest-box"
+      sudo bash -c 'echo "PasswordAuthentication no" >> /etc/ssh/sshd_config'
+      sudo service sshd reload
     SCRIPT
   end
 
