@@ -70,3 +70,4 @@ apt_packages:
 - "gcc-arm-none-eabi"
 - "scdaemon"
 - "libreoffice"
+- "mingw-w64"
