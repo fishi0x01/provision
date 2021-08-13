@@ -15,6 +15,7 @@
     - virtualbox
     - keybase
     - docker
+    - pycharm_community
     - arduino_ide
     - fritzing_ide
     - eagle_ide

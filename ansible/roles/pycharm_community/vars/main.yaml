@@ -1,0 +1,5 @@
+---
+pycharm_community:
+  version: "2021.2"
+  url: "https://download.jetbrains.com/python/pycharm-community-2021.2.tar.gz"
+  checksum: "sha256:bd861c446856b8b837542dffa1dd6607dcf5118a102a2461486714f44059b41c"

@@ -17,7 +17,7 @@ with pkgs; rec{
       asciinema
       ansible-lint
       awscli
-      aws-sam-cli
+      #aws-sam-cli
       bat
       black
       chafa

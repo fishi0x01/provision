@@ -1,6 +1,6 @@
 ---
 - name: Check if frtizing IDE is installed
-  stat: 
+  stat:
     path: "/opt/fritzing-{{ fritzing_ide.version }}"
   register: fritzing
 
