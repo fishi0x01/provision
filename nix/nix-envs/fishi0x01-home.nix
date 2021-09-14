@@ -17,7 +17,7 @@ with pkgs; rec{
       asciinema
       ansible-lint
       awscli
-      #aws-sam-cli
+      aws-sam-cli
       bat
       black
       chafa
@@ -66,8 +66,8 @@ with pkgs; rec{
       jq
       kazam
       keepassx2
-      kicad
-      liferea
+      # kicad
+      # liferea
       lolcat
       lynx
       maven
@@ -85,7 +85,8 @@ with pkgs; rec{
       nodePackages.jshint
       nodePackages.jsonlint
       nox
-      openjdk
+      # openjdk
+      jdk8
       p7zip
       packer
       pandoc
@@ -93,7 +94,7 @@ with pkgs; rec{
       peco
       podman
       potrace
-      powershell
+      # powershell
       pwgen
       python38Packages.flake8
       python38Packages.flake8-import-order

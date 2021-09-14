@@ -4,3 +4,4 @@ cargo_packages:
   - "gping"
   - "cargo-crev"
   - "diesel_cli --no-default-features --features postgres"
+  - "htmlq"

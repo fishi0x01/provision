@@ -15,10 +15,10 @@
   when: not rustup_stat.stat.exists
 
   # TODO
-  #- name: Install cargo packages
-  #  become: yes
-  #  become_user: "{{ machine_user }}"
-  #  shell: "~/.cargo/bin/cargo install {{ item }}"
-  #  register: cargo_result
-  #  changed_when: "'Ignored package' not in cargo_result.stderr"
-  #  with_items: "{{ cargo_packages }}"
+  # - name: Install cargo packages
+  #   become: yes
+  #   become_user: "{{ machine_user }}"
+  #   shell: "~/.cargo/bin/cargo install {{ item }}"
+  #   register: cargo_result
+  #   changed_when: "'Ignored package' not in cargo_result.stderr"
+  #   with_items: "{{ cargo_packages }}"

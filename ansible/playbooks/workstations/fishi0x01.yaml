@@ -23,6 +23,7 @@
     - android_studio
     - gvm
     - nvm
+    - rbenv
     - r
     - rust
     - nrf_cmd_tools

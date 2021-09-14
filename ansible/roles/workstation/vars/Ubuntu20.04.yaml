@@ -71,3 +71,4 @@ apt_packages:
 - "scdaemon"
 - "libreoffice"
 - "mingw-w64"
+- "linux-tools-generic"

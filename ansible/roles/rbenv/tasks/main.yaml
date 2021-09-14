@@ -10,6 +10,5 @@
 - name: Install rbenv
   become: yes
   become_user: "{{ machine_user }}"
-  script: "files/rbenv-installer" 
+  script: "files/rbenv-installer"
   when: not rbenv_stat.stat.exists
-
