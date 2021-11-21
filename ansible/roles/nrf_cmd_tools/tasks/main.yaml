@@ -9,15 +9,9 @@
     - name: Download nRF Command Line Tools
       get_url:
         url: "{{ nrf_cmd_tools.url }}"
-        dest: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}.tar.gz"
+        dest: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}.zip"
         checksum: "{{ nrf_cmd_tools.checksum }}"
         mode: '0777'
-
-    - name: Ensure nRF Command Line Tools dir exists
-      file:
-        path: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}"
-        state: directory
-        mode: '0755'
 
     - name: Ensure nRF Command Line Tools dir exists
       file:
@@ -27,7 +21,13 @@
 
     - name: Unarchive nRF Command Line Tools
       unarchive:
-        src: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}.tar.gz"
+        src: "/tmp/nrf-cmd-tools-{{ nrf_cmd_tools.version }}.zip"
+        dest: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}"
+        remote_src: true
+
+    - name: Unarchive nRF Command Line Tools
+      unarchive:
+        src: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}/nrf-command-line-tools-{{ nrf_cmd_tools.version }}_Linux-amd64.tar.gz"
         dest: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}"
         remote_src: true
         extra_opts:

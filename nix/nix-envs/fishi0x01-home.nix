@@ -42,10 +42,11 @@ with pkgs; rec{
       gdb
       ghidra-bin
       gimp
-      git
+      # TODO: next week
+      # git
       gitAndTools.gh
       git-crypt
-      git-lfs
+      git-lfs1
       git-secrets
       gitAndTools.delta
       glibcLocales
@@ -66,7 +67,7 @@ with pkgs; rec{
       jq
       kazam
       keepassx2
-      # kicad
+      kicad
       # liferea
       lolcat
       lynx
