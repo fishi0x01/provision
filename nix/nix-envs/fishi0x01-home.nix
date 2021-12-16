@@ -42,8 +42,7 @@ with pkgs; rec{
       gdb
       ghidra-bin
       gimp
-      # TODO: next week
-      # git
+      git
       gitAndTools.gh
       git-crypt
       git-lfs1
