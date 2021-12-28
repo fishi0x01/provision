@@ -68,3 +68,5 @@ apt_packages:
 - "scdaemon"
 - "mingw-w64"
 - "linux-tools-generic"
+- "mdadm"
+- "cifs-utils"

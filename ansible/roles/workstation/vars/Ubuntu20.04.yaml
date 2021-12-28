@@ -72,3 +72,5 @@ apt_packages:
 - "libreoffice"
 - "mingw-w64"
 - "linux-tools-generic"
+- "mdadm"
+- "cifs-utils"
