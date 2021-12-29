@@ -3,7 +3,7 @@ virtualbox:
   repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal contrib"
   packages:
   - "virtualbox-6.1"
-  - "virtualbox-ext-pack"  # Note: this is not the latest package. Upgrade package in VBox GUI.
+  #- "virtualbox-ext-pack"  # Note: repo not having latest version -> do it manually in GUI
   debconf:
   # debconf-show virtualbox-ext-pack
   - package: "virtualbox-ext-pack"

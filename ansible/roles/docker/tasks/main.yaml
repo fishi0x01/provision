@@ -21,6 +21,17 @@
     force_apt_get: yes
     state: present
 
+- name: Ensure docker group exists
+  group:
+    name: docker
+    state: present
+
+- name: Non-root access
+  user:
+    name: "{{ machine_user }}"
+    groups: docker
+    append: yes
+
 - name: Configure docker-ce
   template:
     src: "templates/docker-daemon.json"

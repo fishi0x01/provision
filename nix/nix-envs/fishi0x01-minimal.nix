@@ -14,7 +14,6 @@ with pkgs; rec{
       ack
       bat    
       fd     
-      git 
       gitAndTools.delta
       gnumake
       gotop

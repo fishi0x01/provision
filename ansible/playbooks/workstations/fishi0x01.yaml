@@ -12,8 +12,7 @@
     - gpg
     - python
     - udev
-    # TODO: fix
-    #- virtualbox
+    - virtualbox
     - keybase
     - docker
     - pycharm_community

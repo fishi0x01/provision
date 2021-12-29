@@ -29,7 +29,6 @@ with pkgs; rec{
       fd
       gdb
       ghidra-bin
-      git
       gitAndTools.delta
       glibcLocales
       gnumake
