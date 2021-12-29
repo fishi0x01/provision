@@ -8,6 +8,14 @@
 #  become_user: "{{ machine_user }}"
 #  command: "gpg --import files/{{ gpg.trusted_key_long_id }}.asc"
 
+- name: Ensure .ssh dir exists
+  file:
+    path: "/home/{{ machine_user }}/.ssh"
+    state: directory
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: '0755'
+
 - name: Place ssh pub key
   copy:
     src: "files/fishi0x01-ssh.pub"

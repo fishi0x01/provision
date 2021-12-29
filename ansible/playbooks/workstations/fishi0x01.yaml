@@ -12,12 +12,14 @@
     - gpg
     - python
     - udev
-    - virtualbox
+    # TODO: fix
+    #- virtualbox
     - keybase
     - docker
     - pycharm_community
     - arduino_ide
-    - fritzing_ide
+    # TODO: fix
+    #- fritzing_ide
     - eagle_ide
     - flutter
     - android_studio
@@ -25,5 +27,5 @@
     - nvm
     - rbenv
     - r
-    - rust
     - nrf_cmd_tools
+    - rust
