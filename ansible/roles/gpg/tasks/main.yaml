@@ -2,11 +2,21 @@
 - name: distribution specific vars
   include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
 
-# TODO: gpg --import files/91F47B8CE96231C3.asc
-#- name: Import trusted key
-#  become: yes
-#  become_user: "{{ machine_user }}"
-#  command: "gpg --import files/{{ gpg.trusted_key_long_id }}.asc"
+# TODO: only do this when key does not exist yet
+- name: Put trusted keys into chain
+  block:
+  - name: Copy trusted key
+    copy:
+      src: files/{{ gpg.trusted_key_long_id }}.asc
+      dest: /tmp/{{ gpg.trusted_key_long_id }}.asc
+      owner: "{{ machine_user }}"
+      group: "{{ machine_user }}"
+      mode: '0644'
+
+  - name: Import trusted key
+    become: yes
+    become_user: "{{ machine_user }}"
+    command: "gpg --import /tmp/{{ gpg.trusted_key_long_id }}.asc"
 
 - name: Ensure .ssh dir exists
   file:

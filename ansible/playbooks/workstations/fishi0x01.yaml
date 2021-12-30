@@ -12,8 +12,9 @@
     - gpg
     - python
     - udev
-    - virtualbox
     - keybase
+    - veracrypt
+    - virtualbox
     - docker
     - pycharm_community
     - arduino_ide

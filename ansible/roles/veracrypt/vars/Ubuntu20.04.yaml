@@ -1,0 +1,4 @@
+---
+urls:
+  deb: "https://launchpad.net/veracrypt/trunk/1.25.4/+download/veracrypt-console-1.25.4-Ubuntu-20.04-amd64.deb"
+  sig: "https://launchpad.net/veracrypt/trunk/1.25.4/+download/veracrypt-console-1.25.4-Ubuntu-20.04-amd64.deb.sig"
