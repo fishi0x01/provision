@@ -16,6 +16,7 @@
     - veracrypt
     - virtualbox
     - docker
+    - vscode
     - pycharm_community
     - arduino_ide
     # TODO: fix

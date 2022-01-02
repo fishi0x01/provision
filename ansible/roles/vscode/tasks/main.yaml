@@ -1,0 +1,19 @@
+---
+- name: Add microsoft.asc
+  apt_key:
+    # https://packages.microsoft.com/keys/microsoft.asc
+    data: "{{ lookup('file', 'files/microsoft.asc') }}"
+    state: present
+
+- name: Add vscode repo
+  apt_repository:
+    repo: "deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main"
+    state: present
+    mode: "600"
+
+- name: Install vscode
+  apt:
+    name: "code"
+    update_cache: yes
+    force_apt_get: yes
+    state: present
