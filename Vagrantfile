@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   ############
   config.vm.define "pentest" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-20.04"
-    ubuntu.vm.box_version = "202105.25.0"
+    ubuntu.vm.box_version = "202112.19.0"
     ubuntu.vm.synced_folder "~/hackthebox.eu/", "/hackthebox.eu/", SharedFoldersEnableSymlinksCreate: false
 
     ubuntu.vm.provider "virtualbox" do |vb|
@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     ubuntu.vm.provision "provision", type: "shell", inline: <<-SCRIPT
       sudo apt-get update 
       sudo apt-get upgrade -y
-      sudo apt-get install -y --no-install-recommends ubuntu-desktop firefox
+      sudo apt-get install -y --no-install-recommends ubuntu-desktop firefox git
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
       su - vagrant -c "make -C /vagrant/ nix-pen-env"

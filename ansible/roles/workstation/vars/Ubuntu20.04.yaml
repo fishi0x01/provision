@@ -75,3 +75,4 @@ apt_packages:
 - "linux-tools-generic"
 - "mdadm"
 - "cifs-utils"
+- "whois"
