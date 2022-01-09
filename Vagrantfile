@@ -19,12 +19,13 @@ Vagrant.configure("2") do |config|
     ubuntu.vm.provision "provision", type: "shell", inline: <<-SCRIPT
       sudo apt-get update 
       sudo apt-get upgrade -y
-      sudo apt-get install -y --no-install-recommends ubuntu-desktop firefox git
+      sudo apt-get install -y --no-install-recommends ubuntu-desktop firefox
+      sudo apt-get install -y git openvpn
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
       su - vagrant -c "make -C /vagrant/ nix-pen-env"
       su - vagrant -c "make -C /vagrant/ansible pentest-box"
-      sudo bash -c 'echo "PasswordAuthentication no" >> /etc/ssh/sshd_config'
+      sudo bash -c 'sed -i "s/PasswordAuthentication\ yes/PasswordAuthentication\ no/g" /etc/ssh/sshd_config'
       sudo service sshd reload
     SCRIPT
   end
@@ -54,7 +55,7 @@ Vagrant.configure("2") do |config|
   #######################
   config.vm.define "test-ubuntu20.04" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-20.04"
-    ubuntu.vm.box_version = "202012.23.0"
+    ubuntu.vm.box_version = "202112.19.0"
 
     ubuntu.vm.provision "provision-workstation", type: "shell", inline: <<-SCRIPT
       set -eou pipefail

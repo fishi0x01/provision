@@ -33,6 +33,7 @@ in
         "vim-jinja"
         "vim-jsx-pretty"
         "vim-toml"
+        "vim-vagrant"
       ];}
     ];
   };
