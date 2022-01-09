@@ -53,15 +53,12 @@ with pkgs; rec{
       nmap
       nms
       nox
-      openvpn
       p7zip
       peco
       potrace
       powershell
       proxychains
       pwgen
-      python27Packages.virtualenv
-      python3.7
       python38Packages.sqlmap
       rdesktop
       reptyr
