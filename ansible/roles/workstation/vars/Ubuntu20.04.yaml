@@ -76,3 +76,4 @@ apt_packages:
 - "mdadm"
 - "cifs-utils"
 - "whois"
+- "rawtherapee"

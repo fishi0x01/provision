@@ -10,6 +10,7 @@
     branch-mv = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} "$2"; }; f"
     rmc = rm --cached
     rerun-ci = !git commit -m \"Rerun CI\" --allow-empty && git push
+    synch-upstream = !git pull upstream master && git checkout master && git merge master
     objects-in-history = !git rev-list --objects --all \
         | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
         | sed -n 's/^blob //p' \

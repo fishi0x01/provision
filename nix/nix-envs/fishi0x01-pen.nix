@@ -26,6 +26,7 @@ with pkgs; rec{
       dos2unix
       dotnet-sdk
       enum4linux
+      filezilla
       fd
       gdb
       ghidra-bin
