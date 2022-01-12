@@ -29,6 +29,7 @@ with pkgs; rec{
       filezilla
       fd
       gdb
+      gobuster
       ghidra-bin
       gitAndTools.delta
       glibcLocales
