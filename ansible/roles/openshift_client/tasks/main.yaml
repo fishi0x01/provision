@@ -24,6 +24,9 @@
         src: "/tmp/oc-{{ oc.version }}.tar.gz"
         dest: "/opt/oc-{{ oc.version }}/"
         remote_src: true
+
+    - name: Bash completion
+      shell: "/opt/oc-{{ oc.version }}/oc completion bash > /etc/bash_completion.d/oc_completion"
   when: not openshift_client.stat.exists
 
 - name: OC link
