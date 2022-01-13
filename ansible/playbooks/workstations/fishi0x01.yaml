@@ -16,6 +16,7 @@
     - veracrypt
     - virtualbox
     - docker
+    - openshift_client
     - vscode
     - pycharm_community
     - arduino_ide
