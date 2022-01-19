@@ -5,12 +5,13 @@
 
 
 [alias]
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %C(green)%ad%Creset\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %C(green)%ad%Creset\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     branch-mv = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} "$2"; }; f"
     rmc = rm --cached
     rerun-ci = !git commit -m \"Rerun CI\" --allow-empty && git push
-    synch-upstream = !git pull upstream master && git checkout master && git merge upstream/master
+    synch-upstream-master = !git pull upstream master && git checkout master && git merge upstream/master
+    synch-upstream-main = !git pull upstream main && git checkout main && git merge upstream/main
     objects-in-history = !git rev-list --objects --all \
         | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
         | sed -n 's/^blob //p' \

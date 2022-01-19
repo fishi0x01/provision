@@ -91,7 +91,6 @@ with pkgs; rec{
       pandoc
       pass
       peco
-      podman
       potrace
       # powershell
       pwgen
@@ -128,6 +127,7 @@ with pkgs; rec{
       unrar
       vagrant
       valgrind
+      vault
       vscode
       vsh
       wget
