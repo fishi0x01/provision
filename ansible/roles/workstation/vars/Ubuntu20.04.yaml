@@ -78,3 +78,7 @@ apt_packages:
 - "whois"
 - "rawtherapee"
 - "python3-venv"
+- "hplip"
+- "hplip-gui"
+- "simple-scan"
+- "sdparm"

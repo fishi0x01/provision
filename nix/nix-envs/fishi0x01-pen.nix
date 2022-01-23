@@ -15,7 +15,6 @@ with pkgs; rec{
       ant
       awscli
       bat
-      burpsuite
       cadaver
       cmake
       cmatrix
@@ -45,7 +44,6 @@ with pkgs; rec{
       jq
       liferea
       mc
-      metasploit
       mkvtoolnix
       most
       my_vim.pkg
@@ -68,12 +66,9 @@ with pkgs; rec{
       rlwrap
       scrot
       smbclient
-      socat
       ssh-ident
       sshpass
       sqsh
-      telnet 
-      thc-hydra
       tmux
       tree 
       unrar

@@ -3,12 +3,12 @@ Vagrant.configure("2") do |config|
   ############
   # Pentesting
   ############
-  config.vm.define "pentest" do |ubuntu|
-    ubuntu.vm.box = "bento/ubuntu-20.04"
-    ubuntu.vm.box_version = "202112.19.0"
-    ubuntu.vm.synced_folder "~/Workspaces/fishi0x01/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
+  config.vm.define "pentest" do |kali|
+    kali.vm.box = "kalilinux/rolling"
+    kali.vm.box_version = "2021.3.0"
+    kali.vm.synced_folder "~/Workspaces/fishi0x01/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
 
-    ubuntu.vm.provider "virtualbox" do |vb|
+    kali.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
       vb.cpus = 2
       vb.gui = true
@@ -16,17 +16,19 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--vram", "128"]
     end
 
-    ubuntu.vm.provision "provision", type: "shell", inline: <<-SCRIPT
-      sudo apt-get update 
-      sudo apt-get upgrade -y
-      sudo apt-get install -y --no-install-recommends ubuntu-desktop firefox
-      sudo apt-get install -y git openvpn
+    kali.vm.provision "provision", type: "shell", inline: <<-SCRIPT
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
-      su - vagrant -c "make -C /vagrant/ nix-pen-env"
-      su - vagrant -c "make -C /vagrant/ansible pentest-box"
-      sudo bash -c 'sed -i "s/PasswordAuthentication\ yes/PasswordAuthentication\ no/g" /etc/ssh/sshd_config'
+      sudo bash -c 'sed -i "s/#PasswordAuthentication\ yes/PasswordAuthentication\ no/g" /etc/ssh/sshd_config'
       sudo service sshd reload
+
+      # TODO: manually for now inside VM
+      #su - vagrant -c "make -C /vagrant/ansible pentest-box"
+      #sudo apt-get update
+      #sudo apt-get upgrade
+      #
+      # TODO: maybe redundant
+      #su - vagrant -c "make -C /vagrant/ nix-pen-env"
     SCRIPT
   end
 
