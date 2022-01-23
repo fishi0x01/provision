@@ -26,9 +26,6 @@ Vagrant.configure("2") do |config|
       #su - vagrant -c "make -C /vagrant/ansible pentest-box"
       #sudo apt-get update
       #sudo apt-get upgrade
-      #
-      # TODO: maybe redundant
-      #su - vagrant -c "make -C /vagrant/ nix-pen-env"
     SCRIPT
   end
 
