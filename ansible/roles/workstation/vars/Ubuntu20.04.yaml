@@ -85,3 +85,4 @@ apt_packages:
 - "tox"
 - "yubikey-manager"
 - "yubikey-personalization"
+- "yubico-piv-tool"
