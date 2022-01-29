@@ -1,7 +1,7 @@
 ---
 - name: Check if Openshift Client is installed
   stat:
-    path: "/opt/openshift-client-{{ oc.version }}"
+    path: "/opt/oc-{{ oc.version }}"
   register: openshift_client
 
 - name: Download and install Openshift Client

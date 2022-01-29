@@ -1,1 +1,3 @@
-trusted-key {{ gpg.trusted_key_long_id }}
+{% for k in gpg.pub_keys %}
+trusted-key {{ k.trusted_key_long_id }}
+{% endfor %}

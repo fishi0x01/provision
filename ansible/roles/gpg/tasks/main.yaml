@@ -7,16 +7,18 @@
   block:
   - name: Copy trusted key
     copy:
-      src: files/{{ gpg.trusted_key_long_id }}.asc
-      dest: /tmp/{{ gpg.trusted_key_long_id }}.asc
+      src: files/{{ item.trusted_key_long_id }}.asc
+      dest: /tmp/{{ item.trusted_key_long_id }}.asc
       owner: "{{ machine_user }}"
       group: "{{ machine_user }}"
       mode: '0644'
+    loop: "{{ gpg.pub_keys }}"
 
   - name: Import trusted key
     become: yes
     become_user: "{{ machine_user }}"
-    command: "gpg --import /tmp/{{ gpg.trusted_key_long_id }}.asc"
+    command: "gpg --import /tmp/{{ item.trusted_key_long_id }}.asc"
+    loop: "{{ gpg.pub_keys }}"
 
 - name: Ensure .ssh dir exists
   file:
@@ -28,11 +30,12 @@
 
 - name: Place ssh pub key
   copy:
-    src: "files/fishi0x01-ssh.pub"
-    dest: "{{ gpg.ssh_pub_file }}"
+    src: "files/{{ item.ssh_pub_file }}"
+    dest: "{{ item.ssh_pub_dest }}"
     owner: "{{ machine_user }}"
     group: "{{ machine_user }}"
     mode: "644"
+  loop: "{{ gpg.pub_keys }}"
 
 - name: Set gpg-agent.conf
   become: yes

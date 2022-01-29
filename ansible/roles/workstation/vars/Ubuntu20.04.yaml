@@ -82,3 +82,6 @@ apt_packages:
 - "hplip-gui"
 - "simple-scan"
 - "sdparm"
+- "tox"
+- "yubikey-manager"
+- "yubikey-personalization"
