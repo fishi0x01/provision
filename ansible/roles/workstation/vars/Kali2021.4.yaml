@@ -2,3 +2,6 @@
 apt_packages:
 - "gobuster"
 - "dbeaver"
+- "rlwrap"
+- "gdb"
+- "python3-venv"

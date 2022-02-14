@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
 
     kali.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
-      vb.cpus = 2
+      vb.cpus = `nproc`.to_i
       vb.gui = true
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
       vb.customize ["modifyvm", :id, "--vram", "128"]
