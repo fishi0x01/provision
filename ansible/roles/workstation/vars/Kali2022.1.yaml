@@ -5,3 +5,4 @@ apt_packages:
 - "rlwrap"
 - "gdb"
 - "python3-venv"
+- "ghidra"

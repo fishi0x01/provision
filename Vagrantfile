@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   ############
   config.vm.define "pentest" do |kali|
     kali.vm.box = "kalilinux/rolling"
-    kali.vm.box_version = "2021.3.0"
+    kali.vm.box_version = "2022.1.0"
     kali.vm.synced_folder "~/Workspaces/fishi0x01/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
 
     kali.vm.provider "virtualbox" do |vb|
@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
       sudo service sshd reload
 
       # TODO: manually for now inside VM
+      #passwd vagrant
       #su - vagrant -c "make -C /vagrant/ansible pentest-box"
       #sudo apt-get update
       #sudo apt-get upgrade
