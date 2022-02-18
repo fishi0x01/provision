@@ -7,3 +7,5 @@ apt_packages:
 - "python3-venv"
 - "ghidra"
 - "libssl-dev"
+- "cmake"
+- "libimage-exiftool-perl"

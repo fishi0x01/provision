@@ -17,8 +17,10 @@ Vagrant.configure("2") do |config|
     end
 
     kali.vm.provision "provision", type: "shell", inline: <<-SCRIPT
+      sudo chsh vagrant -s /bin/bash
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
+      echo "if [ -e /home/vagrant/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vagrant/.nix-profile/etc/profile.d/nix.sh; fi" >> /home/vagrant/.bashrc
       sudo bash -c 'sed -i "s/#PasswordAuthentication\ yes/PasswordAuthentication\ no/g" /etc/ssh/sshd_config'
       sudo service sshd reload
 
