@@ -6,3 +6,4 @@ apt_packages:
 - "gdb"
 - "python3-venv"
 - "ghidra"
+- "libssl-dev"
