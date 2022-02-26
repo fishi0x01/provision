@@ -1,2 +1,20 @@
 #!/bin/bash
-DOTFILES=(".starship.toml" ".tmux.conf" ".bash_aliases" ".bash_exports" ".bash_sources" ".gitconfig" ".gitaliases" ".git-completion.sh" ".pass-completion.sh" ".fishi-sampler-local.yaml" ".alacritty.yml" ".pylintrc" ".flake8" ".mdlrc" ".yamllint.yaml" ".todo.cfg" ".todo_completion")
+DOTFILES=(
+    ".starship.toml"
+    ".tmux.conf"
+    ".bash_aliases"
+    ".bash_exports"
+    ".bash_sources"
+    ".gitconfig"
+    ".gitaliases"
+    ".git-completion.sh"
+    ".pass-completion.sh"
+    ".fishi-sampler-local.yaml"
+    ".alacritty.yml"
+    ".pylintrc"
+    ".flake8"
+    ".mdlrc"
+    ".yamllint.yaml"
+    ".todo.cfg"
+    ".todo_completion"
+)

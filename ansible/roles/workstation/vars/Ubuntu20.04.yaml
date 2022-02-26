@@ -86,3 +86,5 @@ apt_packages:
 - "yubikey-manager"
 - "yubikey-personalization"
 - "yubico-piv-tool"
+- "exfat-fuse"
+- "exfat-utils"

@@ -138,3 +138,10 @@ zzSwitchYubikey() {
   ${GPG} --card-status
 }
 alias switchYubikey=zzSwitchYubikey
+
+
+
+########
+# Docker
+########
+alias postfiledumphere='docker run --rm -it -p80:3000 -v "${PWD}:/data" rflathers/postfiledump'
