@@ -88,3 +88,4 @@ apt_packages:
 - "yubico-piv-tool"
 - "exfat-fuse"
 - "exfat-utils"
+- "gawk"

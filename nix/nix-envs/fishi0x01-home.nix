@@ -32,7 +32,7 @@ with pkgs; rec{
       diesel-cli
       diskonaut
       dmg2img
-      docker_compose
+      docker-compose
       dos2unix
       dosbox
       dotnet-sdk
@@ -57,7 +57,7 @@ with pkgs; rec{
       hexyl
       hey
       htop 
-      idea.idea-community
+      jetbrains.idea-community
       iftop
       imagemagick
       inkscape
@@ -65,7 +65,7 @@ with pkgs; rec{
       jq
       kazam
       keepassx2
-      kicad
+      # kicad
       # liferea
       lolcat
       lynx
@@ -110,13 +110,13 @@ with pkgs; rec{
       simplescreenrecorder
       skypeforlinux
       slack
-      smbclient
+      samba
       socat
       spotify
       spotify-tui
       sshpass
       starship
-      telnet 
+      inetutils 
       texlive.combined.scheme-full
       tflint
       thefuck
@@ -128,7 +128,6 @@ with pkgs; rec{
       vagrant
       valgrind
       vault
-      vscode
       vsh
       wget
       xclip
