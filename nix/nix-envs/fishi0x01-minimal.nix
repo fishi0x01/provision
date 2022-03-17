@@ -29,7 +29,7 @@ with pkgs; rec{
       pass
       pwgen
       ripgrep
-      telnet 
+      inetutils
       tmux
       tree 
       wget
