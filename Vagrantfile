@@ -26,9 +26,10 @@ Vagrant.configure("2") do |config|
 
       # TODO: manually for now inside VM
       #passwd vagrant
-      #su - vagrant -c "make -C /vagrant/ansible pentest-box"
+      #chsh -s /bin/bash
       #sudo apt-get update
       #sudo apt-get upgrade
+      #su - vagrant -c "make -C /vagrant/ansible pentest-box"
     SCRIPT
   end
 

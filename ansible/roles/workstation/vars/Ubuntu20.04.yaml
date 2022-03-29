@@ -77,7 +77,6 @@ apt_packages:
 - "cifs-utils"
 - "whois"
 - "rawtherapee"
-- "python3-venv"
 - "hplip"
 - "hplip-gui"
 - "simple-scan"
