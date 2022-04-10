@@ -5,3 +5,13 @@
     force_apt_get: yes
     state: present
     update_cache: yes
+
+- name: Enable snapd
+  ansible.builtin.service:
+    name: snapd
+    enabled: yes
+
+- name: Android anbox
+  snap:
+    name: anbox
+    channel: beta

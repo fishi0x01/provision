@@ -9,3 +9,5 @@ apt_packages:
 - "libssl-dev"
 - "cmake"
 - "libimage-exiftool-perl"
+- "snapd"
+- "adb"
