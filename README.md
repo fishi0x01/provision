@@ -35,3 +35,7 @@ Nix single-user install has limitations. Some stuff should happen through system
 ```
 make ansible-provision
 ```
+
+## TODO
+
+- nrf udev rules https://github.com/NordicSemiconductor/nrf-udev/releases

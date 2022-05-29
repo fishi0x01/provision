@@ -4,7 +4,8 @@ let
   my_vim = import ./vim/default.nix { 
     pkgs = pkgs; 
     ### python3 support
-    vim_configurable = vim_configurable.override { python = pkgs.python3; };
+    # vim_configurable = vim_configurable.override { python = pkgs.python3; };
+    vim_configurable = vim_configurable;
   };
 in
 with pkgs; rec{
@@ -16,8 +17,8 @@ with pkgs; rec{
       ant
       asciinema
       ansible-lint
-      awscli
-      aws-sam-cli
+      # awscli
+      # aws-sam-cli
       bat
       black
       chafa
@@ -65,7 +66,6 @@ with pkgs; rec{
       jq
       kazam
       keepassx2
-      # kicad
       # liferea
       lolcat
       lynx

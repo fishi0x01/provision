@@ -1,0 +1,9 @@
+---
+- name: Add kicad from PPA and install its signing key
+  ansible.builtin.apt_repository:
+    repo: "{{ kicad.ppa }}"
+
+- name: Install kicad
+  apt:
+    name: kicad
+    state: present

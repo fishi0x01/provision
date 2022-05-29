@@ -8,28 +8,24 @@
 - hosts: localhost
   become: true
   roles:
-    - signal_desktop
     - workstation
     - gpg
     - python
     - pyenv
     - udev
     - keybase
-    - veracrypt
+    - kicad
     - virtualbox
     - docker
     - openshift_client
     - vscode
     - pycharm_community
     - arduino_ide
-    # TODO: fix
-    #- fritzing_ide
-    - eagle_ide
     - flutter
     - android_studio
     - gvm
     - nvm
     - rbenv
     - r
-    - nrf_cmd_tools
     - rust
+    - signal_desktop

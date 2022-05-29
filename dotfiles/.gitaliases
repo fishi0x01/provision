@@ -5,8 +5,9 @@
 
 
 [alias]
+    ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %C(green)%ad%Creset\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %C(green)%ad%Creset\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lsa = log --pretty=format:"%C(yellow)%h%Cred%d\\ %C(green)%ad%Creset\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     branch-mv = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} "$2"; }; f"
     rmc = rm --cached
     rerun-ci = !git commit -m \"Rerun CI\" --allow-empty && git push

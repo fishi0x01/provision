@@ -3,7 +3,7 @@ with import <nixpkgs> {};
 stdenv.mkDerivation rec {
   name = "ansible-environment";
   buildInputs = [ 
-    ansible_2_10
+    ansible_2_12
     python38Packages.pyyaml
     python38Packages.asn1crypto
     python38Packages.bcrypt
