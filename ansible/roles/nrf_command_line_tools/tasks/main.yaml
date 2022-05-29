@@ -48,3 +48,11 @@
       apt:
         deb: /opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}/{{ nrf_cmd_tools.nrf_debfile }}
   when: not nrf_cmd_stats.stat.exists
+
+- name: nRF Command Line Tools link
+  file:
+    src: "/opt/nrf-cmd-tools-src-{{ nrf_cmd_tools.version }}"
+    dest: "/opt/nrf-command-line-tools"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link

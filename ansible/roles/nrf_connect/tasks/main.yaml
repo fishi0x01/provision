@@ -1,0 +1,29 @@
+---
+- name: Check if nRF Connect is installed
+  stat:
+    path: "/opt/nrf-connect-{{ nrf_connect.version }}"
+  register: nrf_connect_stats
+
+- name: Download and install nRF Connect
+  block:
+    - name: Ensure nRF Connect dir exists
+      file:
+        path: "/opt/nrf-connect-{{ nrf_connect.version }}"
+        state: directory
+        mode: '0755'
+
+    - name: Download nRF Connect
+      get_url:
+        url: "{{ nrf_connect.url }}"
+        dest: "/opt/nrf-connect-{{ nrf_connect.version }}/nrfconnect.AppImage"
+        checksum: "{{ nrf_connect.checksum }}"
+        mode: '0755'
+  when: not nrf_connect_stats.stat.exists
+
+- name: nRF Connect link
+  file:
+    src: "/opt/nrf-connect-{{ nrf_connect.version }}"
+    dest: "/opt/nrf-connect"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link

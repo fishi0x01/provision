@@ -10,4 +10,4 @@
   changed_when: False
 
 - name: distribution specific install
-  include: "{{ distribution_name.stdout }}{{ distribution_version.stdout }}.yaml"
+  include_tasks: "{{ distribution_name.stdout }}{{ distribution_version.stdout }}.yaml"
