@@ -1,13 +1,13 @@
 ---
 apt_packages:
-- "gobuster"
-- "dbeaver"
-- "rlwrap"
-- "gdb"
-- "python3-venv"
-- "ghidra"
-- "libssl-dev"
-- "cmake"
-- "libimage-exiftool-perl"
-- "snapd"
-- "adb"
+- gobuster
+- dbeaver
+- rlwrap
+- gdb
+- python3-venv
+- ghidra
+- libssl-dev
+- cmake
+- libimage-exiftool-perl
+- snapd
+- adb
