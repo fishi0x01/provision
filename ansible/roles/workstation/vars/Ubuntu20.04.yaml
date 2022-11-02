@@ -93,3 +93,5 @@ apt_packages:
 - libboost-python-dev
 - libboost-thread-dev
 - libboost-all-dev
+- device-tree-compiler
+- okular

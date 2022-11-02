@@ -1,0 +1,50 @@
+---
+- name: Check if Zephyr SDK is installed
+  stat:
+    path: "/opt/zephyr-sdk-{{ zephyr_sdk.version }}"
+  register: zephyr_sdk_stats
+
+- name: Download and install Zephyr SDK
+  block:
+    - name: Download Zephyr SDK
+      get_url:
+        url: "{{ zephyr_sdk.download_url }}"
+        dest: "/tmp/zephyr-sdk-{{ zephyr_sdk.version }}.tar.gz"
+        checksum: "{{ zephyr_sdk.checksum }}"
+        mode: '0777'
+
+    - name: Ensure Zephyr SDK dir exists
+      file:
+        path: "/opt/zephyr-sdk-{{ zephyr_sdk.version }}"
+        state: directory
+        mode: '0755'
+
+    - name: Unarchive Zephyr SDK
+      unarchive:
+        src: "/tmp/zephyr-sdk-{{ zephyr_sdk.version }}.tar.gz"
+        dest: "/opt/zephyr-sdk-{{ zephyr_sdk.version }}"
+        remote_src: true
+        extra_opts:
+        - "--strip-components=1"
+
+    - name: Set permissions
+      file:
+        dest: "/opt/zephyr-sdk-{{ zephyr_sdk.version }}"
+        owner: "{{ machine_user }}"
+        group: "{{ machine_user }}"
+        recurse: true
+
+    # This must be executed manually -> interactive script ..
+    #- name: Install Zephyr SDK
+    #  become: yes
+    #  become_user: "{{ machine_user }}"
+    #  command: "bash /opt/zephyr-sdk-{{ zephyr_sdk.version }}/setup.sh"
+  when: not zephyr_sdk_stats.stat.exists
+
+- name: Zephyr SDK link
+  file:
+    src: "/opt/zephyr-sdk-{{ zephyr_sdk.version }}"
+    dest: "/opt/zephyr-sdk"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link

@@ -9,6 +9,7 @@
 [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
 [[ -s ~/.nvm/bash_completion ]] && . ~/.nvm/bash_completion
 [[ -s ~/.github_token ]] && . ~/.github_token
+[[ -s ~/.poetry/env ]] && . ~/.poetry/env
 #[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
 complete -C 'aws_completer' aws
 [[ -x "$(command -v thefuck)" ]] && eval "$(thefuck --alias)"
@@ -17,3 +18,6 @@ complete -C 'aws_completer' aws
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 [[ -x "$(command -v pyenv)" ]] && eval "$(pyenv init --path)"
+
+# NRF
+export PATH="/opt/nrf-command-line-tools/nrf-command-line-tools/bin/:$PATH"

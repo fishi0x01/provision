@@ -45,7 +45,7 @@ with pkgs; rec{
       gimp
       gitAndTools.gh
       git-crypt
-      git-lfs1
+      git-lfs
       git-secrets
       gitAndTools.delta
       glibcLocales
@@ -95,9 +95,9 @@ with pkgs; rec{
       # powershell
       pwgen
       python38Packages.flake8
-      python38Packages.flake8-import-order
+      # python38Packages.flake8-import-order
       python38Packages.pyflakes
-      python38Packages.pylint
+      # python38Packages.pylint
       python38Packages.sqlmap
       rdesktop
       reptyr

@@ -16,10 +16,10 @@
     - keybase
     - nrf_command_line_tools
     - nrf_connect
+    - zephyr_sdk
     - kicad
     - virtualbox
     - docker
-    - openshift_client
     - vscode
     - pycharm_community
     - arduino_ide
