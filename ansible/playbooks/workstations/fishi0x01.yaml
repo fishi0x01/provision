@@ -14,6 +14,7 @@
     - pyenv
     - udev
     - keybase
+    - balena_etcher
     - nrf_command_line_tools
     - nrf_connect
     - zephyr_sdk

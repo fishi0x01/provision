@@ -1,0 +1,6 @@
+---
+balena_etcher_repos:
+- "deb https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu focal main"
+- "deb-src https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu focal main"
+
+balena_etcher_package_name: "balena-etcher-electron"
