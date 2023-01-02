@@ -1,0 +1,22 @@
+---
+- name: distribution specific vars
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
+
+# https://repo.charm.sh/apt/gpg.key
+- name: Add vhs repository key
+  apt_key:
+    data: "{{ lookup('file', 'files/vhs.pgp.pub') }}"
+    state: present
+
+- name: Add vhs repositories
+  apt_repository:
+    repo: "{{item}}"
+    state: present
+  loop: "{{vhs_repos}}"
+
+- name: Install vhs
+  apt:
+    name: "{{vhs_package_name}}"
+    update_cache: yes
+    force_apt_get: yes
+    state: present
