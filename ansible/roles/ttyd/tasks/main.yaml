@@ -1,0 +1,12 @@
+---
+- name: Download ttyd
+  get_url:
+    url: "https://github.com/tsl0922/ttyd/releases/download/{{ ttyd.version }}/ttyd.x86_64"
+    dest: "/usr/local/bin/ttyd-{{ ttyd.version }}"
+    mode: '0755'
+
+- name: ttyd link
+  file:
+    src: "/usr/local/bin/ttyd-{{ ttyd.version }}"
+    dest: "/usr/local/bin/ttyd"
+    state: link
