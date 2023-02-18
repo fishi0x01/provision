@@ -4,17 +4,17 @@ stdenv.mkDerivation rec {
   name = "ansible-environment";
   buildInputs = [ 
     ansible_2_12
-    python38Packages.pyyaml
-    python38Packages.asn1crypto
-    python38Packages.bcrypt
-    python38Packages.cffi
-    python38Packages.cryptography
-    python38Packages.jinja2
-    python38Packages.markupsafe
-    python38Packages.paramiko
-    python38Packages.pyasn1
-    python38Packages.pycparser
-    python38Packages.pynacl
-    python38Packages.six 
+    python39Packages.pyyaml
+    python39Packages.asn1crypto
+    python39Packages.bcrypt
+    python39Packages.cffi
+    python39Packages.cryptography
+    python39Packages.jinja2
+    python39Packages.markupsafe
+    python39Packages.paramiko
+    python39Packages.pyasn1
+    python39Packages.pycparser
+    python39Packages.pynacl
+    python39Packages.six 
   ];
 }

@@ -11,7 +11,7 @@ Prerequisites:
 curl https://raw.githubusercontent.com/fishi0x01/provision/master/fetch-and-install.sh | sh
 ```
 
-~2.5G disk space required at `/nix/` for minimal profile.
+Adjust .bashrc to properly source `.bash_*` files.
 
 ## Delete
 
@@ -40,4 +40,5 @@ For security considerations more and more packages will be shifted towards dedic
 
 ## TODO
 
+- adjust .bashrc automatically
 - [nrf udev rules](https://github.com/NordicSemiconductor/nrf-udev/releases)
