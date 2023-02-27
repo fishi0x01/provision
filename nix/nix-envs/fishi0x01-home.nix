@@ -65,7 +65,6 @@ with pkgs; rec{
       irssi
       jq
       kazam
-      keepassx2
       # liferea
       lolcat
       lynx
