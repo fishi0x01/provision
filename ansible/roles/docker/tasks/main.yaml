@@ -14,12 +14,13 @@
     state: present
     mode: "600"
 
-- name: Install docker-ce
+- name: Install docker
   apt:
-    name: "docker-ce"
+    name: "{{ item }}"
     update_cache: yes
     force_apt_get: yes
     state: present
+  loop: "{{ docker.packages }}"
 
 - name: Ensure docker group exists
   group:

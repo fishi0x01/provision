@@ -33,7 +33,6 @@ with pkgs; rec{
       diesel-cli
       diskonaut
       dmg2img
-      docker-compose
       dos2unix
       dosbox
       dotnet-sdk
@@ -120,6 +119,7 @@ with pkgs; rec{
       tflint
       thefuck
       tmux
+      tig
       todo-txt-cli
       todoist
       tree 
