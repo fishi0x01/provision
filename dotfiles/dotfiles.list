@@ -8,6 +8,7 @@ DOTFILES=(
     ".gitconfig"
     ".gitaliases"
     ".git-completion.sh"
+    ".gitignore-global"
     ".pass-completion.sh"
     ".fishi-sampler-local.yaml"
     ".alacritty.yml"

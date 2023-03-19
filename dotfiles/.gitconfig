@@ -1,7 +1,7 @@
 [core]
     pager = delta
 	editor = vim
-	excludesFile = *.swp
+    excludesfile = ~/.gitignore-global
 
 [interactive]
     diffFilter = delta --color-only --features=interactive
