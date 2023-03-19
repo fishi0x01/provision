@@ -2,21 +2,38 @@
 - name: distribution specific vars
   include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
 
-# https://cloudsmith.io/~balena/repos/etcher/setup/#formats-deb
-- name: Add balena-etcher repository key
-  apt_key:
-    data: "{{ lookup('file', 'files/etcher.pgp.pub') }}"
-    state: present
+- name: Check if is installed
+  stat:
+    path: "/opt/balena-etcher-{{ balena_etcher.version }}"
+  register: balena_etcher_stats
 
-- name: Add balena-etcher repositories
-  apt_repository:
-    repo: "{{item}}"
-    state: present
-  loop: "{{balena_etcher_repos}}"
+- name: Download and install
+  block:
+    - name: Ensure dir exists
+      file:
+        path: "/opt/balena-etcher-{{ balena_etcher.version }}"
+        state: directory
+        mode: '0755'
 
-- name: Install balena-etcher
-  apt:
-    name: "{{balena_etcher_package_name}}"
-    update_cache: yes
-    force_apt_get: yes
-    state: present
+    - name: Download
+      get_url:
+        url: "{{ balena_etcher.url }}"
+        dest: "/opt/balena-etcher-{{ balena_etcher.version }}/balena-etcher-{{ balena_etcher.version }}.AppImage"
+        checksum: "{{ balena_etcher.checksum }}"
+        mode: '0775'
+
+    - name: Set permissions
+      file:
+        dest: "/opt/balena-etcher-{{ balena_etcher.version }}"
+        owner: "{{ machine_user }}"
+        group: "{{ machine_user }}"
+        recurse: true
+  when: not balena_etcher_stats.stat.exists
+
+- name: link
+  file:
+    src: "/opt/balena-etcher-{{ balena_etcher.version }}"
+    dest: "/opt/balena-etcher"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link
