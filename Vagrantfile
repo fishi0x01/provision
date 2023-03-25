@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   ############
   config.vm.define "pentest" do |kali|
     kali.vm.box = "kalilinux/rolling"
-    kali.vm.box_version = "2022.1.0"
+    kali.vm.box_version = "2023.1.0"
     kali.vm.synced_folder "~/Workspaces/fishi0x01/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
 
     kali.vm.provider "virtualbox" do |vb|
@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
   ###########
   config.vm.define "win10" do |win|
     win.vm.box = "fishi0x01/win-10-pro-x64"
-    win.vm.box_version = "2021.03.03"
+    win.vm.box_version = "2023.03.18"
 
     win.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
@@ -58,7 +58,7 @@ Vagrant.configure("2") do |config|
   #######################
   config.vm.define "test-ubuntu20.04" do |ubuntu|
     ubuntu.vm.box = "bento/ubuntu-20.04"
-    ubuntu.vm.box_version = "202112.19.0"
+    ubuntu.vm.box_version = "202303.13.0"
 
     ubuntu.vm.provision "provision-workstation", type: "shell", inline: <<-SCRIPT
       set -eou pipefail
