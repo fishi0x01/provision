@@ -1,0 +1,17 @@
+---
+- name: Install tfenv
+  become: true
+  become_user: "{{ machine_user }}"
+  git:
+    repo: https://github.com/tfutils/tfenv.git
+    dest: ~/.tfenv
+    version: "{{ tfenv_version }}"
+
+- name: Copy tfenv config
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.copy:
+    src: files/use-gpgv
+    dest: ~/.tfenv/use-gpgv
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"

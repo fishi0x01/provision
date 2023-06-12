@@ -16,6 +16,7 @@
     - keybase
     - ttyd
     - vhs
+    - tfenv
     - balena_etcher
     - nrf_command_line_tools
     - nrf_connect
