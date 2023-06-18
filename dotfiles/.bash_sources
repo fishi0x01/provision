@@ -2,6 +2,7 @@
 
 [[ -s ~/.git-completion.sh ]] && . ~/.git-completion.sh
 [[ -s ~/.pass-completion.sh ]] && . ~/.pass-completion.sh
+[[ -s ~/.asdf/asdf.sh ]] && . ~/.asdf/asdf.sh && . ~/.asdf/completions/asdf.bash
 [[ -s ~/.todo_completion ]] && . ~/.todo_completion
 [[ -s ~/.rbenv/completions/rbenv.bash ]] && . ~/.rbenv/completions/rbenv.bash
 [[ -s ~/.gvm/scripts/gvm ]] && . ~/.gvm/scripts/gvm
