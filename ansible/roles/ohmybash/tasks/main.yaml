@@ -1,0 +1,11 @@
+---
+- name: Check if oh-my-bash is installed
+  stat:
+    path: "/home/{{ machine_user }}/.oh-my-bash"
+  register: ohmybash_stats
+
+- name: Install oh-my-bash
+  become: true
+  become_user: "{{ machine_user }}"
+  script: "files/install.sh"
+  when: not ohmybash_stats.stat.exists

@@ -9,6 +9,7 @@
   become: true
   roles:
     - workstation
+    - ohmybash
     - gpg
     - python
     - pyenv

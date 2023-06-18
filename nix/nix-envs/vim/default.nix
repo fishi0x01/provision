@@ -5,7 +5,7 @@
     vimrcConfig.customRC = builtins.readFile ./.vimrc;
     vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
       start = [
-        ansible-vim
+        #ansible-vim
         nerdtree
         kotlin-vim
         ctrlp-vim
