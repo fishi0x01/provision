@@ -38,3 +38,9 @@ fi
 if [ ! -d "$PLUGINS_DIR/flutter" ]; then
     asdf plugin-add flutter
 fi
+
+# Stern
+# https://github.com/stern/stern
+if [ ! -d "$PLUGINS_DIR/stern" ]; then
+    asdf plugin-add stern
+fi

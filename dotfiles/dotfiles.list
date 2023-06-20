@@ -20,4 +20,5 @@ DOTFILES=(
     ".todo_completion"
     ".kube-ps1.sh"
     ".bashrc.fishi0x01.theme.sh"
+    ".tool-versions"
 )

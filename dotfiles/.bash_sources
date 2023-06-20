@@ -9,6 +9,7 @@
 [[ -s ~/.kube-ps1.sh ]] && . ~/.kube-ps1.sh
 #[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
 complete -C 'aws_completer' aws
+source <(stern --completion=bash)
 [[ -x "$(command -v thefuck)" ]] && eval "$(thefuck --alias)"
 
 # NRF
