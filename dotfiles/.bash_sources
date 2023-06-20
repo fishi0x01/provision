@@ -6,6 +6,7 @@
 [[ -s ~/.todo_completion ]] && . ~/.todo_completion
 [[ -s ~/.github_token ]] && . ~/.github_token
 [[ -s ~/.poetry/env ]] && . ~/.poetry/env
+[[ -s ~/.kube-ps1.sh ]] && . ~/.kube-ps1.sh
 #[[ -x "$(command -v starship)" ]] && eval "$(starship init bash)"
 complete -C 'aws_completer' aws
 [[ -x "$(command -v thefuck)" ]] && eval "$(thefuck --alias)"

@@ -9,3 +9,19 @@
   become_user: "{{ machine_user }}"
   script: "files/install.sh"
   when: not ohmybash_stats.stat.exists
+
+- name: Ensure custom theme dir exists
+  become: true
+  become_user: "{{ machine_user }}"
+  file:
+    path: "/home/{{ machine_user }}/.oh-my-bash/custom/themes/fishi0x01"
+    state: directory
+    mode: '0755'
+
+- name: link
+  file:
+    src: "/home/{{ machine_user }}/.bashrc.fishi0x01.theme.sh"
+    dest: "/home/{{ machine_user }}/.oh-my-bash/custom/themes/fishi0x01/fishi0x01.theme.sh"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link
