@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=~/.local/bin:~/.rbenv/bin:/opt/flutter/bin:/opt/android-studio/bin:~/.tfenv/bin:$PATH
+export PATH=~/.local/bin:~/.rbenv/bin:/opt/android-studio/bin:$PATH
 export BINARY_DIR="/usr/bin" # ssh-ident
 export ANDROID_SDK=~/Android/Sdk # Android SDK
 export YAMLLINT_CONFIG_FILE=~/.yamllint.yaml

@@ -32,3 +32,9 @@ fi
 if [ ! -d "$PLUGINS_DIR/nodejs" ]; then
     asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 fi
+
+# Flutter
+# https://github.com/oae/asdf-flutter
+if [ ! -d "$PLUGINS_DIR/flutter" ]; then
+    asdf plugin-add flutter
+fi
