@@ -1,8 +1,0 @@
----
-- name: Install pyenv
-  become: true
-  become_user: "{{ machine_user }}"
-  git:
-    repo: https://github.com/pyenv/pyenv
-    dest: ~/.pyenv
-    version: "{{ pyenv_version }}"

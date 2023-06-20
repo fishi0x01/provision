@@ -5,12 +5,15 @@
   register: asdf_stats
 
 - name: Install asdf
-  block:
-    - name: Clone repo
-      become: true
-      become_user: "{{ machine_user }}"
-      git:
-        repo: "https://github.com/asdf-vm/asdf.git"
-        dest: "/home/{{ machine_user }}/.asdf"
-        version: "{{ asdf.version }}"
+  become: true
+  become_user: "{{ machine_user }}"
+  git:
+    repo: "https://github.com/asdf-vm/asdf.git"
+    dest: "/home/{{ machine_user }}/.asdf"
+    version: "{{ asdf.version }}"
   when: not asdf_stats.stat.exists
+
+- name: Install plugins
+  become: true
+  become_user: "{{ machine_user }}"
+  script: "files/install-plugins.sh"
