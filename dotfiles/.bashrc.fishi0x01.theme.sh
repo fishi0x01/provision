@@ -53,10 +53,16 @@ function _omb_theme_PROMPT_COMMAND() {
         ret_status="${_omb_prompt_bold_brown}"
     fi
 
+    local aws_env=""
+    # Custom flag used by custom awscli-login script
+    if [ -n "$DISPLAY_AWS_PROMPT" ]; then
+        aws_env=" ${_omb_prompt_bold_red}[AWS|$AWS_DEFAULT_PROFILE]"
+    fi
+
     # Append new history lines to history file
     history -a
 
-    PS1="$(clock_prompt)$python_venv${user} ${_omb_prompt_bold_teal}\w$(kube_ps1) $(scm_prompt_char_info)${ret_status}→ ${_omb_prompt_normal}"
+    PS1="$(clock_prompt)$python_venv${user} ${_omb_prompt_bold_teal}\w$(kube_ps1)${aws_env} $(scm_prompt_char_info)${ret_status}→ ${_omb_prompt_normal}"
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND

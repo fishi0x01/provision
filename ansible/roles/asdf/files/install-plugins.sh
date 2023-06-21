@@ -44,3 +44,9 @@ fi
 if [ ! -d "$PLUGINS_DIR/stern" ]; then
     asdf plugin-add stern
 fi
+
+# awscli
+# https://github.com/MetricMike/asdf-awscli
+if [ ! -d "$PLUGINS_DIR/awscli" ]; then
+    asdf plugin add awscli
+fi
