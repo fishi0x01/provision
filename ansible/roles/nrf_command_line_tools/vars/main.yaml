@@ -1,7 +1,0 @@
----
-nrf_cmd_tools:
-  version: "10.15.4"
-  url: "https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-command-line-tools/sw/Versions-10-x-x/10-15-4/nrf-command-line-tools-10.15.4_amd64.zip"
-  checksum: "sha256:FBDE9656F2433DB92D4E1F481DBB0C2F111ECD69FD0A5297F634661FCBC2A8F3"
-  nrf_debfile: "nrf-command-line-tools_10.15.4_amd64.deb"
-  jlink_debfile: "JLink_Linux_V758b_x86_64.deb"

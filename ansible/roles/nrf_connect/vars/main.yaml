@@ -1,5 +1,0 @@
----
-nrf_connect:
-  version: "3.11.0"
-  url: "https://www.nordicsemi.com/-/media/Software-and-other-downloads/Desktop-software/nRF-Connect-for-Desktop/3-11-0/nrfconnect-3.11.0-x86_64.AppImage"
-  checksum: "sha256:e7191bffbe613afe210b217e16aae261c1842263f63738fcd7628f7d3867dee7"

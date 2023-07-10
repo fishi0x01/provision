@@ -50,3 +50,9 @@ fi
 if [ ! -d "$PLUGINS_DIR/awscli" ]; then
     asdf plugin add awscli
 fi
+
+# vault
+# https://github.com/asdf-community/asdf-hashicorp
+if [ ! -d "$PLUGINS_DIR/vault" ]; then
+    asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
+fi
