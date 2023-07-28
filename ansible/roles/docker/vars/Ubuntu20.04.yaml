@@ -1,6 +1,0 @@
----
-docker:
-  repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-  packages:
-  - docker-ce
-  - docker-compose-plugin

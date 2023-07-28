@@ -18,25 +18,14 @@
       shell:
         "gpg --import /tmp/keybase.asc"
 
-    - name: Download keybase.deb
+    - name: Download keybase.rpm
       get_url:
-        url: "https://prerelease.keybase.io/keybase_amd64.deb"
-        dest: /tmp/keybase_amd64.deb
+        url: "https://prerelease.keybase.io/keybase_amd64.rpm"
+        dest: /tmp/keybase_amd64.rpm
         mode: '0640'
 
-    - name: Download keybase.deb.sig
-      get_url:
-        url: "https://prerelease.keybase.io/keybase_amd64.deb.sig"
-        dest: /tmp/keybase_amd64.deb.sig
-        mode: '0440'
-
-    - name: Verify keybase signature
-      shell:
-        "gpg --verify /tmp/keybase_amd64.deb.sig /tmp/keybase_amd64.deb"
-
-    - name: Install keybase.deb
-      apt:
-        deb: /tmp/keybase_amd64.deb
+    - name: Install keybase.rpm
+      ansible.builtin.dnf:
+        name: /tmp/keybase_amd64.rpm
         state: present
-        force_apt_get: yes
   when: "'keybase' not in ansible_facts.packages"

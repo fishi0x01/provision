@@ -1,8 +1,10 @@
 ---
-- name: distribution specific vars
-  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
+# https://kushaldas.in/posts/fixing-missing-yubikey-trouble-on-fedora-38.html
+- name: Make sure opensc is removed
+  ansible.builtin.dnf:
+    name: opensc
+    state: absent
 
-# TODO: only do this when key does not exist yet
 - name: Put trusted keys into chain
   block:
   - name: Copy trusted key
@@ -55,6 +57,18 @@
   template:
     src: "templates/gpg.conf.j2"
     dest: "{{ gpg.conf_file }}"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "640"
+  notify:
+    - "restart gpg-agent"
+
+- name: Set scdaemon.conf
+  become: yes
+  become_user: "{{ machine_user }}"
+  template:
+    src: "templates/scdaemon.conf.j2"
+    dest: "{{ gpg.scdaemon_conf_file }}"
     owner: "{{ machine_user }}"
     group: "{{ machine_user }}"
     mode: "640"

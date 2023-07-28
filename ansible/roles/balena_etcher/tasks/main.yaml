@@ -1,7 +1,4 @@
 ---
-- name: distribution specific vars
-  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
-
 - name: Check if is installed
   stat:
     path: "/opt/balena-etcher-{{ balena_etcher.version }}"

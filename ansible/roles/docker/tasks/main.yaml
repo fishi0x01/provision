@@ -1,32 +1,33 @@
 ---
-- name: distribution specific vars
-  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
+- name: Recommended packages
+  ansible.builtin.dnf:
+    name:
+    - fuse-overlayfs
+    state: present
 
 - name: Add docker.asc
-  apt_key:
-    # https://download.docker.com/linux/ubuntu/gpg
-    data: "{{ lookup('file', 'files/asc/docker.asc') }}"
+  ansible.builtin.rpm_key:
+    key: https://download.docker.com/linux/fedora/gpg
+    fingerprint: 060A61C51B558A7F742B77AAC52FEB6B621E9F35
     state: present
 
 - name: Add docker repo
-  apt_repository:
-    repo: "{{ docker.repo }}"
-    state: present
-    mode: "600"
+  ansible.builtin.yum_repository:
+    name: docker
+    description: Docker
+    baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://download.docker.com/linux/fedora/gpg
 
 - name: Install docker
-  apt:
-    name: "{{ item }}"
-    update_cache: yes
-    force_apt_get: yes
-    state: present
-  loop: "{{ docker.packages }}"
-
-- name: Ensure docker group exists
-  group:
-    name: docker
+  ansible.builtin.dnf:
+    name:
+    - docker-ce
+    - docker-compose-plugin
     state: present
 
+# run dockerd-rootless-setuptool.sh install
 - name: Non-root access
   user:
     name: "{{ machine_user }}"

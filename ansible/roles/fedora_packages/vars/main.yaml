@@ -1,0 +1,10 @@
+---
+rpm_packages:
+- gimp
+- rawtherapee
+- wl-clipboard
+- make
+- hplip
+- hplip-gui
+- simple-scan
+- thunderbird

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - gpg
+    - keybase
+    - ohmybash
+    - asdf
+    - fedora_packages
+    - vscode
+    - docker
+    - virtualbox
+    - balena_etcher
+

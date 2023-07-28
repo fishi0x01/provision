@@ -25,8 +25,8 @@ install-dotfiles: ## Setup dotfile links
 delete-dotfiles: ## Remove dotfile links
 	./scripts/delete/delete-dotfiles.sh
 
-ansible-provision: ## Run ansible playbook to provision localhost
-	$(MAKE) -C ansible workstation
+ansible-fedora: ## Run ansible playbook to provision localhost
+	$(MAKE) -C ansible fedora
 
 vagrant-start-pentest: ## bootstrap the pentest box
 	vagrant up pentest
@@ -44,5 +44,7 @@ ansible-test-ubuntu20.04: ## Test workspace provisioning on Ubuntu20.04
 	vagrant up test-ubuntu20.04
 	vagrant destroy -f test-ubuntu20.04
 
-setup-secrets: ## Set secret files
-	$(MAKE) -C scripts/secrets/ setup-secrets
+setup-secrets: ## Fetch password manager - requires keybase installed and logged in
+	git clone keybase://private/fishi0x01/pass ~/.password-store
+	mkdir -p ~/Workspaces/fishi0x01
+	git clone keybase://private/fishi0x01/pentest ~/Workspaces/fishi0x01/pentest
