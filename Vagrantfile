@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "pentest" do |kali|
     kali.vm.box = "kalilinux/rolling"
     kali.vm.box_version = "2023.1.0"
-    kali.vm.synced_folder "~/Workspaces/fishi0x01/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
+    kali.vm.synced_folder "~/Workspaces/keybase/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
 
     kali.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
