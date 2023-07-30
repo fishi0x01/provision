@@ -1,14 +1,14 @@
 Vagrant.configure("2") do |config|
 
-  ############
-  # Pentesting
-  ############
-  config.vm.define "pentest" do |kali|
-    kali.vm.box = "kalilinux/rolling"
-    kali.vm.box_version = "2023.1.0"
-    kali.vm.synced_folder "~/Workspaces/keybase/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
+  #############
+  # Pentest Box
+  #############
+  config.vm.define "pentest" do |fedora|
+    fedora.vm.box = "fedora/38-cloud-base"
+    fedora.vm.box_version = "38.20230413.1"
+    fedora.vm.synced_folder "~/Workspaces/keybase/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
 
-    kali.vm.provider "virtualbox" do |vb|
+    fedora.vm.provider "virtualbox" do |vb|
       vb.memory = 4096
       vb.cpus = `nproc`.to_i
       vb.gui = true
@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--vram", "128"]
     end
 
-    kali.vm.provision "provision", type: "shell", inline: <<-SCRIPT
+    fedora.vm.provision "provision", type: "shell", inline: <<-SCRIPT
       sudo chsh vagrant -s /bin/bash
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
@@ -56,15 +56,15 @@ Vagrant.configure("2") do |config|
   #######################
   # Provisioning Test VMs
   #######################
-  config.vm.define "test-ubuntu20.04" do |ubuntu|
-    ubuntu.vm.box = "bento/ubuntu-20.04"
-    ubuntu.vm.box_version = "202303.13.0"
+  config.vm.define "test-fedora" do |fedora|
+    fedora.vm.box = "fedora/38-cloud-base"
+    fedora.vm.box_version = "38.20230413.1"
 
-    ubuntu.vm.provision "provision-workstation", type: "shell", inline: <<-SCRIPT
+    fedora.vm.provision "provision-workstation", type: "shell", inline: <<-SCRIPT
       set -eou pipefail
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
-      su - vagrant -c "make -C /vagrant/ansible/ test-workstation"
+      su - vagrant -c "make -C /vagrant/ ansible-fedora"
       su - vagrant -c "make -C /vagrant/ delete-dotfiles"
       su - vagrant -c "/vagrant/scripts/delete/delete-nix.sh"
     SCRIPT

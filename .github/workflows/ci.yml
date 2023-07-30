@@ -9,11 +9,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: fedora
 
     steps:
       - uses: actions/checkout@v2
-      - name: '[test] Ubuntu20.04'
+      - name: '[test] Fedora'
         run: |
           ./scripts/install/install-nix.sh
           make install-dotfiles
