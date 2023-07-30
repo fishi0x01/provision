@@ -52,21 +52,4 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--audioout", "on"]
     end
   end
-
-  #######################
-  # Provisioning Test VMs
-  #######################
-  config.vm.define "test-fedora" do |fedora|
-    fedora.vm.box = "fedora/38-cloud-base"
-    fedora.vm.box_version = "38.20230413.1"
-
-    fedora.vm.provision "provision-workstation", type: "shell", inline: <<-SCRIPT
-      set -eou pipefail
-      su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
-      su - vagrant -c "make -C /vagrant/ install-dotfiles"
-      su - vagrant -c "make -C /vagrant/ ansible-fedora"
-      su - vagrant -c "make -C /vagrant/ delete-dotfiles"
-      su - vagrant -c "/vagrant/scripts/delete/delete-nix.sh"
-    SCRIPT
-  end
 end

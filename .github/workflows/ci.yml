@@ -8,14 +8,21 @@ on:
 
 jobs:
   build:
-
-    runs-on: fedora
-
+    runs-on: ubuntu-22.04
+    container: fedora:38
     steps:
-      - uses: actions/checkout@v2
-      - name: '[test] Fedora'
+      - name: Prepare Container
         run: |
+          dnf install -y xz util-linux
+          useradd fishi0x01
+          echo "fishi0x01 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Run Tests
+        run: |
+          su - fishi0x01
           ./scripts/install/install-nix.sh
+          . /home/fishi0x01/.nix-profile/etc/profile.d/nix.sh
           make install-dotfiles
           make delete-dotfiles
           ./scripts/delete/delete-nix.sh
