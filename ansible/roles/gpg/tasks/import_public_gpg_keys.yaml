@@ -1,0 +1,16 @@
+---
+# https://ericsysmin.com/2019/06/20/how-to-loop-blocks-of-code-in-ansible/
+- name: Copy trusted key
+  copy:
+    src: files/{{ item.trusted_key_long_id }}.asc
+    dest: /tmp/{{ item.trusted_key_long_id }}.asc
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: '0644'
+  when: "item.trusted_key_long_id not in gpgkeys.stdout"
+
+- name: Import trusted key
+  become: yes
+  become_user: "{{ machine_user }}"
+  command: "gpg --import /tmp/{{ item.trusted_key_long_id }}.asc"
+  when: "item.trusted_key_long_id not in gpgkeys.stdout"

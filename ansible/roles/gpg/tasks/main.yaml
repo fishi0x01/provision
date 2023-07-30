@@ -5,22 +5,16 @@
     name: opensc
     state: absent
 
-- name: Put trusted keys into chain
-  block:
-  - name: Copy trusted key
-    copy:
-      src: files/{{ item.trusted_key_long_id }}.asc
-      dest: /tmp/{{ item.trusted_key_long_id }}.asc
-      owner: "{{ machine_user }}"
-      group: "{{ machine_user }}"
-      mode: '0644'
-    loop: "{{ gpg.pub_keys }}"
+- name: Fetch imported gpg keys
+  become: true
+  become_user: "{{ machine_user }}"
+  command: "gpg --list-public-keys"
+  register: gpgkeys
+  changed_when: false
 
-  - name: Import trusted key
-    become: yes
-    become_user: "{{ machine_user }}"
-    command: "gpg --import /tmp/{{ item.trusted_key_long_id }}.asc"
-    loop: "{{ gpg.pub_keys }}"
+- name: Import and trust gpg pub keys
+  include_tasks: import_public_gpg_keys.yaml
+  loop: "{{ gpg.pub_keys }}"
 
 - name: Ensure .ssh dir exists
   file:

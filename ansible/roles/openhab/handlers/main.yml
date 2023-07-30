@@ -1,6 +1,0 @@
----
-- name: "Debian10 restart openhab"
-  service:
-    name: openhab2
-    state: restarted
-
