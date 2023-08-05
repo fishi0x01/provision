@@ -1,0 +1,34 @@
+---
+- name: Add rpmfusion-free key
+  ansible.builtin.rpm_key:
+    key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
+    fingerprint: E9A491A3DE247814E7E067EAE06F8ECDD651FF2E
+    state: present
+
+- name: Add rpmfusion-nonfree key
+  ansible.builtin.rpm_key:
+    key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+    fingerprint: 79BDB88F9BBF73910FD4095B6A2AF96194843C65
+    state: present
+
+- name: Install rpmfusion repos
+  # https://rpmfusion.org/Configuration
+  ansible.builtin.dnf:
+    name:
+    - "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm"
+    - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm"
+    state: present
+
+- name: Install rpm packages
+  ansible.builtin.dnf:
+    name: "{{ rpm_packages }}"
+    state: present
+
+# TODO: still requires sudo chmod a+rw /dev/ttyUSB0
+# TODO: move to flashing role
+# https://stackoverflow.com/questions/73923341/unable-to-flash-esp32-the-port-doesnt-exist/75180432#75180432
+- name: Enable ttyUSB0 dialout
+  ansible.builtin.user:
+    name: "{{ machine_user }}"
+    groups: dialout
+    append: true
