@@ -1,5 +1,6 @@
 ---
 rpm_packages:
+- pass
 - gimp
 - rawtherapee
 - wl-clipboard

@@ -27,7 +27,6 @@ with pkgs; rec{
       nix
       nix-serve
       nload
-      pass
       pwgen
       ripgrep
       inetutils
