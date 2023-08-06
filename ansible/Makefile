@@ -6,6 +6,9 @@ help: ## Print this help
 fedora: ## Provision localhost of fedora workstation
 	nix-shell --run "ansible-playbook playbooks/fedora.yaml --extra-vars 'machine_user=${USER}' --ask-become-pass -e ansible_python_interpreter=/usr/bin/python;"
 
+test-fedora: ## Test provisioning of fedora workstation - intended to run inside container with passwordless sudo
+	nix-shell --run "ansible-playbook playbooks/fedora.yaml --extra-vars 'machine_user=${USER}' --skip-tags 'no-test-in-container'"
+
 ##### DEPRECATED #######
 workstation: ## Provision localhost of workstation
 	nix-shell --run "ansible-playbook playbooks/workstations/fishi0x01.yaml --extra-vars 'machine_user=${USER}' --ask-become-pass -e ansible_python_interpreter=/usr/bin/python;"

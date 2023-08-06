@@ -1,0 +1,16 @@
+FROM fedora:38
+
+SHELL ["/bin/bash", "-c"] 
+
+# Prepare
+RUN dnf install -y git xz util-linux && \
+    dnf clean all && \
+    useradd fishi0x01 && \
+    echo "fishi0x01 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER fishi0x01
+# required for nix to properly source
+env USER fishi0x01
+
+# Checkout
+COPY . /code

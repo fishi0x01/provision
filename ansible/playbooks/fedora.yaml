@@ -2,12 +2,21 @@
 - hosts: localhost
   become: true
   roles:
-    - gpg
-    - keybase
-    - ohmybash
-    - asdf
-    - fedora_workstation
-    - vscode
-    - docker
-    - virtualbox
-    - balena_etcher
+    - role: gpg
+      tags: [gpg]
+    - role: keybase
+      tags: [keybase]
+    - role: ohmybash
+      tags: [ohmybash]
+    - role: asdf
+      tags: [asdf]
+    - role: fedora_workstation
+      tags: [fedora_workstation]
+    - role: vscode
+      tags: [vscode]
+    - role: docker
+      tags: [docker, no-test-in-container]
+    - role: virtualbox
+      tags: [virtualbox]
+    - role: balena_etcher
+      tags: [balena_etcher]

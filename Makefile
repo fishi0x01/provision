@@ -52,3 +52,7 @@ setup-secrets: ## Fetch password manager - requires keybase installed and logged
 	git clone keybase://private/fishi0x01/cv ~/Workspaces/keybase/cv || true
 	ln -sfn ${HOME}/Workspaces/keybase/pass ${HOME}/.password-store
 	ln -sfn ${HOME}/Workspaces/keybase/configs/ssh ${HOME}/.ssh/config
+
+test-fedora: ## Test fedora setup in a docker container
+	docker build -t test-fedora:latest -f test/Dockerfile.fedora .
+	docker run --rm -t test-fedora:latest /code/test/test-fedora.sh

@@ -5,18 +5,11 @@
 
 - name: Install keybase
   block:
-    # https://keybase.io/docs/server_security/our_code_signing_key
-    - name: Copy keybase.asc
-      copy:
-        src: files/asc/keybase.asc
-        dest: /tmp/keybase.asc
-        owner: "{{ machine_user }}"
-        group: "{{ machine_user }}"
-        mode: '0644'
-
-    - name: Import keybase.asc
-      shell:
-        "gpg --import /tmp/keybase.asc"
+    - name: Add keybase.asc
+      ansible.builtin.rpm_key:
+        key: https://keybase.io/docs/server_security/code_signing_key.asc
+        fingerprint: 222B85B0F90BE2D24CFEB93F47484E50656D16C7
+        state: present
 
     - name: Download keybase.rpm
       get_url:
