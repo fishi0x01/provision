@@ -8,7 +8,7 @@
   curl -sL https://github.com/fishi0x01/provision/tarball/master | tar xz -C /tmp/provision --strip-components=1;
   /tmp/provision/scripts/install/install-nix.sh;
   . ~/.nix-profile/etc/profile.d/nix.sh;
-  /tmp/provision/nix/installer/install-env.sh
+  /tmp/provision/nix/installer/install-env.sh;
   git clone https://github.com/fishi0x01/provision.git ~/provision;
   make -C ~/provision/ install-dotfiles;
   echo "Please run source ~/.nix-profile/etc/profile.d/nix.sh";

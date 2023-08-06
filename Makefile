@@ -44,7 +44,7 @@ ansible-test-ubuntu20.04: ## Test workspace provisioning on Ubuntu20.04
 	vagrant up test-ubuntu20.04
 	vagrant destroy -f test-ubuntu20.04
 
-setup-secrets: ## Fetch password manager - requires keybase installed and logged in
+setup-secrets: ## Fetch keybase private repos - requires keybase installed and logged in
 	mkdir -p ~/Workspaces/keybase/
 	git clone keybase://private/fishi0x01/pass ~/Workspaces/keybase/pass || true
 	git clone keybase://private/fishi0x01/pentest ~/Workspaces/keybase/pentest || true
