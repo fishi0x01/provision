@@ -1,0 +1,20 @@
+---
+rpm_packages:
+- pass
+- gimp
+- rawtherapee
+- wl-clipboard
+- make
+- hplip
+- hplip-gui
+- simple-scan
+- thunderbird
+- libffi-devel
+- ncurses-libs
+- bzip2-devel
+- xz-devel
+- readline-devel
+- sqlite-devel
+- tk-devel
+# might need sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+- ffmpeg

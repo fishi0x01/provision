@@ -1,43 +1,33 @@
 ---
-- name: distribution specific vars
-  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
-
-- name: Add virtualbox_2016.asc
-  apt_key:
-    # https://www.virtualbox.org/download/oracle_vbox_2016.asc
-    data: "{{ lookup('file', 'files/asc/oracle_vbox_2016.asc') }}"
+- name: Install requirements
+  ansible.builtin.dnf:
+    name:
+    - kernel-headers
+    - kernel-devel
+    - dkms
+    - elfutils-libelf-devel
+    - qt5-qtx11extras
+    - make
     state: present
 
-- name: Add virtualbox.asc
-  apt_key:
-    # https://www.virtualbox.org/download/oracle_vbox.asc
-    data: "{{ lookup('file', 'files/asc/oracle_vbox.asc') }}"
+- name: Add virtualbox_2016.asc
+  ansible.builtin.rpm_key:
+    key: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    fingerprint: B9F8D658297AF3EFC18D5CDFA2F683C52980AECF
     state: present
 
 - name: Add virtualbox repo
-  apt_repository:
-    repo: "{{ virtualbox.repo }}"
+  ansible.builtin.yum_repository:
+    # https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+    name: virtualbox
+    description: VirtualBox
+    baseurl: http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
+    gpgcheck: true
+    enabled: true
+    gpgkey: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+
+- name: Install virtualbox
+  ansible.builtin.dnf:
+    name: "VirtualBox-7.0"
     state: present
-    mode: "600"
 
-- name: Set debconf for virtualbox packages
-  debconf:
-    name: "{{ item.package }}"
-    question: "{{ item.question }}"
-    value: "{{ item.value }}"
-    vtype: "{{ item.vtype }}"
-  loop: "{{ virtualbox.debconf }}"
-
-- name: Install virtualbox packages
-  apt:
-    name: "{{ item }}"
-    update_cache: yes
-    force_apt_get: yes
-    state: present
-  loop: "{{ virtualbox.packages }}"
-
-- name: Add kvm access
-  user:
-    name: "{{ machine_user }}"
-    groups: kvm
-    append: yes

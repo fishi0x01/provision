@@ -87,7 +87,6 @@ with pkgs; rec{
       p7zip
       packer
       pandoc
-      pass
       peco
       potrace
       # powershell

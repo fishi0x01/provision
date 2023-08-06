@@ -1,19 +1,22 @@
 ---
+# https://code.visualstudio.com/docs/setup/linux
 - name: Add microsoft.asc
-  apt_key:
-    # https://packages.microsoft.com/keys/microsoft.asc
-    data: "{{ lookup('file', 'files/microsoft.asc') }}"
+  ansible.builtin.rpm_key:
+    key: https://packages.microsoft.com/keys/microsoft.asc
+    # gpg --show-keys file.asc
+    fingerprint: BC528686B50D79E339D3721CEB3E94ADBE1229CF
     state: present
 
 - name: Add vscode repo
-  apt_repository:
-    repo: "deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main"
-    state: present
-    mode: "600"
+  ansible.builtin.yum_repository:
+    name: vscode
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgcheck: true
+    enabled: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc  
 
 - name: Install vscode
-  apt:
+  ansible.builtin.dnf:
     name: "code"
-    update_cache: yes
-    force_apt_get: yes
     state: present

@@ -1,5 +1,6 @@
 ---
 gpg:
+  scdaemon_conf_file: "/home/{{ machine_user }}/.gnupg/scdaemon.conf"
   agent_conf_file: "/home/{{ machine_user }}/.gnupg/gpg-agent.conf"
   conf_file: "/home/{{ machine_user }}/.gnupg/gpg.conf"
   pub_keys:

@@ -1,9 +1,0 @@
----
-- name: Do Backup
-  shell: openhab-cli backup openhab-backup.zip
-
-- name: Fetch Backup
-  fetch:
-    src: openhab-backup.zip
-    dest: openhab-backup.zip
-    flat: yes

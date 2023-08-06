@@ -1,3 +1,6 @@
 ---
 - name: "restart gpg-agent"
   command: "gpgconf --kill gpg-agent"
+
+- name: "restart scdaemon"
+  command: "gpgconf --reload scdameon"

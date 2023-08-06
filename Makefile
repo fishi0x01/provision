@@ -25,8 +25,8 @@ install-dotfiles: ## Setup dotfile links
 delete-dotfiles: ## Remove dotfile links
 	./scripts/delete/delete-dotfiles.sh
 
-ansible-provision: ## Run ansible playbook to provision localhost
-	$(MAKE) -C ansible workstation
+ansible-fedora: ## Run ansible playbook to provision localhost
+	$(MAKE) -C ansible fedora
 
 vagrant-start-pentest: ## bootstrap the pentest box
 	vagrant up pentest
@@ -44,5 +44,15 @@ ansible-test-ubuntu20.04: ## Test workspace provisioning on Ubuntu20.04
 	vagrant up test-ubuntu20.04
 	vagrant destroy -f test-ubuntu20.04
 
-setup-secrets: ## Set secret files
-	$(MAKE) -C scripts/secrets/ setup-secrets
+setup-secrets: ## Fetch keybase private repos - requires keybase installed and logged in
+	mkdir -p ~/Workspaces/keybase/
+	git clone keybase://private/fishi0x01/pass ~/Workspaces/keybase/pass || true
+	git clone keybase://private/fishi0x01/pentest ~/Workspaces/keybase/pentest || true
+	git clone keybase://private/fishi0x01/configs ~/Workspaces/keybase/configs || true
+	git clone keybase://private/fishi0x01/cv ~/Workspaces/keybase/cv || true
+	ln -sfn ${HOME}/Workspaces/keybase/pass ${HOME}/.password-store
+	ln -sfn ${HOME}/Workspaces/keybase/configs/ssh ${HOME}/.ssh/config
+
+test-fedora: ## Test fedora setup in a docker container
+	docker build -t test-fedora:latest -f test/Dockerfile.fedora .
+	docker run --rm -t test-fedora:latest /code/test/test-fedora.sh

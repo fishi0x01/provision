@@ -17,3 +17,5 @@
   become: true
   become_user: "{{ machine_user }}"
   script: "files/install-plugins.sh"
+  register: pluginsout
+  changed_when: "'Installing' in pluginsout.stdout"

@@ -5,11 +5,12 @@
 { # Prevent execution if this script was only partially downloaded
   # TODO: asc
   mkdir -p ./provision;
-  curl -sL https://github.com/fishi0x01/provision/tarball/master | tar xz -C ./provision --strip-components=1;
-  ./provision/scripts/install/install-nix.sh;
+  curl -sL https://github.com/fishi0x01/provision/tarball/master | tar xz -C /tmp/provision --strip-components=1;
+  /tmp/provision/scripts/install/install-nix.sh;
   . ~/.nix-profile/etc/profile.d/nix.sh;
-  rm -r ./provision;
-  git clone https://github.com/fishi0x01/provision.git;
-  make -C ./provision/ install-dotfiles;
+  /tmp/provision/nix/installer/install-env.sh;
+  git clone https://github.com/fishi0x01/provision.git ~/provision;
+  make -C ~/provision/ install-dotfiles;
   echo "Please run source ~/.nix-profile/etc/profile.d/nix.sh";
 }
+
