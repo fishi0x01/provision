@@ -1,7 +1,0 @@
----
-cargo_packages:
-  - "bandwhich"
-  - "gping"
-  - "htmlq"
-#  - "cargo-crev"
-#  - "diesel_cli --no-default-features --features postgres"
