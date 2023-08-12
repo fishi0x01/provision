@@ -1,9 +1,0 @@
----
-nginx:
-  handlers:
-    reload: "Debian10 reload nginx"
-  http_port: 80
-  https_port: 443
-  apt_packages:
-  - nginx
-  service_name: "nginx"

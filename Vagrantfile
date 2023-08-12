@@ -1,11 +1,10 @@
 Vagrant.configure("2") do |config|
-
   #############
   # Pentest Box
   #############
   config.vm.define "pentest" do |fedora|
-    fedora.vm.box = "fedora/38-cloud-base"
-    fedora.vm.box_version = "38.20230413.1"
+    config.vm.box = "bento/fedora-38"
+    config.vm.box_version = "202304.23.0"
     fedora.vm.synced_folder "~/Workspaces/keybase/pentest/", "/pentest/", SharedFoldersEnableSymlinksCreate: false
 
     fedora.vm.provider "virtualbox" do |vb|
@@ -20,9 +19,12 @@ Vagrant.configure("2") do |config|
       sudo chsh vagrant -s /bin/bash
       su - vagrant -c "/vagrant/scripts/install/install-nix.sh"
       su - vagrant -c "make -C /vagrant/ install-dotfiles"
+      # TODO: in ansible
+      echo "vagrant ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
       echo "if [ -e /home/vagrant/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vagrant/.nix-profile/etc/profile.d/nix.sh; fi" >> /home/vagrant/.bashrc
       sudo bash -c 'sed -i "s/#PasswordAuthentication\ yes/PasswordAuthentication\ no/g" /etc/ssh/sshd_config'
       sudo service sshd reload
+      . /home/vagrant/.nix-profile/etc/profile.d/nix.sh && make -C /vagrant/ansible vm-fedora
 
       # TODO: manually for now inside VM
       #passwd vagrant

@@ -5,7 +5,7 @@
     - role: gpg
       tags: [gpg]
     - role: keybase
-      tags: [keybase]
+      tags: [keybase, not-in-vm]
     - role: ohmybash
       tags: [ohmybash]
     - role: asdf
@@ -17,6 +17,10 @@
     - role: docker
       tags: [docker, no-test-in-container]
     - role: virtualbox
-      tags: [virtualbox]
+      tags: [virtualbox, not-in-vm]
     - role: balena_etcher
       tags: [balena_etcher]
+    - role: ttyd
+      tags: [ttyd]
+    - role: vhs
+      tags: [vhs]
