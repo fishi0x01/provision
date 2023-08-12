@@ -1,22 +1,21 @@
 ---
-- name: distribution specific vars
-  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_version }}.yaml"
-
-# https://repo.charm.sh/apt/gpg.key
-- name: Add vhs repository key
-  apt_key:
-    data: "{{ lookup('file', 'files/vhs.pgp.pub') }}"
+- name: Add vhs gpg key
+  ansible.builtin.rpm_key:
+    key: https://repo.charm.sh/yum/gpg.key
+    fingerprint: ED927B38BE981E53CA09153D03BBF595D4DFD35C
     state: present
 
-- name: Add vhs repositories
-  apt_repository:
-    repo: "{{item}}"
-    state: present
-  loop: "{{vhs_repos}}"
+- name: Add vhs repo
+  ansible.builtin.yum_repository:
+    name: vhs
+    description: vhs repo
+    baseurl: https://repo.charm.sh/yum/
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://repo.charm.sh/yum/gpg.key
 
 - name: Install vhs
-  apt:
-    name: "{{vhs_package_name}}"
-    update_cache: yes
-    force_apt_get: yes
+  ansible.builtin.dnf:
+    name:
+    - vhs
     state: present

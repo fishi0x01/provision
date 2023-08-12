@@ -1,5 +1,0 @@
----
-vhs_repos:
-- "deb https://repo.charm.sh/apt/ * *"
-
-vhs_package_name: "vhs"

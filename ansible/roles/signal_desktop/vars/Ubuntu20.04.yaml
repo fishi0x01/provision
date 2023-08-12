@@ -1,3 +1,0 @@
----
-signal_gpg_dest: /usr/share/keyrings/signal-desktop.gpg
-signal_apt_repo: deb [arch=amd64 signed-by={{ signal_gpg_dest }}] https://updates.signal.org/desktop/apt xenial main
