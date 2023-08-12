@@ -1,6 +1,0 @@
----
-pip_exec: "pip3"
-global_pip_packages:
-- "virtualenv"
-- "setuptools"
-- "pipenv"
