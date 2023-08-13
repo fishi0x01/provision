@@ -16,5 +16,8 @@ rpm_packages:
 - readline-devel
 - sqlite-devel
 - tk-devel
+- kicad
+- kicad-packages3d
+- kicad-doc
 # might need sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 - ffmpeg

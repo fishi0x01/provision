@@ -35,10 +35,3 @@ Nix single-user install has limitations. Some stuff should happen through system
 ```
 make ansible-provision
 ```
-
-For security considerations more and more packages will be shifted towards dedicated package manager.
-
-## TODO
-
-- adjust .bashrc automatically
-- [nrf udev rules](https://github.com/NordicSemiconductor/nrf-udev/releases)
