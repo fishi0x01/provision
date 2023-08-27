@@ -53,7 +53,7 @@ with pkgs; rec{
       go-jira
       gotop
       graphviz
-      hadolint
+      #hadolint
       hexyl
       hey
       htop 
