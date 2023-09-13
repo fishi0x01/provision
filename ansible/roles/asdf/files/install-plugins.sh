@@ -64,3 +64,10 @@ if [ ! -d "$PLUGINS_DIR/vault" ]; then
     echo "Installing vault plugin"
     asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
 fi
+
+# tekton-cli
+# https://github.com/johnhamelink/asdf-tekton-cli
+if [ ! -d "$PLUGINS_DIR/tekton-cli" ]; then
+    echo "Installing tekton-cli plugin"
+    asdf plugin-add tekton-cli https://github.com/johnhamelink/asdf-tekton-cli
+fi
