@@ -1,14 +1,14 @@
 ---
 - name: Check if Arduino IDE is installed
   stat:
-    path: "/opt/arduino-{{ arduino_ide.version }}"
+    path: "/opt/arduino-ide_{{ arduino_ide.version }}_Linux_64bit"
   register: arduino
 
 - name: Download and install Arduino IDE
   block:
     - name: Download Arduino IDE
       get_url:
-        url: "https://downloads.arduino.cc/arduino-{{ arduino_ide.version }}-linux64.tar.xz"
+        url: "https://downloads.arduino.cc/arduino-ide/arduino-ide_{{ arduino_ide.version }}_Linux_64bit.zip"
         dest: "/tmp/arduino-{{ arduino_ide.version }}.tar.xz"
         checksum: "{{ arduino_ide.checksum }}"
         mode: '0777'
@@ -18,16 +18,11 @@
         src: "/tmp/arduino-{{ arduino_ide.version }}.tar.xz"
         dest: "/opt/"
         remote_src: true
-
-    - name: Install Arduino IDE
-      become: true
-      become_user: "{{ machine_user }}"
-      script: "/opt/arduino-{{ arduino_ide.version }}/install.sh"
   when: not arduino.stat.exists
 
 - name: Arduino IDE link
   file:
-    src: "/opt/arduino-{{ arduino_ide.version }}"
+    src: "/opt/arduino-ide_{{ arduino_ide.version }}_Linux_64bit"
     dest: "/opt/arduino"
     owner: "{{ machine_user }}"
     group: "{{ machine_user }}"

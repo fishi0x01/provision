@@ -24,3 +24,5 @@
       tags: [ttyd]
     - role: vhs
       tags: [vhs]
+    - role: arduino_ide
+      tags: [arduino_ide]
