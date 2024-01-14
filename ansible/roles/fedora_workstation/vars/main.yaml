@@ -21,3 +21,5 @@ rpm_packages:
 - kicad-doc
 # might need sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 - ffmpeg
+- pipx
+
