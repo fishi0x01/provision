@@ -48,6 +48,7 @@ with pkgs; rec{
       git-secrets
       gitAndTools.delta
       glibcLocales
+      grpcurl
       gnumake
       googler
       go-jira
@@ -91,11 +92,11 @@ with pkgs; rec{
       potrace
       # powershell
       pwgen
-      python38Packages.flake8
-      # python38Packages.flake8-import-order
-      python38Packages.pyflakes
-      # python38Packages.pylint
-      python38Packages.sqlmap
+      python3Packages.flake8
+      # python3Packages.flake8-import-order
+      python3Packages.pyflakes
+      # python3Packages.pylint
+      python3Packages.sqlmap
       rdesktop
       reptyr
       restic
@@ -110,7 +111,6 @@ with pkgs; rec{
       samba
       socat
       spotify
-      spotify-tui
       sshpass
       starship
       inetutils 
