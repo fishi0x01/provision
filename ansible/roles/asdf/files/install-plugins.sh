@@ -71,3 +71,10 @@ if [ ! -d "$PLUGINS_DIR/tekton-cli" ]; then
     echo "Installing tekton-cli plugin"
     asdf plugin-add tekton-cli https://github.com/johnhamelink/asdf-tekton-cli
 fi
+
+# just
+# https://github.com/ggilmore/asdf-just
+if [ ! -d "$PLUGINS_DIR/just" ]; then
+    echo "Installing just plugin"
+    asdf plugin-add just
+fi

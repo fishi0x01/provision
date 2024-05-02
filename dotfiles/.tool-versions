@@ -4,3 +4,5 @@ terraform 1.5.0
 awscli 2.12.1
 python 3.12.1
 tekton-cli 0.32.0
+just 1.25.2
+
