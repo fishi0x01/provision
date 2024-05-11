@@ -125,7 +125,7 @@ with pkgs; rec{
       unrar
       vagrant
       valgrind
-      vault
+      #vault
       vsh
       wget
       xclip

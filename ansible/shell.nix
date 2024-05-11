@@ -1,1 +1,0 @@
-../nix/shells/ansible.nix
