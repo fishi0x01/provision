@@ -22,4 +22,5 @@ rpm_packages:
 # might need sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 - ffmpeg
 - pipx
+- zstd
 
