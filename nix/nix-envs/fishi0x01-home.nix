@@ -28,7 +28,7 @@ with pkgs; rec{
       cmus
       colordiff
       crunch
-      dbeaver
+      dbeaver-bin
       dia
       diesel-cli
       diskonaut
