@@ -44,4 +44,9 @@
   notify:
     - "restart docker"
 
+- name: Start docker at boot
+  ansible.builtin.systemd_service:
+    name: docker
+    enabled: true
+
 - meta: flush_handlers
