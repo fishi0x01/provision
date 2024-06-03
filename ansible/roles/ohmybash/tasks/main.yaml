@@ -25,3 +25,16 @@
     owner: "{{ machine_user }}"
     group: "{{ machine_user }}"
     state: link
+
+# TODO: make sure the following is in .bashrc
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+#
+#if [ -f ~/.bash_exports ]; then
+#    . ~/.bash_exports
+#fi
+#
+#if [ -f ~/.bash_sources ]; then
+#    . ~/.bash_sources
+#fi

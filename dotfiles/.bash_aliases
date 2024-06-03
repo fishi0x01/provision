@@ -139,7 +139,11 @@ zzSwitchYubikey() {
 }
 alias switchYubikey=zzSwitchYubikey
 
-
+zzGpgRemoveLocks() {
+    # https://luke.carrier.im/notes/p8x4128bt98vk5zcnqkwaa1/
+    find ~/.gnupg -name '*.lock' -delete
+}
+alias gpgRemoveLocks=zzGpgRemoveLocks
 
 ########
 # Docker

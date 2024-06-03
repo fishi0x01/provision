@@ -78,3 +78,11 @@ if [ ! -d "$PLUGINS_DIR/just" ]; then
     echo "Installing just plugin"
     asdf plugin-add just
 fi
+
+# kubectl
+# https://github.com/asdf-community/asdf-kubectl.git
+if [ ! -d "$PLUGINS_DIR/kubectl" ]; then
+    echo "Installing kubectl plugin"
+    asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+fi
+

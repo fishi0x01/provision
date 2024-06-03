@@ -67,6 +67,6 @@
     group: "{{ machine_user }}"
     mode: "640"
   notify:
-    - "restart gpg-agent"
+    - "restart scdaemon"
 
 - meta: flush_handlers
