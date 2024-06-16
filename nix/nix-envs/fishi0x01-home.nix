@@ -58,7 +58,7 @@ with pkgs; rec{
       hexyl
       hey
       htop 
-      jetbrains.idea-community
+      #jetbrains.idea-community
       iftop
       imagemagick
       inkscape
