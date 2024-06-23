@@ -1,0 +1,124 @@
+#!/bin/sh
+
+# This script installs the Nix package manager on your system by
+# downloading a binary distribution and running its installer script
+# (which in turn creates and populates /nix).
+
+{ # Prevent execution if this script was only partially downloaded
+oops() {
+    echo "$0:" "$@" >&2
+    exit 1
+}
+
+umask 0022
+
+tmpDir="$(mktemp -d -t nix-binary-tarball-unpack.XXXXXXXXXX || \
+          oops "Can't create temporary directory for downloading the Nix binary tarball")"
+cleanup() {
+    rm -rf "$tmpDir"
+}
+trap cleanup EXIT INT QUIT TERM
+
+require_util() {
+    command -v "$1" > /dev/null 2>&1 ||
+        oops "you do not have '$1' installed, which I need to $2"
+}
+
+case "$(uname -s).$(uname -m)" in
+    Linux.x86_64)
+        hash=fe35650833950246cce21d14f0e9b708849bcdef08d0ade95692c00167de53bb
+        path=fpwvqjy32bwwgfpxs884zkmgzvivj4bp/nix-2.23.0-x86_64-linux.tar.xz
+        system=x86_64-linux
+        ;;
+    Linux.i?86)
+        hash=f0729f20653ce904110023b20b4391ed548482d68927de218a3a9716d5d85879
+        path=g8bfxa7ixdflrv9i7pfy1sjx28j6bzji/nix-2.23.0-i686-linux.tar.xz
+        system=i686-linux
+        ;;
+    Linux.aarch64)
+        hash=ed14b2969b8dae15fdcef23f9e671c1d17793947a6969a9c3592fabd6271bc56
+        path=fsa4r04an1653a6kp7l2cw1zzy0vhjpl/nix-2.23.0-aarch64-linux.tar.xz
+        system=aarch64-linux
+        ;;
+    Linux.armv6l)
+        hash=bcee414388bd74617dd5e180c1773e138c60cf6e284e0b81ab3fcfb71b27a5fb
+        path=zphn6pnr2n4kdc18ybr4dwjxjl6cy496/nix-2.23.0-armv6l-linux.tar.xz
+        system=armv6l-linux
+        ;;
+    Linux.armv7l)
+        hash=2a2e30df7e2b94188018e94d542005a21e1402828ca3957819528cf51462bdf6
+        path=vf23kkai4vx47bzb8zi7h66475xqfch5/nix-2.23.0-armv7l-linux.tar.xz
+        system=armv7l-linux
+        ;;
+    Linux.riscv64)
+        hash=c8779940fc59e5052ad6e67466670370529c13a6cca7e1a2cac52c8845c52dc0
+        path=zzj28lc77cjar2hvkqyf5ik82f9a2jd0/nix-2.23.0-riscv64-linux.tar.xz
+        system=riscv64-linux
+        ;;
+    Darwin.x86_64)
+        hash=c73f9c474c8e282356ab8830e86f4a9a6a2c073402b1ed9dce745878c39376e1
+        path=ikq6rr2j1ms2prqccsf4sfz40vwdyy26/nix-2.23.0-x86_64-darwin.tar.xz
+        system=x86_64-darwin
+        ;;
+    Darwin.arm64|Darwin.aarch64)
+        hash=9c9fa38daf826da998a6d739455e380b3a946a70453d3cfaf5133da18d94c825
+        path=g495j72mprj5gf7n3f3als7qqiq3ggdz/nix-2.23.0-aarch64-darwin.tar.xz
+        system=aarch64-darwin
+        ;;
+    *) oops "sorry, there is no binary distribution of Nix for your platform";;
+esac
+
+# Use this command-line option to fetch the tarballs using nar-serve or Cachix
+if [ "${1:-}" = "--tarball-url-prefix" ]; then
+    if [ -z "${2:-}" ]; then
+        oops "missing argument for --tarball-url-prefix"
+    fi
+    url=${2}/${path}
+    shift 2
+else
+    url=https://releases.nixos.org/nix/nix-2.23.0/nix-2.23.0-$system.tar.xz
+fi
+
+tarball=$tmpDir/nix-2.23.0-$system.tar.xz
+
+require_util tar "unpack the binary tarball"
+if [ "$(uname -s)" != "Darwin" ]; then
+    require_util xz "unpack the binary tarball"
+fi
+
+if command -v curl > /dev/null 2>&1; then
+    fetch() { curl --fail -L "$1" -o "$2"; }
+elif command -v wget > /dev/null 2>&1; then
+    fetch() { wget "$1" -O "$2"; }
+else
+    oops "you don't have wget or curl installed, which I need to download the binary tarball"
+fi
+
+echo "downloading Nix 2.23.0 binary tarball for $system from '$url' to '$tmpDir'..."
+fetch "$url" "$tarball" || oops "failed to download '$url'"
+
+if command -v sha256sum > /dev/null 2>&1; then
+    hash2="$(sha256sum -b "$tarball" | cut -c1-64)"
+elif command -v shasum > /dev/null 2>&1; then
+    hash2="$(shasum -a 256 -b "$tarball" | cut -c1-64)"
+elif command -v openssl > /dev/null 2>&1; then
+    hash2="$(openssl dgst -r -sha256 "$tarball" | cut -c1-64)"
+else
+    oops "cannot verify the SHA-256 hash of '$url'; you need one of 'shasum', 'sha256sum', or 'openssl'"
+fi
+
+if [ "$hash" != "$hash2" ]; then
+    oops "SHA-256 hash mismatch in '$url'; expected $hash, got $hash2"
+fi
+
+unpack=$tmpDir/unpack
+mkdir -p "$unpack"
+tar -xJf "$tarball" -C "$unpack" || oops "failed to unpack '$url'"
+
+script=$(echo "$unpack"/*/install)
+
+[ -e "$script" ] || oops "installation script is missing from the binary tarball!"
+export INVOKED_FROM_INSTALL_IN=1
+"$script" "$@"
+
+} # End of wrapping
