@@ -12,44 +12,32 @@ with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
     paths = [ 
-      ack
       act
       ant
-      asciinema
       ansible-lint
-      # awscli
-      # aws-sam-cli
       bat
       black
       chafa
       clang-tools
-      cmake
       cmatrix
       cmus
-      colordiff
+      # colordiff
       crunch
       dbeaver-bin
       dia
       diesel-cli
-      diskonaut
       dmg2img
       dos2unix
       dosbox
       dotnet-sdk
       fd
-      ffmpeg
+      #ffmpeg
       figlet
-      gdb
       ghidra-bin
-      gimp
       gitAndTools.gh
-      git-crypt
-      git-lfs
-      git-secrets
       gitAndTools.delta
       glibcLocales
       grpcurl
-      gnumake
       googler
       go-jira
       gotop
@@ -57,13 +45,10 @@ with pkgs; rec{
       #hadolint
       hexyl
       hey
-      htop 
       #jetbrains.idea-community
-      iftop
       imagemagick
       inkscape
       irssi
-      jq
       kazam
       # liferea
       lolcat
@@ -78,7 +63,6 @@ with pkgs; rec{
       my_vim.pkg
       nix
       nix-serve 
-      nload
       nms
       nodePackages.jshint
       nodePackages.jsonlint
@@ -91,7 +75,6 @@ with pkgs; rec{
       peco
       potrace
       # powershell
-      pwgen
       python3Packages.flake8
       # python3Packages.flake8-import-order
       python3Packages.pyflakes
@@ -117,17 +100,13 @@ with pkgs; rec{
       texlive.combined.scheme-full
       tflint
       thefuck
-      tmux
       tig
       todo-txt-cli
       todoist
-      tree 
       unrar
       vagrant
       valgrind
-      #vault
       vsh
-      wget
       xclip
       yamllint
       yarn

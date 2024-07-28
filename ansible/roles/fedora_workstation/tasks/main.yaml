@@ -19,6 +19,13 @@
     - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm"
     state: present
 
+# We want proper ffmpeg for best compatibility
+- name: dnf swap -y ffmpeg-free ffmpeg --allowerasing
+  become: true
+  ansible.builtin.command: dnf swap -y ffmpeg-free ffmpeg --allowerasing
+  register: cmdswapout
+  changed_when: "'Nothing to do.' not in cmdswapout.stdout"
+
 - name: Install rpm packages
   ansible.builtin.dnf:
     name: "{{ rpm_packages }}"
