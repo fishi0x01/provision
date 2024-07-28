@@ -2,9 +2,20 @@
 rpm_packages:
 - pass
 - gimp
+- wget
+- tmux
 - rawtherapee
 - wl-clipboard
 - make
+- colordiff
+- gcc
+- gdb
+- gimp
+- nload
+- git
+- git-crypt
+- git-lfs
+- git-secrets
 - hplip
 - hplip-gui
 - simple-scan
@@ -19,10 +30,19 @@ rpm_packages:
 - kicad
 - kicad-packages3d
 - kicad-doc
-# might need sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+- jq
+- tree
+- pwgen
+- diskonaut
 - ffmpeg
 - pipx
 - zstd
 - webkit2gtk4.0
 - libOSMesa
+- ack
+- cmake
+- asciinema
+- procs
+- iftop
+- htop
 

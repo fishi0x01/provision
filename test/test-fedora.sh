@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 /code/scripts/install/install-nix.sh
 source ${HOME}/.nix-profile/etc/profile.d/nix.sh
 make -C /code install-dotfiles
