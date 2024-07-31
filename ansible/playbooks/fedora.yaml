@@ -12,6 +12,8 @@
       tags: [asdf]
     - role: fedora_workstation
       tags: [fedora_workstation]
+    - role: fedora_large_packages
+      tags: [fedora_large_packages, no-test-in-container]
     - role: vscode
       tags: [vscode]
     - role: docker

@@ -27,9 +27,6 @@ rpm_packages:
 - readline-devel
 - sqlite-devel
 - tk-devel
-- kicad
-- kicad-packages3d
-- kicad-doc
 - jq
 - tree
 - pwgen
@@ -45,4 +42,9 @@ rpm_packages:
 - procs
 - iftop
 - htop
+- chafa
+- dosbox-staging
+- hexyl
+- dmg2img
+- ripgrep
 
