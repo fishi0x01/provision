@@ -16,22 +16,16 @@ with pkgs; rec{
       ant
       ansible-lint
       bat
-      black
-      chafa
       clang-tools
       cmatrix
       cmus
-      # colordiff
       crunch
       dbeaver-bin
       dia
       diesel-cli
-      dmg2img
       dos2unix
-      dosbox
       dotnet-sdk
       fd
-      #ffmpeg
       figlet
       ghidra-bin
       gitAndTools.gh
@@ -43,9 +37,7 @@ with pkgs; rec{
       gotop
       graphviz
       #hadolint
-      hexyl
       hey
-      #jetbrains.idea-community
       imagemagick
       inkscape
       irssi
@@ -67,11 +59,9 @@ with pkgs; rec{
       nodePackages.jshint
       nodePackages.jsonlint
       nox
-      # openjdk
       jdk8
       p7zip
       packer
-      pandoc
       peco
       potrace
       # powershell
@@ -83,7 +73,6 @@ with pkgs; rec{
       rdesktop
       reptyr
       restic
-      ripgrep
       rustfmt
       sampler
       scrot
@@ -97,7 +86,6 @@ with pkgs; rec{
       sshpass
       starship
       inetutils 
-      texlive.combined.scheme-full
       tflint
       thefuck
       tig

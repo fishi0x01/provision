@@ -1,0 +1,6 @@
+---
+- name: Install large rpm packages
+  ansible.builtin.dnf:
+    name: "{{ large_rpm_packages }}"
+    state: present
+

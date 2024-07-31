@@ -1,0 +1,9 @@
+---
+large_rpm_packages:
+# LaTex
+- texlive-scheme-full
+- pandoc
+# KiCAD
+- kicad
+- kicad-packages3d
+- kicad-doc
