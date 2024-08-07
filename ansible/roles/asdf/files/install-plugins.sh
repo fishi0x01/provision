@@ -72,6 +72,13 @@ if [ ! -d "$PLUGINS_DIR/tekton-cli" ]; then
     asdf plugin-add tekton-cli https://github.com/johnhamelink/asdf-tekton-cli
 fi
 
+# kustomize
+# https://github.com/Banno/asdf-kustomize
+if [ ! -d "$PLUGINS_DIR/kustomize" ]; then
+    echo "Installing kustomize plugin"
+    asdf plugin-add kustomize https://github.com/Banno/asdf-kustomize.git
+fi
+
 # just
 # https://github.com/ggilmore/asdf-just
 if [ ! -d "$PLUGINS_DIR/just" ]; then

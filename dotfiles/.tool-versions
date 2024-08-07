@@ -6,3 +6,4 @@ python 3.12.3
 tekton-cli 0.32.0
 just 1.25.2
 kubectl 1.30.1
+kustomize 5.4.3
