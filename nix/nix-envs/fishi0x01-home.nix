@@ -13,15 +13,12 @@ with pkgs; rec{
     name = "fishi";
     paths = [ 
       act
-      ant
       ansible-lint
       bat
       clang-tools
       cmatrix
-      cmus
       crunch
       dbeaver-bin
-      dia
       diesel-cli
       dos2unix
       dotnet-sdk
@@ -31,7 +28,6 @@ with pkgs; rec{
       gitAndTools.gh
       gitAndTools.delta
       glibcLocales
-      grpcurl
       googler
       go-jira
       gotop
@@ -43,9 +39,7 @@ with pkgs; rec{
       irssi
       kazam
       # liferea
-      lolcat
       lynx
-      maven
       manix
       mc
       mdl
@@ -59,9 +53,7 @@ with pkgs; rec{
       nodePackages.jshint
       nodePackages.jsonlint
       nox
-      jdk8
       p7zip
-      packer
       peco
       potrace
       # powershell
@@ -88,11 +80,7 @@ with pkgs; rec{
       inetutils 
       tflint
       thefuck
-      tig
-      todo-txt-cli
-      todoist
       unrar
-      vagrant
       valgrind
       vsh
       xclip
