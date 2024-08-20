@@ -65,6 +65,20 @@ if [ ! -d "$PLUGINS_DIR/vault" ]; then
     asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
 fi
 
+# packer
+# https://github.com/asdf-community/asdf-hashicorp
+if [ ! -d "$PLUGINS_DIR/packer" ]; then
+    echo "Installing packer plugin"
+    asdf plugin-add packer https://github.com/asdf-community/asdf-hashicorp.git
+fi
+
+# vagrant
+# https://github.com/asdf-community/asdf-hashicorp
+if [ ! -d "$PLUGINS_DIR/vagrant" ]; then
+    echo "Installing vagrant plugin"
+    asdf plugin-add vagrant https://github.com/asdf-community/asdf-hashicorp.git
+fi
+
 # tekton-cli
 # https://github.com/johnhamelink/asdf-tekton-cli
 if [ ! -d "$PLUGINS_DIR/tekton-cli" ]; then
@@ -91,5 +105,12 @@ fi
 if [ ! -d "$PLUGINS_DIR/kubectl" ]; then
     echo "Installing kubectl plugin"
     asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+fi
+
+# grpcurl
+# https://github.com/asdf-community/asdf-grpcurl.git
+if [ ! -d "$PLUGINS_DIR/grpcurl" ]; then
+    echo "Installing grpcurl plugin"
+    asdf plugin-add grpcurl https://github.com/asdf-community/asdf-grpcurl.git
 fi
 
