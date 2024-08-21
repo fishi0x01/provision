@@ -39,12 +39,9 @@ with pkgs; rec{
       irssi
       kazam
       # liferea
-      lynx
       manix
-      mc
       mdl
       mkvtoolnix
-      most
       mplayer
       my_vim.pkg
       nix
@@ -55,7 +52,6 @@ with pkgs; rec{
       nox
       p7zip
       peco
-      potrace
       # powershell
       python3Packages.flake8
       # python3Packages.flake8-import-order
@@ -73,7 +69,6 @@ with pkgs; rec{
       skypeforlinux
       slack
       samba
-      socat
       spotify
       sshpass
       starship
@@ -81,7 +76,6 @@ with pkgs; rec{
       tflint
       thefuck
       unrar
-      valgrind
       vsh
       xclip
       yamllint

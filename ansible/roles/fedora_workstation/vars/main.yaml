@@ -50,4 +50,10 @@ rpm_packages:
 - tig
 - dia
 - lolcat
+- most
+- lynx
+- potrace
+- valgrind
+- socat
+- mc
 
