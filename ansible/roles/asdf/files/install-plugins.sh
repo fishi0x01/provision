@@ -114,3 +114,15 @@ if [ ! -d "$PLUGINS_DIR/grpcurl" ]; then
     asdf plugin-add grpcurl https://github.com/asdf-community/asdf-grpcurl.git
 fi
 
+# shellcheck
+if [ ! -d "$PLUGINS_DIR/shellcheck" ]; then
+    echo "Installing shellcheck plugin"
+    asdf plugin-add shellcheck
+fi
+
+# shfmt
+if [ ! -d "$PLUGINS_DIR/shfmt" ]; then
+    echo "Installing shfmt plugin"
+    asdf plugin-add shfmt
+fi
+

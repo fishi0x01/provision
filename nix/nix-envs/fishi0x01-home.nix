@@ -14,8 +14,6 @@ with pkgs; rec{
     paths = [ 
       act
       ansible-lint
-      bat
-      clang-tools
       cmatrix
       crunch
       dbeaver-bin
@@ -31,11 +29,9 @@ with pkgs; rec{
       googler
       go-jira
       gotop
-      graphviz
       #hadolint
       hey
       imagemagick
-      inkscape
       irssi
       kazam
       # liferea
@@ -70,12 +66,10 @@ with pkgs; rec{
       slack
       samba
       spotify
-      sshpass
       starship
       inetutils 
       tflint
       thefuck
-      unrar
       vsh
       xclip
       yamllint
