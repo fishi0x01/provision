@@ -56,4 +56,12 @@ rpm_packages:
 - valgrind
 - socat
 - mc
+- bat
+- clang-tools-extra
+- unrar
+- sshuttle
+- graphviz
+- inkscape
+- sshpass
+- steam
 
