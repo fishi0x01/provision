@@ -114,6 +114,13 @@ if [ ! -d "$PLUGINS_DIR/grpcurl" ]; then
     asdf plugin-add grpcurl https://github.com/asdf-community/asdf-grpcurl.git
 fi
 
+# poetry
+# https://github.com/asdf-community/asdf-poetry.git
+if [ ! -d "$PLUGINS_DIR/poetry" ]; then
+    echo "Installing poetry plugin"
+    asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
+fi
+
 # shellcheck
 if [ ! -d "$PLUGINS_DIR/shellcheck" ]; then
     echo "Installing shellcheck plugin"

@@ -13,4 +13,5 @@ packer 1.11.2
 vagrant 2.4.1
 shellcheck latest
 shfmt latest
+poetry latest
 
