@@ -11,7 +11,7 @@ grpcurl 1.9.1
 vault 1.17.3
 packer 1.11.2
 vagrant 2.4.1
-shellcheck latest
+shellcheck 0.10.0
 shfmt latest
 poetry latest
 
