@@ -121,7 +121,7 @@ if [ ! -d "$PLUGINS_DIR/poetry" ]; then
     asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
 fi
 
-# shellcheck
+# shellchec
 if [ ! -d "$PLUGINS_DIR/shellcheck" ]; then
     echo "Installing shellcheck plugin"
     asdf plugin-add shellcheck
