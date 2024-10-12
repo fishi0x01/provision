@@ -1,13 +1,5 @@
 with import <nixpkgs> {};
-let
-  /*** vim ***/
-  my_vim = import ./vim/default.nix { 
-    pkgs = pkgs; 
-    ### python3 support
-    # vim_configurable = vim_configurable.override { python = pkgs.python3; };
-    vim_configurable = vim_configurable;
-  };
-in
+let in
 with pkgs; rec{
   fishi = buildEnv {
     name = "fishi";
@@ -29,7 +21,6 @@ with pkgs; rec{
       googler
       go-jira
       gotop
-      #hadolint
       hey
       imagemagick
       irssi
@@ -39,20 +30,13 @@ with pkgs; rec{
       mdl
       mkvtoolnix
       mplayer
-      my_vim.pkg
       nix
       nix-serve 
       nms
-      nodePackages.jshint
-      nodePackages.jsonlint
       nox
       p7zip
       peco
       # powershell
-      python3Packages.flake8
-      # python3Packages.flake8-import-order
-      python3Packages.pyflakes
-      # python3Packages.pylint
       python3Packages.sqlmap
       rdesktop
       reptyr

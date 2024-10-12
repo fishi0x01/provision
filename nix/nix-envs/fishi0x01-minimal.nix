@@ -1,13 +1,5 @@
 with import <nixpkgs> {};
-let
-  /*** vim ***/
-  my_vim = import ./vim/default.nix { 
-    pkgs = pkgs; 
-    ### python3 support
-    # vim_configurable = vim_configurable.override { python = pkgs.python3; };
-    vim_configurable = vim_configurable;
-  };
-in
+let in
 with pkgs; rec{
   fishi-mvp = buildEnv {
     name = "fishi-mvp";
@@ -23,7 +15,6 @@ with pkgs; rec{
       iftop
       jq
       mc
-      my_vim.pkg
       nix
       nix-serve
       nload

@@ -1,0 +1,31 @@
+- name: Install vim
+  ansible.builtin.dnf:
+    name: "vim"
+    state: present 
+
+- name: Ensure .vim/autoload/ exists
+  become: true
+  become_user: "{{ machine_user }}"
+  file:
+    path: "{{ vim_dir }}/autoload/"
+    state: directory
+    recurse: no
+    mode: 0750
+
+- name: Copy plug.vim
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.copy:
+    src: plug.vim
+    dest: "{{ vim_dir }}/autoload/plug.vim"
+
+- name: Check if vim plugins are installed
+  stat:
+    path: "{{ vim_dir }}/plugged/nerdtree/"
+  register: vim_stats
+
+- name: Install vim plugins
+  become: true
+  become_user: "{{ machine_user }}"
+  command: "vim +'PlugInstall --sync' +qa"
+  when: not vim_stats.stat.exists
