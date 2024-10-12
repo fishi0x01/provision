@@ -14,6 +14,8 @@
       tags: [fedora_workstation]
     - role: fedora_large_packages
       tags: [fedora_large_packages, no-test-in-container]
+    - role: vim
+      tags: [vim]
     - role: vscode
       tags: [vscode]
     - role: docker
