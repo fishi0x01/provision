@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias vim='vimx'
+
 ## sudo should see our aliases
 alias sudo='sudo '
 
