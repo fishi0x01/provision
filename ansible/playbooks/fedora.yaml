@@ -20,8 +20,6 @@
       tags: [vscode]
     - role: docker
       tags: [docker, no-test-in-container]
-    - role: virtualbox
-      tags: [virtualbox, not-in-vm]
     - role: balena_etcher
       tags: [balena_etcher]
     - role: ttyd

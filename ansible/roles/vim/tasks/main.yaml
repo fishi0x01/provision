@@ -1,6 +1,6 @@
 - name: Install vim
   ansible.builtin.dnf:
-    name: "vim"
+    name: "vim-X11"
     state: present 
 
 - name: Ensure .vim/autoload/ exists
@@ -27,5 +27,5 @@
 - name: Install vim plugins
   become: true
   become_user: "{{ machine_user }}"
-  command: "vim +'PlugInstall --sync' +qa"
+  command: "vimx +'PlugInstall --sync' +qa"
   when: not vim_stats.stat.exists
