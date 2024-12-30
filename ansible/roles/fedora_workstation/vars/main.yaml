@@ -64,4 +64,5 @@ rpm_packages:
 - inkscape
 - sshpass
 - steam
+- python3-pip
 

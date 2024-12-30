@@ -26,6 +26,27 @@
     group: "{{ machine_user }}"
     state: link
 
+- name: Create kube-ps1 directory
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.file:
+    path: "/home/{{ machine_user }}/.kube/kube-ps1/"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: directory
+    mode: '0755'
+
+- name: Disable kube-ps1 by default
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.file:
+    path: "/home/{{ machine_user }}/.kube/kube-ps1/disabled"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: touch
+    mode: '0755'
+  changed_when: false
+
 # TODO: make sure the following is in .bashrc
 #if [ -f ~/.bash_aliases ]; then
 #    . ~/.bash_aliases
