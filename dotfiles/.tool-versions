@@ -2,7 +2,7 @@ stern 1.30.0
 golang 1.22.3
 terraform 1.8.3
 awscli latest
-python 3.12.3
+python system
 tekton-cli 0.32.0
 just 1.25.2
 kubectl 1.30.1

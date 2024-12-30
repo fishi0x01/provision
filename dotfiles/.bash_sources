@@ -11,6 +11,7 @@
 complete -C 'aws_completer' aws
 source <(stern --completion=bash)
 [[ -x "$(command -v thefuck)" ]] && eval "$(thefuck --alias)"
+[[ -x "$(command -v kubectl)" ]] && source <(kubectl completion bash)
 
 # NRF
 export PATH="/opt/nrf-command-line-tools/nrf-command-line-tools/bin/:$PATH"
