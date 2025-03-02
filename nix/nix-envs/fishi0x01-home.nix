@@ -18,13 +18,10 @@ with pkgs; rec{
       gitAndTools.gh
       gitAndTools.delta
       glibcLocales
-      googler
       go-jira
       gotop
       hey
       imagemagick
-      irssi
-      kazam
       # liferea
       manix
       mdl
@@ -46,11 +43,9 @@ with pkgs; rec{
       scrot
       scummvm
       simplescreenrecorder
-      skypeforlinux
       slack
       samba
       spotify
-      starship
       inetutils 
       tflint
       thefuck
