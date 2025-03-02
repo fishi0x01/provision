@@ -1,25 +1,19 @@
-# Don't print a new line at the start of the prompt
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = false
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]      # The name of the module we are configuring is "character"
-symbol = "❯"     # The "symbol" segment is being set to "➜"
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
 
-# Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
 
-[terraform]
-symbol = "🏎💨 "
-
-[git_branch]
-#symbol = "🌱 "
-#truncation_length = 4
-truncation_symbol = ""
-
-[nix_shell]
+[vagrant]
 disabled = true
-use_name = true
-impure_msg = "impure shell"
-pure_msg = "pure shell"
-symbol = "☃️  "
+
+[time]
+disabled = false
+time_format = "%H:%M:%S" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ $time ](fg:#a0a9cb bg:#1d2230)]($style)'
