@@ -141,6 +141,11 @@ zzSwitchYubikey() {
 }
 alias switchYubikey=zzSwitchYubikey
 
+zzYubiFix() {
+  sudo systemctl restart pcscd
+}
+alias yubiFix=zzYubiFix
+
 zzGpgRemoveLocks() {
     # https://luke.carrier.im/notes/p8x4128bt98vk5zcnqkwaa1/
     find ~/.gnupg -name '*.lock' -delete

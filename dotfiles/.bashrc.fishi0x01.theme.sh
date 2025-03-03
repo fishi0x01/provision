@@ -66,3 +66,15 @@ function _omb_theme_PROMPT_COMMAND() {
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_exports ]; then
+    . ~/.bash_exports
+fi
+
+if [ -f ~/.bash_sources ]; then
+    . ~/.bash_sources
+fi
