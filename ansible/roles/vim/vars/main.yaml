@@ -1,2 +1,5 @@
 ---
 vim_dir: "/home/{{ machine_user }}/.vim"
+vim_packages:
+- vim-X11
+- vim

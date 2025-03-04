@@ -66,4 +66,5 @@ rpm_packages:
 - steam
 - python3-pip
 - starship
+- git-delta
 
