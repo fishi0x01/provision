@@ -143,6 +143,7 @@ alias switchYubikey=zzSwitchYubikey
 
 zzYubiFix() {
   sudo systemctl restart pcscd
+  zzSwitchYubikey
 }
 alias yubiFix=zzYubiFix
 

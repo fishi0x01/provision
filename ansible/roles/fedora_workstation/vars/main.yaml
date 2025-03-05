@@ -68,3 +68,5 @@ rpm_packages:
 - starship
 - git-delta
 
+global_python_packages:
+- uv
