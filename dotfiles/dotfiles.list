@@ -18,7 +18,6 @@ DOTFILES=(
     ".yamllint.yaml"
     ".todo.cfg"
     ".todo_completion"
-    ".kube-ps1.sh"
     ".bashrc.fishi0x01.theme.sh"
     ".tool-versions"
     ".vimrc"
