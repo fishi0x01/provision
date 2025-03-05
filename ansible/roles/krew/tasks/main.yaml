@@ -1,0 +1,12 @@
+---
+- name: Check if krew is installed
+  stat:
+    path: "/home/{{ machine_user }}/.krew"
+  register: krew_stats
+
+- name: Install krew
+  become: true
+  become_user: "{{ machine_user }}"
+  script: "files/install.sh"
+  when: not krew_stats.stat.exists
+
