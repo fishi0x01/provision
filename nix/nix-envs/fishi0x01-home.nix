@@ -53,7 +53,6 @@ with pkgs; rec{
       xclip
       yamllint
       yarn
-      yq
     ]; 
   };
 }
