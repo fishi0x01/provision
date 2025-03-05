@@ -44,3 +44,8 @@
     name: "{{ machine_user }}"
     groups: dialout
     append: true
+
+- name: Install global python packages
+  ansible.builtin.pip:
+    name: "{{ global_python_packages }}"
+    state: "latest"
