@@ -2,6 +2,26 @@
 
 add_newline = false
 
+[line_break]
+disabled = false
+
+[git_branch]
+symbol = " "
+style = 'bold purple'
+
+[git_commit]
+disabled = false
+commit_hash_length = 7
+only_detached = true
+
+[git_status]
+staged = "[+](green)"
+untracked = "[?](red)"
+modified = "[*](yellow)"
+
+[directory]
+truncation_length = 4
+
 [character]
 success_symbol = '[➜](bold green)'
 error_symbol = '[➜](bold red)'
@@ -17,3 +37,6 @@ disabled = false
 time_format = "%H:%M:%S" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[ $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[kubernetes]
+disabled = false
