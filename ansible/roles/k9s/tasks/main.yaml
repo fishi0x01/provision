@@ -1,0 +1,40 @@
+---
+- name: Check if k9s is installed
+  stat:
+    path: "/opt/k9s-{{ k9s.version }}"
+  register: k9s_stats
+
+- name: Download and install k9s
+  block:
+    - name: Download k9s
+      get_url:
+        url: "{{ k9s.download_url }}"
+        dest: "/tmp/k9s-{{ k9s.version }}.tar.gz"
+        checksum: "{{ k9s.checksum }}"
+        mode: '0777'
+
+    - name: Ensure k9s dir exists
+      file:
+        path: "/opt/k9s-{{ k9s.version }}"
+        state: directory
+        mode: '0755'
+
+    - name: Unarchive k9s
+      unarchive:
+        src: "/tmp/k9s-{{ k9s.version }}.tar.gz"
+        dest: "/opt/k9s-{{ k9s.version }}"
+        remote_src: true
+
+    - name: Set permissions
+      file:
+        dest: "/opt/k9s-{{ k9s.version }}"
+        owner: "{{ machine_user }}"
+        group: "{{ machine_user }}"
+        recurse: true
+  when: not k9s_stats.stat.exists
+
+- name: k9s link
+  file:
+    src: "/opt/k9s-{{ k9s.version }}/k9s"
+    dest: "/usr/local/bin/k9s"
+    state: link

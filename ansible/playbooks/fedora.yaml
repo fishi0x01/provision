@@ -30,3 +30,6 @@
       tags: [vhs]
     - role: arduino_ide
       tags: [arduino_ide]
+    - role: k9s
+      tags: [k9s]
+

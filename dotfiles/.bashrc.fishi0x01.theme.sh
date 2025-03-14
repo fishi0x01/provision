@@ -78,3 +78,8 @@ fi
 if [ -f ~/.bash_sources ]; then
     . ~/.bash_sources
 fi
+
+if [ -f ~/.bash_redhat ]; then
+    . ~/.bash_redhat
+fi
+
