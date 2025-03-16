@@ -1,11 +1,9 @@
-FROM fedora:40
+FROM fedora:41
 
 SHELL ["/bin/bash", "-c"] 
 
 # Prepare
-RUN dnf install -y git xz util-linux && \
-    dnf clean all && \
-    useradd fishi0x01 && \
+RUN useradd fishi0x01 && \
     echo "fishi0x01 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER fishi0x01

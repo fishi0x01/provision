@@ -2,12 +2,16 @@
 - hosts: localhost
   become: true
   roles:
+    - role: pre # Run this first to install prerequisits
+      tags: [pre]
     - role: gpg
       tags: [gpg]
     - role: keybase
       tags: [keybase, not-in-vm]
     - role: ohmybash
       tags: [ohmybash]
+    - role: starship
+      tags: [starship, no-test-in-container]
     - role: asdf
       tags: [asdf]
     - role: fedora_workstation

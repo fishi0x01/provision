@@ -26,11 +26,6 @@
   register: cmdswapout
   changed_when: "'Nothing to do.' not in cmdswapout.stdout"
 
-- name: Enable starship repo
-  community.general.copr:
-    state: enabled
-    name: atim/starship
-
 - name: Install rpm packages
   ansible.builtin.dnf:
     name: "{{ rpm_packages }}"

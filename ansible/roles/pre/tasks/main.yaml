@@ -1,0 +1,11 @@
+---
+- name: Ensure gpg is installed
+  ansible.builtin.dnf:
+    name: gpg
+    state: present
+
+- name: Ensure git is installed
+  ansible.builtin.dnf:
+    name: git
+    state: present
+
