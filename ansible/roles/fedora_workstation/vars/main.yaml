@@ -65,7 +65,6 @@ rpm_packages:
 - sshpass
 - steam
 - python3-pip
-- starship
 - git-delta
 - yq
 

@@ -13,4 +13,4 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
       - name: Fedora
-        run: make test-fedora
+        run: make test-fedora41
