@@ -1,0 +1,6 @@
+---
+nerdfonts:
+  version: "3.3.0"
+  download_url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip"
+  # https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/SHA-256.txt
+  checksum: "sha256:a09e154605eff625b0da3bdf242d64d97cec3d6ee90fb9f91a531064e33c7b8d"

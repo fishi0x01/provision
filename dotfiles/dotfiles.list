@@ -11,7 +11,7 @@ DOTFILES=(
     ".gitignore-global"
     ".pass-completion.sh"
     ".fishi-sampler-local.yaml"
-    ".alacritty.yml"
+    ".alacritty.toml"
     ".pylintrc"
     ".flake8"
     ".mdlrc"

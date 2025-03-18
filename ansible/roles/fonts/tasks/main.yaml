@@ -1,0 +1,40 @@
+---
+- name: Check if nerdfonts are installed
+  stat:
+    path: "/opt/nerdfonts-{{ nerdfonts.version }}"
+  register: nerdfonts_stats
+
+- name: Download and install nerdfonts
+  block:
+    - name: Download nerdfonts
+      get_url:
+        url: "{{ nerdfonts.download_url }}"
+        dest: "/tmp/nerdfonts-{{ nerdfonts.version }}.zip"
+        checksum: "{{ nerdfonts.checksum }}"
+        mode: '0777'
+
+    - name: Ensure nerdfonts dir exists
+      file:
+        path: "/opt/nerdfonts-{{ nerdfonts.version }}"
+        state: directory
+        mode: '0755'
+
+    - name: Unarchive nerdfonts
+      unarchive:
+        src: "/tmp/nerdfonts-{{ nerdfonts.version }}.zip"
+        dest: "/opt/nerdfonts-{{ nerdfonts.version }}"
+        remote_src: true
+
+    - name: Set permissions
+      file:
+        dest: "/opt/nerdfonts-{{ nerdfonts.version }}"
+        owner: "{{ machine_user }}"
+        group: "{{ machine_user }}"
+        recurse: true
+
+    - name: Cache fonts
+      become: true
+      become_user: "{{ machine_user }}"
+      ansible.builtin.command: "fc-cache -vf /opt/nerdfonts-{{ nerdfonts.version }}"
+  when: not nerdfonts_stats.stat.exists
+
