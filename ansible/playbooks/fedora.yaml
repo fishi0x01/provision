@@ -20,6 +20,8 @@
       tags: [fedora_large_packages, no-test-in-container]
     - role: vim
       tags: [vim]
+    - role: fonts
+      tags: [fonts]
     - role: krew
       tags: [krew]
     - role: vscode

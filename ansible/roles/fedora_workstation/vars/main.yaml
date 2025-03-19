@@ -67,6 +67,7 @@ rpm_packages:
 - python3-pip
 - git-delta
 - yq
+- alacritty
 
 global_python_packages:
 - uv
