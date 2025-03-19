@@ -32,9 +32,23 @@
         group: "{{ machine_user }}"
         recurse: true
 
+    - name: Make sure .local/share does exist
+      become: true
+      become_user: "{{ machine_user }}"
+      ansible.builtin.file:
+        path: "/home/{{ machine_user }}/.local/share"
+        state: directory
+        mode: '0755'
+
+    - name: Fonts link
+      file:
+        src: "/opt/nerdfonts-{{ nerdfonts.version }}"
+        dest: "/home/{{ machine_user }}/.local/share/fonts"
+        state: link
+
     - name: Cache fonts
       become: true
       become_user: "{{ machine_user }}"
-      ansible.builtin.command: "fc-cache -vf /opt/nerdfonts-{{ nerdfonts.version }}"
+      ansible.builtin.command: "fc-cache -rvf"
   when: not nerdfonts_stats.stat.exists
 
