@@ -1,0 +1,9 @@
+---
+- name: Install nix
+  become: true
+  become_user: "{{ machine_user }}"
+  # https://nixos.org/download/
+  ansible.builtin.script: "files/install-nix-{{ nix.version }}.sh --no-daemon"
+  args:
+    creates: "/nix"
+
