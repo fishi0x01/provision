@@ -8,7 +8,7 @@ RUN useradd fishi0x01 && \
 
 USER fishi0x01
 # required for nix to properly source
-env USER fishi0x01
+ENV USER=fishi0x01
 
 # Checkout
 COPY --chown=fishi0x01:fishi0x01 . /code
