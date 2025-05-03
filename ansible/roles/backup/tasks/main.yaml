@@ -1,0 +1,13 @@
+---
+- name: Create backup
+  community.general.archive:
+    path:
+      - "/home/{{ machine_user }}/Workspaces"
+      - "/home/{{ machine_user }}/Documents"
+      - "/home/{{ machine_user }}/Pictures"
+      - "/home/{{ machine_user }}/Downloads"
+      - "/home/{{ machine_user }}/Music"
+      - "/home/{{ machine_user }}/provision"  
+    dest: "/home/{{ machine_user }}/backup-{{ now(utc=true,fmt='%Y-%m-%d_%H-%M-%S') }}.zip"
+    format: zip
+

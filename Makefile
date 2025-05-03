@@ -28,6 +28,9 @@ delete-dotfiles: ## Remove dotfile links
 ansible-fedora: ## Run ansible playbook to provision localhost
 	$(MAKE) -C ansible fedora
 
+ansible-backup: ## Run ansible playbook to create backup archive
+	$(MAKE) -C ansible backup
+
 vagrant-start-pentest: ## bootstrap the pentest box
 	vagrant up pentest
 
@@ -60,4 +63,8 @@ test-fedora40: ## Test fedora40 setup in a docker container
 test-fedora41: ## Test fedora41 setup in a docker container
 	docker build -t test-fedora41:latest -f test/Dockerfile.fedora41 .
 	docker run --rm -t test-fedora41:latest /code/test/test-fedora41.sh
+
+test-fedora42: ## Test fedora42 setup in a docker container
+	docker build -t test-fedora42:latest -f test/Dockerfile.fedora42 .
+	docker run --rm -t test-fedora42:latest /code/test/test-fedora42.sh
 
