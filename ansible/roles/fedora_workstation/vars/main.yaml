@@ -69,6 +69,7 @@ rpm_packages:
 - yq
 - alacritty
 - calibre
+- hstr
 
 global_python_packages:
 - uv
