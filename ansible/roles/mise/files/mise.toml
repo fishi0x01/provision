@@ -2,6 +2,8 @@
 awscli = "latest"
 go = "latest"
 just = "latest"
+k9s = "latest"
+krew = "latest"
 kustomize = "latest"
 stern = "latest"
 

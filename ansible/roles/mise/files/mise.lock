@@ -16,6 +16,20 @@ backend = "ubi:casey/just"
 [tools.just.checksums]
 just-linux-x86_64 = "sha256:3fae4508b25e85bec16c2985bb76f731d35b103434c5bf264af0fa2ab07e889a"
 
+[tools.k9s]
+version = "0.50.6"
+backend = "aqua:derailed/k9s"
+
+[tools.k9s.checksums]
+"k9s_Linux_amd64.tar.gz" = "sha256:5fc98f2dcf1d8fac6251f5a1ae1dc6fe7fe2b2d43b13bb3039e51ad492e2a70e"
+
+[tools.krew]
+version = "0.4.5"
+backend = "aqua:kubernetes-sigs/krew"
+
+[tools.krew.checksums]
+"krew-linux_amd64.tar.gz" = "sha256:bacc06800bda14ec063cd0b6f377a961fdf4661c00366bf9834723cd28bfabc7"
+
 [tools.kustomize]
 version = "5.6.0"
 backend = "aqua:kubernetes-sigs/kustomize"
