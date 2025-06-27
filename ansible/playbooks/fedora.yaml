@@ -24,8 +24,6 @@
       tags: [fonts]
     - role: nix
       tags: [nix]
-    - role: krew
-      tags: [krew]
     - role: vscode
       tags: [vscode]
     - role: docker
@@ -38,6 +36,4 @@
       tags: [vhs]
     - role: arduino_ide
       tags: [arduino_ide]
-    - role: k9s
-      tags: [k9s]
 

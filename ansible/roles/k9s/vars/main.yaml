@@ -1,6 +1,0 @@
----
-k9s:
-  version: "0.40.8"
-  download_url: "https://github.com/derailed/k9s/releases/download/v0.40.8/k9s_Linux_amd64.tar.gz"
-  # https://github.com/derailed/k9s/releases/download/v0.40.8/checksums.sha256
-  checksum: "sha256:2f69f26eb1c65727e177daca30747a5832b7f39c68280a557d684ef9a25f5b34"
