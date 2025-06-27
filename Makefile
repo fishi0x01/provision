@@ -56,15 +56,6 @@ setup-secrets: ## Fetch keybase private repos - requires keybase installed and l
 	ln -sfn ${HOME}/Workspaces/keybase/pass ${HOME}/.password-store
 	ln -sfn ${HOME}/Workspaces/keybase/configs/ssh ${HOME}/.ssh/config
 
-test-fedora40: ## Test fedora40 setup in a docker container
-	docker build -t test-fedora40:latest -f test/Dockerfile.fedora40 .
-	docker run --rm -t test-fedora40:latest /code/test/test-fedora40.sh
-
-test-fedora41: ## Test fedora41 setup in a docker container
-	docker build -t test-fedora41:latest -f test/Dockerfile.fedora41 .
-	docker run --rm -t test-fedora41:latest /code/test/test-fedora41.sh
-
 test-fedora42: ## Test fedora42 setup in a docker container
 	docker build -t test-fedora42:latest -f test/Dockerfile.fedora42 .
-	docker run --rm -t test-fedora42:latest /code/test/test-fedora42.sh
 

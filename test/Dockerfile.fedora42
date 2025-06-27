@@ -1,4 +1,4 @@
-FROM fedora:42
+FROM fedora:42 AS base
 
 SHELL ["/bin/bash", "-c"] 
 
@@ -12,3 +12,11 @@ ENV USER=fishi0x01
 
 # Checkout
 COPY --chown=fishi0x01:fishi0x01 . /code
+
+FROM base AS test
+
+RUN /code/ansible/install/fedora42.sh
+RUN make -C /code install-dotfiles
+RUN make -C /code/ansible test-fedora
+RUN make -C /code delete-dotfiles
+RUN bash -c "/home/fishi0x01/.local/bin/mise install"
