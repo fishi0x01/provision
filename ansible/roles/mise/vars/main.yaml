@@ -1,0 +1,5 @@
+---
+mise:
+  gpg:
+    key: "0x7413A06D"
+    server: "hkps://keyserver.ubuntu.com"

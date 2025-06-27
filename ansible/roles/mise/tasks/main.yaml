@@ -1,0 +1,54 @@
+---
+# https://mise.jdx.dev/installing-mise.html#installation-methods
+# We are adding the key for manually downloading and updating this role's install script if necessary
+- name: "Check gpg key"
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.shell:
+    cmd: "gpg --list-keys {{ mise.gpg.key }}"
+  register: has_key
+  failed_when: false
+  changed_when: false
+
+- name: "Get gpg key"
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.shell:
+    cmd: "gpg --keyserver {{ mise.gpg.server }} --recv-keys {{ mise.gpg.key }}"
+  when: has_key.rc != 0
+
+- name: "Check if already installed"
+  stat:
+    path: "/home/{{ machine_user }}/.local/bin/mise"
+  register: mise
+
+- name: "Install"
+  become: true
+  become_user: "{{ machine_user }}"
+  # curl https://mise.jdx.dev/install.sh.sig | gpg --decrypt > install-mise.sh
+  script: "files/install-mise.sh"
+  when: not mise.stat.exists
+
+- name: "Make sure config dir exists"
+  ansible.builtin.file:
+    path: "/home/{{ machine_user }}/.config/mise/"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: directory
+
+- name: "Link default mise.toml"
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/mise.toml"
+    dest: "/home/{{ machine_user }}/.config/mise/config.toml"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link
+
+- name: "Link default mise.lock"
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/mise.lock"
+    dest: "/home/{{ machine_user }}/.config/mise/config.lock"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link
+

@@ -1,0 +1,28 @@
+[tools.awscli]
+version = "2.27.44"
+backend = "aqua:aws/aws-cli"
+
+[tools.awscli.checksums]
+"awscli-exe-linux-x86_64-2.27.44.zip" = "sha256:58555ff3190b54a5d16b3afae8945c706ab4e2b2e3d7e4b8f8c2b1713402c208"
+
+[tools.go]
+version = "1.22.3"
+backend = "core:go"
+
+[tools.just]
+version = "1.40.0"
+backend = "ubi:casey/just"
+
+[tools.just.checksums]
+just-linux-x86_64 = "sha256:3fae4508b25e85bec16c2985bb76f731d35b103434c5bf264af0fa2ab07e889a"
+
+[tools.kustomize]
+version = "5.6.0"
+backend = "aqua:kubernetes-sigs/kustomize"
+
+[tools.kustomize.checksums]
+"kustomize_v5.6.0_linux_amd64.tar.gz" = "sha256:54e4031ddc4e7fc59e408da29e7c646e8e57b8088c51b84b3df0864f47b5148f"
+
+[tools.stern]
+version = "1.32.0"
+backend = "aqua:stern/stern"
