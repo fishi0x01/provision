@@ -1,0 +1,11 @@
+[tools]
+awscli = "latest"
+go = "latest"
+just = "latest"
+kustomize = "latest"
+stern = "latest"
+
+[settings]
+lockfile = true
+experimental = true
+disable_backends = ["asdf"]

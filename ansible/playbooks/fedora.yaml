@@ -12,8 +12,8 @@
       tags: [ohmybash]
     - role: starship
       tags: [starship, no-test-in-container]
-    - role: asdf
-      tags: [asdf]
+    - role: mise
+      tags: [mise]
     - role: fedora_workstation
       tags: [fedora_workstation]
     - role: fedora_large_packages

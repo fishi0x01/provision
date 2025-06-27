@@ -19,6 +19,5 @@ DOTFILES=(
     ".todo.cfg"
     ".todo_completion"
     ".bashrc.fishi0x01.theme.sh"
-    ".tool-versions"
     ".vimrc"
 )
