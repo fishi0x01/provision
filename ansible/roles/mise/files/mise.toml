@@ -6,6 +6,7 @@ k9s = "latest"
 krew = "latest"
 kustomize = "latest"
 stern = "latest"
+kubectl = "latest"
 
 [settings]
 lockfile = true
