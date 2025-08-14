@@ -70,6 +70,7 @@ rpm_packages:
 - alacritty
 - calibre
 - hstr
+- restic
 
 global_python_packages:
 - uv
