@@ -19,6 +19,3 @@ vm-fedora: venv ## Provision fedora inside a VM
 test-fedora: venv ## Test provisioning of fedora workstation - intended to run inside container with passwordless sudo
 	. $(VENV) && ansible-playbook playbooks/fedora.yaml --extra-vars 'machine_user=${USER}' --skip-tags 'no-test-in-container'
 
-backup: venv ## Create zip archive of important workstation dirs
-	. $(VENV) && ansible-playbook playbooks/backup.yaml --extra-vars 'machine_user=${USER}' --ask-become-pass
-

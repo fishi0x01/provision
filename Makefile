@@ -28,8 +28,18 @@ delete-dotfiles: ## Remove dotfile links
 ansible-fedora: ## Run ansible playbook to provision localhost
 	$(MAKE) -C ansible fedora
 
-ansible-backup: ## Run ansible playbook to create backup archive
-	$(MAKE) -C ansible backup
+backup: ## Run restic backup
+	restic -r sftp:fishi@192.168.178.25:/share/data/Backups/restic/home --verbose=2 backup \
+      ~/Workspaces \
+      ~/Documents \
+      ~/Pictures \
+      ~/Downloads \
+      ~/Music \
+      ~/provision \
+      ~/.password-store 
+
+restore: ## Run restic restore in-place
+	restic -r sftp:fishi@192.168.178.25:/share/data/Backups/restic/home --verbose=2 restore latest --target $(HOME) --overwrite always
 
 vagrant-start-pentest: ## bootstrap the pentest box
 	vagrant up pentest
