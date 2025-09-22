@@ -7,6 +7,7 @@ krew = "latest"
 kustomize = "latest"
 stern = "latest"
 kubectl = "latest"
+node = "latest"
 
 [settings]
 lockfile = true
