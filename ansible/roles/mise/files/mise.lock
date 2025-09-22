@@ -59,6 +59,15 @@ checksum = "blake3:6561c489d9e5cb816d82b4593836fafb43edba88ab2f7ed397046f53d1c63
 size = 5805549
 url = "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v5.7.1/kustomize_v5.7.1_linux_amd64.tar.gz"
 
+[tools.node]
+version = "24.8.0"
+backend = "core:node"
+
+[tools.node.platforms.linux-x64]
+checksum = "sha256:daf68404b478b4c3616666580d02500a24148c0f439e4d0134d65ce70e90e655"
+size = 58884829
+url = "https://nodejs.org/dist/v24.8.0/node-v24.8.0-linux-x64.tar.gz"
+
 [tools.stern]
 version = "1.32.0"
 backend = "aqua:stern/stern"
