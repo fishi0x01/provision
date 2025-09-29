@@ -2,77 +2,61 @@
 version = "2.28.1"
 backend = "aqua:aws/aws-cli"
 
-[tools.awscli.platforms.linux-x64]
-checksum = "blake3:b94a12e68c5c7f1883ed560650e1145efed3dff230f630bb830f941ee5bc173b"
-size = 66716345
-url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.28.1.zip"
+[tools.awscli.checksums]
+"awscli-exe-linux-x86_64-2.28.1.zip" = "sha256:76e9fe6f81524c94896bb3c8b1854929a04c4959a0459751f3ac67c1b292636a"
 
 [tools.go]
 version = "1.24.5"
 backend = "core:go"
 
-[tools.go.platforms.linux-x64]
-checksum = "sha256:10ad9e86233e74c0f6590fe5426895de6bf388964210eac34a6d83f38918ecdc"
-size = 78563580
-url = "https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz"
+[tools.go.checksums]
+"go1.24.5.linux-amd64.tar.gz" = "sha256:10ad9e86233e74c0f6590fe5426895de6bf388964210eac34a6d83f38918ecdc"
 
 [tools.just]
 version = "1.42.4"
 backend = "ubi:casey/just"
 
-[tools.just.platforms.linux-x64-just]
-checksum = "blake3:69c416d173147901949f0dce7cde9371f70492b5dec1f6cfc0972cdb9e5b9f45"
+[tools.just.checksums]
+just-linux-x86_64 = "sha256:fd103ebd407b481066bf3fcec1ce443f67f829a6230a1291224ab7aa42b5d1e2"
 
 [tools.k9s]
 version = "0.50.9"
 backend = "aqua:derailed/k9s"
 
-[tools.k9s.platforms.linux-x64]
-checksum = "sha256:5e625efa26c3e14256cf29d242179b32129183b549937ec62d0ad9be1bfe2ca4"
-size = 38113817
-url = "https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Linux_amd64.tar.gz"
+[tools.k9s.checksums]
+"k9s_Linux_amd64.tar.gz" = "sha256:5e625efa26c3e14256cf29d242179b32129183b549937ec62d0ad9be1bfe2ca4"
 
 [tools.krew]
 version = "0.4.5"
 backend = "aqua:kubernetes-sigs/krew"
 
-[tools.krew.platforms.linux-x64]
-checksum = "sha256:bacc06800bda14ec063cd0b6f377a961fdf4661c00366bf9834723cd28bfabc7"
-size = 5054827
-url = "https://github.com/kubernetes-sigs/krew/releases/download/v0.4.5/krew-linux_amd64.tar.gz"
+[tools.krew.checksums]
+"krew-linux_amd64.tar.gz" = "sha256:bacc06800bda14ec063cd0b6f377a961fdf4661c00366bf9834723cd28bfabc7"
 
 [tools.kubectl]
 version = "1.33.3"
 backend = "aqua:kubernetes/kubectl"
 
-[tools.kubectl.platforms.linux-x64]
-checksum = "sha256:2fcf65c64f352742dc253a25a7c95617c2aba79843d1b74e585c69fe4884afb0"
-size = 60129464
-url = "https://dl.k8s.io/v1.33.3/bin/linux/amd64/kubectl"
+[tools.kubectl.checksums]
+kubectl = "sha256:2fcf65c64f352742dc253a25a7c95617c2aba79843d1b74e585c69fe4884afb0"
 
 [tools.kustomize]
 version = "5.7.1"
 backend = "aqua:kubernetes-sigs/kustomize"
 
-[tools.kustomize.platforms.linux-x64]
-checksum = "blake3:6561c489d9e5cb816d82b4593836fafb43edba88ab2f7ed397046f53d1c6322a"
-size = 5805549
-url = "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v5.7.1/kustomize_v5.7.1_linux_amd64.tar.gz"
+[tools.kustomize.checksums]
+"kustomize_v5.7.1_linux_amd64.tar.gz" = "sha256:ea375e7372f9aa029129d4b2d16c66b7750b7f1213c4f66f910d981c895818d8"
 
 [tools.node]
 version = "24.8.0"
 backend = "core:node"
 
-[tools.node.platforms.linux-x64]
-checksum = "sha256:daf68404b478b4c3616666580d02500a24148c0f439e4d0134d65ce70e90e655"
-size = 58884829
-url = "https://nodejs.org/dist/v24.8.0/node-v24.8.0-linux-x64.tar.gz"
+[tools.node.checksums]
+"node-v24.8.0-linux-x64.tar.gz" = "sha256:daf68404b478b4c3616666580d02500a24148c0f439e4d0134d65ce70e90e655"
 
 [tools.stern]
 version = "1.32.0"
 backend = "aqua:stern/stern"
 
-[tools.stern.platforms.linux-x64]
-checksum = "sha256:4733268b0e7fea48426c594d186be8cbcdb863858e08910451ebe3b1c8286f44"
-size = 13750310
-url = "https://github.com/stern/stern/releases/download/v1.32.0/stern_1.32.0_linux_amd64.tar.gz"
+[tools.stern.checksums]
+"stern_1.32.0_linux_amd64.tar.gz" = "sha256:4733268b0e7fea48426c594d186be8cbcdb863858e08910451ebe3b1c8286f44"
