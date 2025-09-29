@@ -40,7 +40,7 @@ backup-home: ## Run restic backup for home machines
 
 restore-home: ## Run restic restore in-place for home machines. Do not overwrite if newer exists already.
 	# https://restic.readthedocs.io/en/latest/050_restore.html#restoring-in-place
-	restic -r $(shell pass fishi0x01/Backups/restic/home/repo-url) --verbose=2 restore latest --target ${HOME} --overwrite if-newer
+	restic -r $(shell pass fishi0x01/Backups/restic/home/repo-url) --verbose=2 restore latest --target / --overwrite if-newer
 
 vagrant-start-pentest: ## bootstrap the pentest box
 	vagrant up pentest
