@@ -33,3 +33,12 @@ backend = "core:node"
 [[tools.stern]]
 version = "1.33.0"
 backend = "aqua:stern/stern"
+
+[[tools.uv]]
+version = "0.9.5"
+backend = "aqua:astral-sh/uv"
+
+[tools.uv.platforms.linux-x64]
+checksum = "sha256:3665ffb6c429c31ad6c778ac0489b7746e691acf025cf530b3510b2f9b1660ff"
+size = 21566106
+url = "https://github.com/astral-sh/uv/releases/download/0.9.5/uv-x86_64-unknown-linux-musl.tar.gz"

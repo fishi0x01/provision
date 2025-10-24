@@ -8,6 +8,7 @@ kustomize = "latest"
 stern = "latest"
 kubectl = "latest"
 node = "latest"
+uv = "latest"
 
 [settings]
 lockfile = true
