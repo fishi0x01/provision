@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 export PATH=~/.local/bin:~/.rbenv/bin:/opt/android-studio/bin:${KREW_ROOT:-$HOME/.krew}/bin:$PATH
 export BINARY_DIR="/usr/bin" # ssh-ident
 export ANDROID_SDK=~/Android/Sdk # Android SDK
