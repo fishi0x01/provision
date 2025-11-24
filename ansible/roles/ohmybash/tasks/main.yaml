@@ -28,6 +28,6 @@
 
 - name: Replace line in bashrc
   ansible.builtin.replace:
-    path: ~/.bashrc
+    path: "/home/{{ machine_user }}/.bashrc"
     regexp: '^OSH_THEME=.*$'
     replace: 'OSH_THEME="fishi0x01"'
