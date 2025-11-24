@@ -71,6 +71,7 @@ rpm_packages:
 - calibre
 - hstr
 - restic
+- wol
 
 global_python_packages:
 - uv
