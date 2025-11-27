@@ -10,6 +10,7 @@ kubectl = "latest"
 node = "latest"
 uv = "latest"
 gemini-cli = "latest"
+minikube = "latest"
 
 [settings]
 lockfile = true
