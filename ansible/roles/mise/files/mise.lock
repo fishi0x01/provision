@@ -1,48 +1,50 @@
-[[tools.awscli]]
+[tools.awscli]
 version = "2.31.21"
 backend = "aqua:aws/aws-cli"
 
-[[tools.gemini-cli]]
+[tools.gemini-cli]
 version = "0.10.0"
 backend = "npm:@google/gemini-cli"
 
-[[tools.go]]
+[tools.go]
 version = "1.25.3"
 backend = "core:go"
 
-[[tools.just]]
+[tools.just]
 version = "1.43.0"
 backend = "ubi:casey/just"
 
-[[tools.k9s]]
+[tools.k9s]
 version = "0.50.16"
 backend = "aqua:derailed/k9s"
 
-[[tools.krew]]
+[tools.krew]
 version = "0.4.5"
 backend = "aqua:kubernetes-sigs/krew"
 
-[[tools.kubectl]]
+[tools.kubectl]
 version = "1.34.1"
 backend = "aqua:kubernetes/kubectl"
 
-[[tools.kustomize]]
+[tools.kustomize]
 version = "5.7.1"
 backend = "aqua:kubernetes-sigs/kustomize"
 
-[[tools.node]]
+[tools.minikube]
+version = "1.37.0"
+backend = "aqua:kubernetes/minikube"
+
+[tools.minikube.checksums]
+minikube-linux-amd64 = "sha256:d5cf561c71171152ff67d799f041ac0f65c235c87a1e9fc02a6a17b8226214d0"
+
+[tools.node]
 version = "25.0.0"
 backend = "core:node"
 
-[[tools.stern]]
+[tools.stern]
 version = "1.33.0"
 backend = "aqua:stern/stern"
 
-[[tools.uv]]
+[tools.uv]
 version = "0.9.5"
 backend = "aqua:astral-sh/uv"
-
-[tools.uv.platforms.linux-x64]
-checksum = "sha256:3665ffb6c429c31ad6c778ac0489b7746e691acf025cf530b3510b2f9b1660ff"
-size = 21566106
-url = "https://github.com/astral-sh/uv/releases/download/0.9.5/uv-x86_64-unknown-linux-musl.tar.gz"
