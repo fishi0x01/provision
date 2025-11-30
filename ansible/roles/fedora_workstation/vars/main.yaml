@@ -72,6 +72,7 @@ rpm_packages:
 - hstr
 - restic
 - wol
+- xclip
 
 global_python_packages:
 - uv
