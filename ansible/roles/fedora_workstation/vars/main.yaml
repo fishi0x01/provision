@@ -73,6 +73,8 @@ rpm_packages:
 - restic
 - wol
 - xclip
+- telnet
+- ntpstat
 
 global_python_packages:
 - uv
