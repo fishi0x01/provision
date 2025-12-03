@@ -9,16 +9,6 @@ alias sudo='sudo '
 alias md='mkdir -p'
 alias asciicast2gif='docker run --rm -v $PWD:/data -e NODE_OPTS="--max-old-space-size=1024" asciinema/asciicast2gif'
 
-zzBackup() {
-  if [ $# -lt 2 ]; then
-    echo "First argument: Backup .zip path, Second argument: comma separated paths for backup"
-  else
-    zip -ur ${1} $(echo "$2" | sed -e 's/,/\ /g') -x '*/.nix-profile/*'
-  fi
-}
-
-alias 'fishi-backup'='zzBackup'
-
 # TODO: clean this mess up - looks awefull o.O
 
 # Recursively apply replace pattern on all files in directory given directory
@@ -84,14 +74,15 @@ alias downloadFileTo=zzDownloadFileTo
 
 zzConfgiureGitRepo() {
   if [ $# -lt 2 ]; then
-    echo "First argument: Email, Second argument: gpg key ID"
+    echo "First argument: gpg key ID, Second argument: email"
   fi
   git config user.name "Karl Fischer"
-  git config user.email "${1}"
-  git config user.signingkey "${2}"
+  git config user.signingkey "${1}"
+  git config user.email "${2}"
   git config commit.gpgsign true
 }
-alias gitConfig=zzConfgiureGitRepo
+alias gitConfigRedhat="zzConfgiureGitRepo 98BAF2CA164CE605B85C7CE99DCDA87BE12A814D"
+alias gitConfigPrivate="zzConfgiureGitRepo 9CB7993967B56A2C3866C06B91F47B8CE96231C3"
 
 zzKeybaseLocalGgpImport() {
   if [ $# -lt 1 ]; then
