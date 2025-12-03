@@ -44,11 +44,11 @@
     group: "{{ machine_user }}"
     state: link
 
-- name: "Link default mise.lock"
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/mise.lock"
-    dest: "/home/{{ machine_user }}/.config/mise/config.lock"
-    owner: "{{ machine_user }}"
-    group: "{{ machine_user }}"
-    state: link
+#- name: "Link default mise.lock"
+#  ansible.builtin.file:
+#    src: "{{ role_path }}/files/mise.lock"
+#    dest: "/home/{{ machine_user }}/.config/mise/config.lock"
+#    owner: "{{ machine_user }}"
+#    group: "{{ machine_user }}"
+#    state: link
 

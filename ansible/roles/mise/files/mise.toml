@@ -11,8 +11,10 @@ node = "latest"
 uv = "latest"
 gemini-cli = "latest"
 minikube = "latest"
+kind = "latest"
+helm="latest"
 
 [settings]
-lockfile = true
+#lockfile = true
 experimental = true
 disable_backends = ["asdf"]
