@@ -26,6 +26,19 @@
   register: cmdswapout
   changed_when: "'Nothing to do.' not in cmdswapout.stdout"
 
+- name: Ensure third-pary repos are installed
+  ansible.builtin.dnf:
+    name: fedora-workstation-repositories
+    state: present
+
+- name: Enable Google Chrome repository
+  ansible.builtin.ini_file:
+    path: /etc/yum.repos.d/google-chrome.repo
+    section: google-chrome
+    option: enabled
+    value: "1"
+    mode: "0644"
+
 - name: Install rpm packages
   ansible.builtin.dnf:
     name: "{{ rpm_packages }}"

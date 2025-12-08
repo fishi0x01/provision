@@ -75,6 +75,7 @@ rpm_packages:
 - xclip
 - telnet
 - ntpstat
+- google-chrome-stable
 
 global_python_packages:
 - uv
