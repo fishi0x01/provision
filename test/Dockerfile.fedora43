@@ -1,0 +1,24 @@
+FROM fedora:43 AS base
+
+SHELL ["/bin/bash", "-c"] 
+
+# Prepare
+RUN useradd fishi0x01 && \
+    echo "fishi0x01 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER fishi0x01
+# required for nix to properly source
+ENV USER=fishi0x01
+
+# Checkout
+COPY --chown=fishi0x01:fishi0x01 . /code
+
+FROM base AS test
+
+ENV PATH="/home/fishi0x01/.local/bin:${PATH}"
+
+RUN /code/ansible/install/fedora43.sh
+RUN make -C /code install-dotfiles
+RUN make -C /code/ansible test-fedora
+RUN bash -c "mise install"
+RUN make -C /code delete-dotfiles
