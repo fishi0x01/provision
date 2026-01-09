@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-      - name: Fedora42
-        run: make test-fedora42
+      - name: Fedora43
+        run: make test-fedora43

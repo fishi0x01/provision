@@ -70,3 +70,5 @@ setup-secrets: ## Fetch keybase private repos - requires keybase installed and l
 test-fedora42: ## Test fedora42 setup in a docker container
 	docker build -t test-fedora42:latest -f test/Dockerfile.fedora42 .
 
+test-fedora43: ## Test fedora43 setup in a docker container
+	docker build -t test-fedora43:latest -f test/Dockerfile.fedora43 .

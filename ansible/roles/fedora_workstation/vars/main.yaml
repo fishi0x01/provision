@@ -34,7 +34,6 @@ rpm_packages:
 - ffmpeg
 - pipx
 - zstd
-- webkit2gtk4.0
 - libOSMesa
 - ack
 - cmake
@@ -63,7 +62,6 @@ rpm_packages:
 - graphviz
 - inkscape
 - sshpass
-- steam
 - python3-pip
 - git-delta
 - yq
