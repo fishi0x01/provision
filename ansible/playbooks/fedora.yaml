@@ -22,8 +22,8 @@
       tags: [vim]
     - role: fonts
       tags: [fonts]
-    - role: nix
-      tags: [nix]
+    #- role: nix
+    #  tags: [nix]
     - role: vscode
       tags: [vscode]
     - role: docker

@@ -5,6 +5,13 @@
     name: opensc
     state: absent
 
+# https://discussion.fedoraproject.org/t/gpg-with-yubikeys-on-fedora-43-scdaemon-removed/170981/6
+# Worst-case manually uninstall and reinstall scdaemon packages
+- name: Install gnupg2-scdaemon
+  ansible.builtin.dnf:
+    name: gnupg2-scdaemon
+    state: present
+
 - name: Fetch imported gpg keys
   become: true
   become_user: "{{ machine_user }}"
