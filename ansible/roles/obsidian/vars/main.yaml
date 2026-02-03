@@ -1,0 +1,6 @@
+---
+obsidian:
+  version: 1.11.5
+  url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.11.5/Obsidian-1.11.5.AppImage
+  checksum: "sha256:d09ce116991f525658983c1cfd468f60ee8e3269d0b91dddd81e51216103f2c6"
+
