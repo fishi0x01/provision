@@ -1,0 +1,36 @@
+---
+- name: Check if is installed
+  stat:
+    path: "/opt/obsidian-{{ obsidian.version }}"
+  register: obsidian_stats
+
+- name: Download and install
+  block:
+    - name: Ensure dir exists
+      file:
+        path: "/opt/obsidian"
+        state: directory
+        mode: '0755'
+
+    - name: Download
+      get_url:
+        url: "{{ obsidian.url }}"
+        dest: "/opt/obsidian/obsidian-{{ obsidian.version }}.AppImage"
+        checksum: "{{ obsidian.checksum }}"
+        mode: '0775'
+
+    - name: Set permissions
+      file:
+        dest: "/opt/obsidian"
+        owner: "{{ machine_user }}"
+        group: "{{ machine_user }}"
+        recurse: true
+  when: not obsidian_stats.stat.exists
+
+- name: link
+  file:
+    src: "/opt/obsidian/obsidian-{{ obsidian.version }}.AppImage"
+    dest: "/usr/local/bin/obsidian"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: link

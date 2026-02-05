@@ -30,6 +30,8 @@
       tags: [docker, no-test-in-container]
     - role: balena_etcher
       tags: [balena_etcher]
+    - role: obsidian
+      tags: [obsidian]
     - role: ttyd
       tags: [ttyd]
     - role: vhs

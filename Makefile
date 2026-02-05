@@ -64,6 +64,7 @@ setup-secrets: ## Fetch keybase private repos - requires keybase installed and l
 	git clone keybase://private/fishi0x01/pentest ~/Workspaces/keybase/pentest || true
 	git clone keybase://private/fishi0x01/configs ~/Workspaces/keybase/configs || true
 	git clone keybase://private/fishi0x01/cv ~/Workspaces/keybase/cv || true
+	git clone keybase://private/fishi0x01/obsidian ~/Workspaces/keybase/obsidian || true
 	ln -sfn ${HOME}/Workspaces/keybase/pass ${HOME}/.password-store
 	ln -sfn ${HOME}/Workspaces/keybase/configs/ssh ${HOME}/.ssh/config
 
