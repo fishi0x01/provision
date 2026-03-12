@@ -12,6 +12,8 @@ rpm_packages:
 - gdb
 - gimp
 - nload
+- gh
+- glab
 - git
 - git-crypt
 - git-lfs
