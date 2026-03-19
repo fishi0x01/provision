@@ -7,3 +7,16 @@
   args:
     creates: "/nix"
 
+- name: Make sure nix config dir exists
+  ansible.builtin.file:
+    path: "/home/{{ machine_user }}/.config/nix"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: directory
+
+- name: Configure nix (enable flakes)
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/nix.conf"
+    dest: "/home/{{ machine_user }}/.config/nix/nix.conf"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
