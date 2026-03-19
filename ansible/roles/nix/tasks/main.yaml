@@ -1,11 +1,20 @@
 ---
+- name: Create /nix directory owned by machine_user
+  become: true
+  ansible.builtin.file:
+    path: /nix
+    state: directory
+    mode: "0755"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+
 - name: Install nix
   become: true
   become_user: "{{ machine_user }}"
   # https://nixos.org/download/
   ansible.builtin.script: "files/install-nix-{{ nix.version }}.sh --no-daemon"
   args:
-    creates: "/nix"
+    creates: "/nix/store"
 
 - name: Make sure nix config dir exists
   ansible.builtin.file:
