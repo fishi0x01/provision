@@ -1,11 +1,10 @@
 ---
+# https://src.fedoraproject.org/rpms/nix
 - name: Install nix
   become: true
-  become_user: "{{ machine_user }}"
-  # https://nixos.org/download/
-  ansible.builtin.script: "files/install-nix-{{ nix.version }}.sh --no-daemon"
-  args:
-    creates: "/nix"
+  ansible.builtin.dnf:
+    name: nix-core
+    state: present
 
 - name: Make sure nix config dir exists
   ansible.builtin.file:
@@ -16,7 +15,8 @@
 
 - name: Configure nix (enable flakes)
   ansible.builtin.copy:
-    src: "{{ role_path }}/files/nix.conf"
+    content: |
+      experimental-features = nix-command flakes
     dest: "/home/{{ machine_user }}/.config/nix/nix.conf"
     owner: "{{ machine_user }}"
     group: "{{ machine_user }}"
