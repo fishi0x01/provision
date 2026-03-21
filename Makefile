@@ -3,22 +3,6 @@
 help: ## Prints help for targets with comments
 	@grep -E '^[a-zA-Z0-9._-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-nix-default-env: ## Setup default nix-env
-	./nix/installer/install-env.sh
-
-nix-home-env: ## Setup home nix-env
-	./nix/installer/install-env.sh fishi0x01-home
-
-nix-pen-env: ## Setup pentesting nix-env
-	./nix/installer/install-env.sh fishi0x01-pen
-
-nix-minimal-env: ## Setup minimal nix-env
-	./nix/installer/install-env.sh fishi0x01-minimal
-
-nix-gc: ## Free up some storage
-	nix-store --gc
-	nix-store --optimise
-
 install-dotfiles: ## Setup dotfile links
 	./scripts/install/install-dotfiles.sh
 
@@ -42,22 +26,6 @@ restore-home: ## Run restic restore in-place for home machines. Do not overwrite
 	# https://restic.readthedocs.io/en/latest/050_restore.html#restoring-in-place
 	restic -r $(shell pass fishi0x01/Backups/restic/home/repo-url) --verbose=2 restore latest --target / --overwrite if-newer
 
-vagrant-start-pentest: ## bootstrap the pentest box
-	vagrant up pentest
-
-vagrant-hibernate-pentest: ## hibernate the pentest box
-	vagrant suspend pentest
-
-vagrant-start-win10: ## start the win10 box
-	vagrant up win10
-
-vagrant-hibernate-win10: ## hibernate the win10 box
-	vagrant suspend win10
-
-ansible-test-ubuntu20.04: ## Test workspace provisioning on Ubuntu20.04
-	vagrant up test-ubuntu20.04
-	vagrant destroy -f test-ubuntu20.04
-
 setup-secrets: ## Fetch keybase private repos - requires keybase installed and logged in
 	mkdir -p ~/Workspaces/keybase/
 	git clone keybase://private/fishi0x01/pass ~/Workspaces/keybase/pass || true
@@ -68,8 +36,6 @@ setup-secrets: ## Fetch keybase private repos - requires keybase installed and l
 	ln -sfn ${HOME}/Workspaces/keybase/pass ${HOME}/.password-store
 	ln -sfn ${HOME}/Workspaces/keybase/configs/ssh ${HOME}/.ssh/config
 
-test-fedora42: ## Test fedora42 setup in a docker container
-	docker build -t test-fedora42:latest -f test/Dockerfile.fedora42 .
-
 test-fedora43: ## Test fedora43 setup in a docker container
 	docker build -t test-fedora43:latest -f test/Dockerfile.fedora43 .
+
