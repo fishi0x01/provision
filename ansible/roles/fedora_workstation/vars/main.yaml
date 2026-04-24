@@ -76,6 +76,7 @@ rpm_packages:
 - telnet
 - ntpstat
 - google-chrome-stable
+- fuse-libs
 
 global_python_packages:
 - uv
