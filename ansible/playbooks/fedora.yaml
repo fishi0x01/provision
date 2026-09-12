@@ -24,6 +24,10 @@
       tags: [fonts]
     - role: claude
       tags: [claude]
+    - role: gondolin
+      tags: [gondolin]
+    - role: pi
+      tags: [pi]
     - role: nix
       tags: [nix]
     - role: vscode

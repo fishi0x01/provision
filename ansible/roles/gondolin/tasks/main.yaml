@@ -1,0 +1,66 @@
+---
+# Gondolin runs untrusted code in a lightweight QEMU micro-VM whose network and
+# filesystem are mediated by the host. https://earendil-works.github.io/gondolin/
+- name: Install gondolin host dependencies
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ gondolin.rpm_packages }}"
+    state: present
+
+- name: Check if gondolin is already installed
+  ansible.builtin.stat:
+    path: "/home/{{ machine_user }}/.local/bin/gondolin"
+  register: gondolin_bin
+
+# npm_config_prefix keeps the CLI in ~/.local/bin instead of inside the mise
+# node install, so it survives `mise upgrade node`. Needs node >= 23.6.0.
+- name: Install gondolin
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.command:
+    cmd: "/home/{{ machine_user }}/.local/bin/mise exec -- npm install -g {{ gondolin.npm_package }}"
+  environment:
+    npm_config_prefix: "/home/{{ machine_user }}/.local"
+  when: not gondolin_bin.stat.exists
+  register: gondolin_install
+  changed_when: gondolin_install.rc == 0
+
+- name: Make sure gondolin config dir exists
+  ansible.builtin.file:
+    path: "/home/{{ machine_user }}/.config/gondolin"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    state: directory
+
+- name: Install guest image build config
+  ansible.builtin.copy:
+    src: "build-config.json"
+    dest: "/home/{{ machine_user }}/.config/gondolin/build-config.json"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "0644"
+  register: gondolin_build_config
+
+- name: Check if custom guest image is already built
+  ansible.builtin.stat:
+    path: "/home/{{ machine_user }}/{{ gondolin.image.dir }}/manifest.json"
+  register: gondolin_image
+
+# Downloads the Alpine rootfs and kernel and assembles ~200MB of guest assets,
+# so the first run takes a few minutes. No VM is booted here - it is mke2fs/cpio
+# on plain files - but the download is too heavy to repeat on every CI run.
+- name: Build custom guest image
+  become: true
+  become_user: "{{ machine_user }}"
+  tags: [no-test-in-container]
+  ansible.builtin.command:
+    cmd: >-
+      /home/{{ machine_user }}/.local/bin/gondolin build
+      --config /home/{{ machine_user }}/.config/gondolin/build-config.json
+      --output /home/{{ machine_user }}/{{ gondolin.image.dir }}
+      --tag {{ gondolin.image.tag }}
+  environment:
+    PATH: "/home/{{ machine_user }}/.local/bin:{{ ansible_env.PATH }}"
+  when: gondolin_build_config.changed or not gondolin_image.stat.exists
+  register: gondolin_build
+  changed_when: gondolin_build.rc == 0

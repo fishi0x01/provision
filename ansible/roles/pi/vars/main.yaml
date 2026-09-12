@@ -1,0 +1,33 @@
+---
+pi:
+  npm_package: "@earendil-works/pi-coding-agent"
+  # Vendored + patched copy of pi's own gondolin example extension, see
+  # files/extension/index.ts. Routes read/write/edit/bash/grep/find/ls and `!`
+  # commands into the micro-VM with the host cwd mounted at /workspace.
+  extension_dir: ".pi/agent/extensions/gondolin"
+  # Keep in sync with gondolin.image.dir in the gondolin role.
+  guest_image_dir: ".local/share/gondolin/images/pi-dev"
+  # Grow the writable root disk before boot so the agent has room to install
+  # packages inside the VM. The overlay is thrown away when the VM closes.
+  rootfs_size: "4G"
+  # Egress allowlist for the VM. Everything not listed here is dropped by the
+  # host before a real socket is opened. Override per project in
+  # <cwd>/.pi/gondolin.json. Mirrors DEFAULT_CONFIG in files/extension/index.ts,
+  # which only applies when no config file exists at all.
+  allowed_hosts:
+  - registry.npmjs.org
+  - registry.yarnpkg.com
+  - pypi.org
+  - "*.pypi.org"
+  - files.pythonhosted.org
+  - proxy.golang.org
+  - sum.golang.org
+  - crates.io
+  - static.crates.io
+  - github.com
+  - "*.github.com"
+  - raw.githubusercontent.com
+  - objects.githubusercontent.com
+  - dl-cdn.alpinelinux.org
+  # Hosts that additionally bypass the internal-IP block, e.g. a LAN registry.
+  allowed_internal_hosts: []
