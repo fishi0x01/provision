@@ -53,14 +53,15 @@
   become: true
   become_user: "{{ machine_user }}"
   tags: [no-test-in-container]
+  # Via mise exec because the gondolin bin is a `#!/usr/bin/env node` script and
+  # ansible_env.PATH is the fact-gathering PATH, which has no mise activation.
   ansible.builtin.command:
     cmd: >-
+      /home/{{ machine_user }}/.local/bin/mise exec --
       /home/{{ machine_user }}/.local/bin/gondolin build
       --config /home/{{ machine_user }}/.config/gondolin/build-config.json
       --output /home/{{ machine_user }}/{{ gondolin.image.dir }}
       --tag {{ gondolin.image.tag }}
-  environment:
-    PATH: "/home/{{ machine_user }}/.local/bin:{{ ansible_env.PATH }}"
   when: gondolin_build_config.changed or not gondolin_image.stat.exists
   register: gondolin_build
   changed_when: gondolin_build.rc == 0
