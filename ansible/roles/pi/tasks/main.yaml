@@ -1,0 +1,65 @@
+---
+# pi is a minimal agent harness; here it runs on the host while all of its
+# built-in tools execute inside a Gondolin micro-VM. https://pi.dev/
+# Requires the gondolin role for QEMU and the custom guest image.
+- name: Check if pi is already installed
+  ansible.builtin.stat:
+    path: "/home/{{ machine_user }}/.local/bin/pi"
+  register: pi_bin
+
+# --ignore-scripts is what pi.dev's own install instructions use.
+# npm_config_prefix keeps the CLI out of the mise node install so it survives
+# `mise upgrade node`.
+- name: Install pi
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.command:
+    cmd: "/home/{{ machine_user }}/.local/bin/mise exec -- npm install -g --ignore-scripts {{ pi.npm_package }}"
+  environment:
+    npm_config_prefix: "/home/{{ machine_user }}/.local"
+  when: not pi_bin.stat.exists
+  register: pi_install
+  changed_when: pi_install.rc == 0
+
+- name: Make sure pi extension dir exists
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.file:
+    path: "/home/{{ machine_user }}/{{ pi.extension_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Install gondolin tool routing extension
+  ansible.builtin.copy:
+    src: "extension/"
+    dest: "/home/{{ machine_user }}/{{ pi.extension_dir }}/"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "0644"
+  register: pi_extension
+
+- name: Install gondolin extension dependencies
+  become: true
+  become_user: "{{ machine_user }}"
+  ansible.builtin.command:
+    cmd: "/home/{{ machine_user }}/.local/bin/mise exec -- npm install --ignore-scripts"
+    chdir: "/home/{{ machine_user }}/{{ pi.extension_dir }}"
+  when: pi_extension.changed
+  register: pi_extension_deps
+  changed_when: pi_extension_deps.rc == 0
+
+# Managed file - edit vars/main.yaml rather than this, or override per project
+# in <cwd>/.pi/gondolin.json.
+- name: Configure gondolin extension
+  ansible.builtin.copy:
+    content: "{{ pi_extension_config | to_nice_json }}\n"
+    dest: "/home/{{ machine_user }}/.pi/agent/extensions/gondolin.json"
+    owner: "{{ machine_user }}"
+    group: "{{ machine_user }}"
+    mode: "0644"
+  vars:
+    pi_extension_config:
+      allowedHosts: "{{ pi.allowed_hosts }}"
+      allowedInternalHosts: "{{ pi.allowed_internal_hosts }}"
+      imagePath: "/home/{{ machine_user }}/{{ pi.guest_image_dir }}"
+      rootfsSize: "{{ pi.rootfs_size }}"

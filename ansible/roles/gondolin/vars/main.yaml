@@ -1,0 +1,24 @@
+---
+gondolin:
+  # QEMU is the default (and recommended) VM backend. cpio/lz4/e2fsprogs are
+  # only needed by `gondolin build` to assemble the initramfs and rootfs.
+  # https://earendil-works.github.io/gondolin/custom-images/
+  rpm_packages:
+  - qemu-system-x86-core
+  - qemu-img
+  - cpio
+  - lz4
+  - e2fsprogs
+  npm_package: "@earendil-works/gondolin"
+  # The stock alpine-base guest image is deliberately minimal - no git, no
+  # ripgrep, no compiler. Gondolin has no package layering, so extra tooling
+  # means building our own image.
+  # https://earendil-works.github.io/gondolin/limitations/
+  #
+  # Note on files/build-config.json (JSON takes no comments): rootfsPackages
+  # must list e2fsprogs-extra, not just e2fsprogs. Alpine splits the package
+  # and resize2fs lives in -extra, so the pi extension's rootfsSize fails at
+  # boot with "exit 127" without it. Gondolin's docs say plain e2fsprogs.
+  image:
+    tag: "pi-dev:latest"
+    dir: ".local/share/gondolin/images/pi-dev"
