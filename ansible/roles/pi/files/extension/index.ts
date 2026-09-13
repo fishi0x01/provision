@@ -12,8 +12,13 @@
  * Re-sync against upstream when bumping @earendil-works/gondolin.
  *
  * Config (merged, project takes precedence):
- *   - ~/.pi/agent/extensions/gondolin.json  (global)
+ *   - ~/.pi/agent/extensions/gondolin.json  (global, ansible-managed)
+ *   - ~/.config/gondolin/allowed-hosts      (extra hosts, provisioned elsewhere)
  *   - <cwd>/.pi/gondolin.json               (project-local)
+ *
+ * allowedHosts is unioned across all layers rather than overwritten, so the
+ * dotfile and a project config can only widen egress, never silently narrow
+ * it. The dotfile is optional and is not managed by this repo.
  *
  * Usage:
  *   cd /path/to/project
@@ -89,8 +94,29 @@ const DEFAULT_CONFIG: GondolinConfig = {
 	rootfsSize: "4G",
 };
 
+// Extra allowlist entries, provisioned outside this repo. One host pattern per
+// line; `#` comments and blank lines are ignored. A missing file is not an error.
+const ALLOWED_HOSTS_FILE = path.join(
+	process.env.XDG_CONFIG_HOME || path.join(os.homedir(), ".config"),
+	"gondolin",
+	"allowed-hosts",
+);
+
 function expandHome(value: string): string {
 	return value.startsWith("~/") ? path.join(os.homedir(), value.slice(2)) : value;
+}
+
+function readHostsFile(filePath: string): string[] {
+	if (!existsSync(filePath)) return [];
+	try {
+		return readFileSync(filePath, "utf-8")
+			.split("\n")
+			.map((line) => line.replace(/#.*$/, "").trim())
+			.filter((line) => line.length > 0);
+	} catch (error) {
+		console.error(`Warning: could not read ${filePath}: ${error}`);
+		return [];
+	}
 }
 
 function readConfigFile(configPath: string): Partial<GondolinConfig> {
@@ -107,7 +133,18 @@ function loadConfig(cwd: string): GondolinConfig {
 	const global = readConfigFile(path.join(getAgentDir(), "extensions", "gondolin.json"));
 	const project = readConfigFile(path.join(cwd, CONFIG_DIR_NAME, "gondolin.json"));
 	const merged = { ...DEFAULT_CONFIG, ...global, ...project };
-	return { ...merged, imagePath: merged.imagePath ? expandHome(merged.imagePath) : null };
+	const allowedHosts = [
+		...new Set([
+			...(global.allowedHosts ?? DEFAULT_CONFIG.allowedHosts),
+			...readHostsFile(ALLOWED_HOSTS_FILE),
+			...(project.allowedHosts ?? []),
+		]),
+	];
+	return {
+		...merged,
+		allowedHosts,
+		imagePath: merged.imagePath ? expandHome(merged.imagePath) : null,
+	};
 }
 
 type TextToolResult<TDetails> = {
@@ -512,6 +549,7 @@ export default function (pi: ExtensionAPI) {
 					`Shell: ${shellPath}`,
 					`Image: ${config.imagePath ?? "(builtin default)"}`,
 					`Rootfs size: ${config.rootfsSize ?? "(image default)"}`,
+					`Extra hosts file: ${ALLOWED_HOSTS_FILE}${existsSync(ALLOWED_HOSTS_FILE) ? "" : " (absent)"}`,
 					`Allowed hosts: ${config.allowedHosts.join(", ") || "(none - no egress)"}`,
 					`Allowed internal hosts: ${config.allowedInternalHosts.join(", ") || "(none)"}`,
 				].join("\n"),
