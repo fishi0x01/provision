@@ -1,4 +1,4 @@
-FROM fedora:43 AS base
+FROM fedora:44 AS base
 
 SHELL ["/bin/bash", "-c"] 
 
@@ -17,7 +17,7 @@ FROM base AS test
 
 ENV PATH="/home/fishi0x01/.local/bin:${PATH}"
 
-RUN /code/ansible/install/fedora43.sh
+RUN /code/ansible/install/fedora44.sh
 RUN make -C /code install-dotfiles
 RUN make -C /code/ansible test-fedora
 RUN bash -c "mise install"
