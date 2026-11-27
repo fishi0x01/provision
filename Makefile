@@ -19,6 +19,7 @@ backup-home: ## Run restic backup for home machines
       ~/Pictures \
       ~/Downloads \
       ~/Music \
+	  ~/Backups \
       ~/provision \
       ~/.password-store 
 
@@ -36,6 +37,6 @@ setup-secrets: ## Fetch keybase private repos - requires keybase installed and l
 	ln -sfn ${HOME}/Workspaces/keybase/pass ${HOME}/.password-store
 	ln -sfn ${HOME}/Workspaces/keybase/configs/ssh ${HOME}/.ssh/config
 
-test-fedora43: ## Test fedora43 setup in a docker container
-	docker build -t test-fedora43:latest -f test/Dockerfile.fedora43 .
+test-fedora44: ## Test fedora44 setup in a docker container
+	docker build -t test-fedora44:latest -f test/Dockerfile.fedora44 .
 
